@@ -2,11 +2,30 @@
 layout: default
 ---
 
-<div class="home">
+<section ng-controller="PromissesController">
 
-  <h1 class="page-heading">Posts</h1>
+  <!-- <h1 class="page-heading">Posts</h1> -->
 
-  <ul class="post-list">
+
+  <ul>
+    <li ng-repeat="c in categories">[[c]]</li>
+  </ul>
+
+<!--   <ul>
+    <li ng-repeat="p in promisses">[[p.category]] [[p.promess]]</li>
+  </ul> -->
+
+  <ul>
+    <li ng-repeat="(key, value) in promisses_by_categories">
+      [[key]]
+      <ul>
+        <li ng-repeat="promess in value">[[promess.promess]] / [[promess.fulfillment]] / [[promess.ponderator]]</li>
+      </ul>
+    </li>
+  </ul>
+
+
+  <!-- <ul class="post-list">
     {% for post in site.posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
@@ -18,6 +37,6 @@ layout: default
     {% endfor %}
   </ul>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
 
-</div>
+</section>

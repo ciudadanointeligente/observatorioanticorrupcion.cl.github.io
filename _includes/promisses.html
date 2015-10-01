@@ -1,0 +1,16 @@
+<section id="promisses" ng-controller="PromissesController">
+
+  <ul>
+    <li ng-repeat="c in categories">[[c]]</li>
+  </ul>
+
+  <ul>
+    <li ng-repeat="(key, value) in promisses_by_categories">
+      [[key]]
+      <ul>
+        <li ng-repeat="promess in value">[[promess.promess]] / [[promess.fulfillment]] / [[promess.ponderator]]</li>
+      </ul>
+    </li>
+  </ul>
+
+</section>

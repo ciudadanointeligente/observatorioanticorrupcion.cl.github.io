@@ -39,6 +39,7 @@ app.controller('NewsController', ["$scope", "$http", function ($scope, $http){
     .then( function (response){
       console.log(response);
       response.data.forEach( function( d ){
+        d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
         if (d['highlighted'] == 1) {
           $scope.highlighted_news.push( d );
         } else {

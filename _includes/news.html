@@ -1,66 +1,34 @@
-<section id="news">
-
+<section id="news" ng-controller="NewsController">
   <h2>Noticias</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sed, eius iure nihil illo nobis consectetur, dolor maxime consequatur optio inventore omnis vero possimus suscipit accusantium. Veniam quia, laudantium est?</p>
 
   <div class="row">
-    <div class="col-md-4">
-      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quod provident sunt expedita illum impedit laudantium reiciendis, quisquam velit commodi inventore et quis! Dolor ullam velit ducimus reprehenderit ea accusantium!</h3>
+    <div class="col-md-4" ng-repeat="n in highlighted_news">
+      <h3>[[n.title]]</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia assumenda sit, laudantium quibusdam iusto quisquam dignissimos natus, inventore sint excepturi, deleniti eveniet odit, saepe tenetur alias dolorum unde. Aut, harum?
+        [[n.summary]]
       </p>
       <ul class="list-inline">
-        <li><i class="fa fa-tag"></i> tag</li>
-        <li><i class="fa fa-clock-o"></i> 1 week ago</li>
+        <!-- <li><i class="fa fa-tag"></i> tag</li> -->
+        <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
       </ul>
     </div>
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quod provident sunt expedita illum impedit laudantium reiciendis, quisquam velit commodi inventore et quis! Dolor ullam velit ducimus reprehenderit ea accusantium!</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia assumenda sit, laudantium quibusdam iusto quisquam dignissimos natus, inventore sint excepturi, deleniti eveniet odit, saepe tenetur alias dolorum unde. Aut, harum?
-          </p>
-          <ul class="list-inline">
-            <li><i class="fa fa-tag"></i> tag</li>
-            <li><i class="fa fa-clock-o"></i> 1 week ago</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quod provident sunt expedita illum impedit laudantium reiciendis, quisquam velit commodi inventore et quis! Dolor ullam velit ducimus reprehenderit ea accusantium!</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia assumenda sit, laudantium quibusdam iusto quisquam dignissimos natus, inventore sint excepturi, deleniti eveniet odit, saepe tenetur alias dolorum unde. Aut, harum?
-          </p>
-          <ul class="list-inline">
-            <li><i class="fa fa-tag"></i> tag</li>
-            <li><i class="fa fa-clock-o"></i> 1 week ago</li>
-          </ul>
-        </div>
-        <div class="row">
-        <div class="col-md-6">
-          <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quod provident sunt expedita illum impedit laudantium reiciendis, quisquam velit commodi inventore et quis! Dolor ullam velit ducimus reprehenderit ea accusantium!</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia assumenda sit, laudantium quibusdam iusto quisquam dignissimos natus, inventore sint excepturi, deleniti eveniet odit, saepe tenetur alias dolorum unde. Aut, harum?
-          </p>
-          <ul class="list-inline">
-            <li><i class="fa fa-tag"></i> tag</li>
-            <li><i class="fa fa-clock-o"></i> 1 week ago</li>
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam quod provident sunt expedita illum impedit laudantium reiciendis, quisquam velit commodi inventore et quis! Dolor ullam velit ducimus reprehenderit ea accusantium!</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia assumenda sit, laudantium quibusdam iusto quisquam dignissimos natus, inventore sint excepturi, deleniti eveniet odit, saepe tenetur alias dolorum unde. Aut, harum?
-          </p>
-          <ul class="list-inline">
-            <li><i class="fa fa-tag"></i> tag</li>
-            <li><i class="fa fa-clock-o"></i> 1 week ago</li>
-          </ul>
-        </div>
-      </div>
 
+    <div class="col-md-8">
+      <div>
+        <div class="row"> <!-- START row -->
+          <div class="col-md-6" ng-repeat="n in news">
+            <h3>[[n.title]]</h3>
+            <p>
+              [[n.summary]]
+            </p>
+            <ul class="list-inline">
+              <!-- <li><i class="fa fa-tag"></i> tag</li> -->
+              <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
+            </ul>
+          </div>
+        </div> <!-- END row -->
+      </div>
     </div>
   </div>
-
-
 </section>

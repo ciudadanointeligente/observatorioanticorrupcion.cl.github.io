@@ -37,17 +37,47 @@ app.controller('NewsController', ["$scope", "$http", function ($scope, $http){
 
   $http.jsonp(get_news_url)
     .then( function (response){
-      console.log(response);
+      var contain_item = false;
+      var contain_itemh = false;
+      var gp = []
+      var gph = []
+
       response.data.forEach( function( d ){
         d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
         if (d['highlighted'] == 1) {
-          $scope.highlighted_news.push( d );
+          // highlighteds news
+          if ( !contain_itemh ) {
+            gph.push( d );
+            contain_itemh = true;
+          } else {
+            gph.push( d );
+            $scope.highlighted_news.push( gph );
+            gph = [];
+            contain_itemh = false;
+          }
         } else {
-          $scope.news.push( d );
+          // normal news
+          if ( !contain_item ) {
+            gp.push( d );
+            contain_item = true;
+          } else {
+            gp.push( d );
+            $scope.news.push( gp );
+            gp = [];
+            contain_item = false;
+          }
         }
       })
+      // if no more news, then close the news group
+      if ( contain_itemh ) {
+        // gph.push ( new Array() );
+        $scope.highlighted_news.push( gph );
+      }
+      if ( contain_item ) {
+        gp.push ( new Array() );
+        $scope.news.push( gp );
+      }
     }, function(response){
       console.log(response);
     });
-
 }])

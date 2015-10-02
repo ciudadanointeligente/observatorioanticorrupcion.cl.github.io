@@ -2,8 +2,8 @@
   <h2>Noticias</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sed, eius iure nihil illo nobis consectetur, dolor maxime consequatur optio inventore omnis vero possimus suscipit accusantium. Veniam quia, laudantium est?</p>
 
-  <div class="row">
-    <div class="col-md-4" ng-repeat="n in highlighted_news">
+  <div class="row" ng-repeat="npair in highlighted_news">
+    <div class="col-md-4" ng-repeat-start="n in npair" ng-repeat-end>
       <h3>[[n.title]]</h3>
       <p>
         [[n.summary]]
@@ -16,8 +16,8 @@
 
     <div class="col-md-8">
       <div>
-        <div class="row"> <!-- START row -->
-          <div class="col-md-6" ng-repeat="n in news">
+        <div class="row" ng-repeat="npair in news">
+          <div class="col-md-6" ng-repeat-start="n in npair" ng-repeat-end>
             <h3>[[n.title]]</h3>
             <p>
               [[n.summary]]
@@ -27,7 +27,7 @@
               <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
             </ul>
           </div>
-        </div> <!-- END row -->
+        </div>
       </div>
     </div>
   </div>

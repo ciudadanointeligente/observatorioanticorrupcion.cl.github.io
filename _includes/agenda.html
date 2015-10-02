@@ -2,48 +2,108 @@
   <h2>Agenda Octubre</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam harum et, iste id mollitia ipsum, quisquam adipisci dolore tempora labore nostrum, voluptatum iure! Recusandae vel consequuntur officia, provident, suscipit officiis.</p>
 
-  <ul class="list-unstyled">
-    <li>
-      <ul class="list-inline agenda-day">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <ul class="list-unstyled agenda-main">
         <li>
-          03 oct
+          <ul class="list-inline agenda-day">
+            <li>
+              03 oct
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
+            </li>
+          </ul>
         </li>
         <li>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
+          <ul class="list-inline agenda-day">
+            <li>
+              12 oct
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul class="list-inline agenda-day">
+            <li>
+              22 oct
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul class="list-inline agenda-day">
+            <li>
+              29 oct
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
+            </li>
+          </ul>
         </li>
       </ul>
-    </li>
-    <li>
-      <ul class="list-inline agenda-day">
-        <li>
-          12 oct
-        </li>
-        <li>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
-        </li>
-      </ul>
-    </li>
-    <li>
-      <ul class="list-inline agenda-day">
-        <li>
-          22 oct
-        </li>
-        <li>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
-        </li>
-      </ul>
-    </li>
-    <li>
-      <ul class="list-inline agenda-day">
-        <li>
-          29 oct
-        </li>
-        <li>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-  <a href="#" class="btn btn-default">Ver Anteriores</a>
+      <a href="#" class="btn btn-default">Ver Anteriores</a>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div id="default" class="cal1"></div>
+    </div>
+  </div>
 </section>
+
+<script type="text/template" id="template-calendar">
+  <div class='clndr-controls'>
+    <div class='text-center'><%= month %> <%= year %></div>
+  </div>
+  <table class='clndr-table' border='0' cellspacing='0' cellpadding='0'>
+    <thead>
+      <tr class='header-days'>
+        <% for(var i = 0; i < daysOfTheWeek.length; i++) { %>
+          <td class='header-day'><%= daysOfTheWeek[i] %></td>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+    <% for(var i = 0; i < numberOfRows; i++){ %>
+      <tr>
+      <% for(var j = 0; j < 7; j++){ %>
+        <% var d = j + i * 7; %>
+        <td class='<%= days[d].classes %>'>
+          <div class='day-contents'><%= days[d].day %></div>
+        </td>
+      <% } %>
+      </tr>
+    <% } %>
+    </tbody>
+  </table>
+</script>
+
+<script>
+var calendars = {};
+$(document).ready( function() {
+  var thisMonth = moment().format('YYYY-MM');
+
+  var eventArray = [
+    // { startDate: thisMonth + '-21', endDate: thisMonth + '-23', title: 'Another Multi-Day Event' },
+    { date: thisMonth + '-03', title: 'Single Day Event' },
+    { date: thisMonth + '-12', title: 'Single Day Event' },
+    { date: thisMonth + '-22', title: 'Single Day Event' },
+    { date: thisMonth + '-29', title: 'Single Day Event' }
+  ];
+
+  calendars.clndr1 = $('.cal1').clndr({
+    template: $('#template-calendar').html(),
+    events: eventArray,
+    multiDayEvents: {
+      startDate: 'startDate',
+      endDate: 'endDate',
+      singleDay: 'date'
+    },
+    showAdjacentMonths: false,
+    adjacentDaysChangeMonth: false
+  });
+})
+</script>

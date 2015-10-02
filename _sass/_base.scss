@@ -1,11 +1,44 @@
-#welcome {
-  /*background-color: orange;*/
-  background: url('/img/header.png') top center no-repeat;
+p {
+  text-align: initial;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin: initial;
+  padding-top: initial;
+  padding-bottom: initial;
+  border-bottom: initial;
+  background: initial;
 }
 
-.agenda-day {
-  li:nth-child(2) {
-    width: 95%;
+.navbar {
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+.navbar-default {
+  background: linear-gradient(45deg, #FF9F51, #FFAF38);
+  border-color: transparent;
+  .navbar-brand {
+    color: #FFF;
+    padding: 0px;
+  }
+  .navbar-nav > li > a {
+    color: #FFF;
+  }
+}
+
+#welcome {
+  background: linear-gradient(45deg, #FF9F51, #FFAF38);
+  /*background: url('/img/header.png') top center no-repeat;*/
+}
+
+.agenda-main {
+  .agenda-day {
+    background-color: #EEE;
+    margin-bottom: 10px;
+    li:first-child {
+      font-weight: bold;
+    }
+    li:nth-child(2) {
+      width: 89%;
+    }
   }
 }
 

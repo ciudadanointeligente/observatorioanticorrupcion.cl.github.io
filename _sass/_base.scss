@@ -8,15 +8,21 @@ p {
   background: initial;
 }
 
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header{
+  margin-top: 12px;
+}
+
+
 .navbar {
+  background: transparent;
   margin-bottom: 0px;
   border-radius: 0px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 12px;
+  height: 80px;
 }
 .navbar-default {
-  background: linear-gradient(45deg, #FF9F51, #FFAF38);
   border-color: transparent;
   .navbar-brand {
     color: #FFF;
@@ -28,8 +34,11 @@ p {
 }
 
 #welcome {
-  background: linear-gradient(45deg, #FF9F51, #FFAF38);
-  /*background: url('/img/header.png') top center no-repeat;*/
+    background: linear-gradient(45deg, #F57C5D, #F9B542);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: -80px;
+    max-height: 780px;
 }
 
 .agenda-main {
@@ -69,6 +78,15 @@ h1 {
 /**
  * Jumbotron
  */
+.jumbotron{
+    background: linear-gradient(45deg, #F57C5D, #F9B542);
+    background-image: url('/img/header.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    min-height: 410px;
+}
+
 .jumbotron h1 {
   font-family: 'Merriweather Sans', sans-serif;
   color: white;

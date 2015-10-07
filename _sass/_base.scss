@@ -228,29 +228,25 @@ h4 {
  * Buttons
  */
 .btn{
-    border-radius: 25px;
-    border: none;
-    letter-spacing: 1px;
-    font-weight: 700;
-    color: white;
-    text-transform: uppercase;
-    padding: 10px 20px 10px 20px;
+  border-radius: 25px;
+  border: none;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  padding: 10px 20px 10px 20px;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
  }
 
- .btn:hover{
-  background-color: white;
-  color: #F9B542;
-  box-shadow: 0px 6px 30px rgba(249, 181, 66, 1);
-
-  transition:all ease 0.6s;
- }
-
-.btn-primary:hover{
-  background-color: white;
-  color: #FB8D5B;
-  box-shadow: 0px 6px 30px rgba(245, 124, 93, 1);
-  transition:all ease 0.6s;
+.btn:hover {
+  color: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: all ease 0.6s;
 }
+
 
 .btn-default {
   background: #f57c5d;
@@ -263,9 +259,38 @@ h4 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f57c5d', endColorstr='#fb9a5b',GradientType=1 );
 }
 
+.btn-default:hover {
+  background: #fb9a5b;
+  background: -moz-linear-gradient(-45deg,  #fb9a5b 0%, #f9b542 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fb9a5b), color-stop(100%,#f9b542));
+  background: -webkit-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: -o-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: -ms-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: linear-gradient(135deg,  #fb9a5b 0%,#f9b542 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb9a5b', endColorstr='#f9b542',GradientType=1 );
+}
+
+.btn-primary {
+  background-color: white;
+  color: $orange;
+}
+
+.btn-primary:hover{
+  background: $yellow;
+}
+
+.btn-info {
+  background: $orange;
+}
+
+.btn-info:hover{
+  background: $yellow;
+}
+
 .btn-group-lg>.btn, .btn-lg {
-    padding: 20px 30px;
-    font-size: 14px;
+  padding: 20px 30px;
+  font-size: 14px;
+  border-radius: 40px;
 }
 
 /**

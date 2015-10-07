@@ -14,6 +14,14 @@ p {
   color: #424753;
 }
 
+a {
+  color: $red;
+}
+
+a:hover {
+  color: $orange;
+}
+
 /**
  * Navbar
  */
@@ -46,15 +54,7 @@ p {
   margin-top: 12px;
   margin-bottom: 5px;
 }
-h4 {
-  width: initial;
-  text-align: initial;
-  font-family: inherit;
-  color: initial;
-  font-size: 18px;
-  padding: initial;
-  background: initial;
-}
+
 /*overwrite clndr css*/
 
 .navbar {
@@ -160,6 +160,7 @@ h4 {
 /**
  * Headings
  */
+
 h1 {
   font-family: 'Merriweather Sans', sans-serif;
   color: white;
@@ -168,7 +169,24 @@ h1 {
 h2 {
   font-family: 'Merriweather Sans', sans-serif;
   color: #424753;
-  font-size: 20px;
+  font-size: 28px;
+}
+
+h4 {
+  width: initial;
+  text-align: initial;
+  font-family: inherit;
+  color: initial;
+  font-size: 18px;
+  padding: initial;
+  background: initial;
+}
+
+.bajada {
+  font-size: 16px;
+  color: $grey;
+  max-width: 800px;
+  margin: 0 auto 60px;
 }
 
 /**
@@ -210,20 +228,13 @@ h2 {
  * Buttons
  */
 .btn{
-  height: 50px;
-  background-color: #F9B542;
-  border-radius: 25px;
-  border: none;
-  font-family: 'Merriweather Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  padding: 0 20px 0 20px;
-  line-height: 4.8;
-  &.primary{
-    background-color: #FB8D5B;
-  }
+    border-radius: 25px;
+    border: none;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 20px 10px 20px;
  }
 
  .btn:hover{
@@ -234,12 +245,27 @@ h2 {
   transition:all ease 0.6s;
  }
 
- .primary:hover{
+.btn-primary:hover{
   background-color: white;
   color: #FB8D5B;
   box-shadow: 0px 6px 30px rgba(245, 124, 93, 1);
-
   transition:all ease 0.6s;
+}
+
+.btn-default {
+  background: #f57c5d;
+  background: -moz-linear-gradient(-45deg,  #f57c5d 0%, #fb9a5b 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#f57c5d), color-stop(100%,#fb9a5b));
+  background: -webkit-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: -o-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: -ms-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: linear-gradient(135deg,  #f57c5d 0%,#fb9a5b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f57c5d', endColorstr='#fb9a5b',GradientType=1 );
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    padding: 20px 30px;
+    font-size: 14px;
 }
 
 /**
@@ -258,4 +284,21 @@ h2 {
       color: #FFF;
     }
   }
+}
+
+/*FOOTER*/
+
+footer {
+  background: $grey-dark;
+  color: $grey-light;
+  margin-top: 60px;
+  padding: 50px 0 20px;
+}
+
+footer a {
+  /*color: $red;*/
+}
+
+footer img {
+  max-width: 220px;
 }

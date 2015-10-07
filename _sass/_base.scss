@@ -8,10 +8,13 @@ p {
   background: initial;
 }
 
+/**
+ * Navbar
+ */
+
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header{
   margin-top: 12px;
 }
-
 
 .navbar {
   background: transparent;
@@ -31,14 +34,6 @@ p {
   .navbar-nav > li > a {
     color: #FFF;
   }
-}
-
-#welcome {
-    background: linear-gradient(45deg, #F57C5D, #F9B542);
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-top: -80px;
-    max-height: 780px;
 }
 
 .agenda-main {
@@ -75,68 +70,77 @@ h1 {
   color: white;
 }
 
+
 /**
- * Jumbotron
+ * Welcome
  */
-.jumbotron{
-    background: linear-gradient(45deg, #F57C5D, #F9B542);
+
+#welcome {
     background-image: url('/img/header.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background: linear-gradient(45deg, #F57C5D, #F9B542);
+    margin-top: -80px;
+    max-height: 780px;
+}
+
+.jumbotron{
+    background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
     min-height: 410px;
+    padding-top: 100px;
 }
 
 .jumbotron h1 {
   font-family: 'Merriweather Sans', sans-serif;
   color: white;
-  font-size: 60px;
+  font-size: 50px;
 }
 
 .jumbotron p {
   font-family: 'Merriweather Sans', sans-serif;
   font-size: 300;
   color: white;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1.3;
 }
 
 /**
- * Jumbotron
+ * Buttons
  */
 .btn{
   height: 50px;
-  background-color: #F9F9F9;
+  background-color: #F9B542;
   border-radius: 25px;
   border: none;
   font-family: 'Merriweather Sans', sans-serif;
   font-size: 11px;
   font-weight: 700;
-  color: #FB8D5B;
+  color: white;
   text-transform: uppercase;
   padding: 0 20px 0 20px;
   line-height: 4.8;
-  box-shadow: 0px 4px 14px #E6E6E6;
   &.primary{
     background-color: #FB8D5B;
-    color: white;
   }
  }
 
  .btn:hover{
   background-color: white;
-  color: #FB8D5B;
-  box-shadow: 0px 6px 25px #D7D6D6;
+  color: #F9B542;
+  box-shadow: 0px 6px 30px rgba(249, 181, 66, 90);
 
-  transition:all ease 0.7s;
+  transition:all ease 0.6s;
  }
 
  .primary:hover{
-  background-color: #FEA880;
-  color: white;
-  box-shadow: 0px 6px 25px #D7D6D6;
+  background-color: white;
+  color: #FB8D5B;
+  box-shadow: 0px 6px 30px rgba(245, 124, 93, 90);
 
-  transition:all ease 0.7s;
+  transition:all ease 0.6s;
 }
 
 

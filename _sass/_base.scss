@@ -163,13 +163,16 @@ h2 {
 }
 
 h4 {
+  color: #424753;
   width: initial;
   text-align: initial;
   font-family: inherit;
   color: initial;
   font-size: 18px;
+  font-weight: 700;
   padding: initial;
   background: initial;
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
 .bajada {
@@ -177,13 +180,6 @@ h4 {
   color: $grey;
   max-width: 800px;
   margin: 0 auto 60px;
-}
-
-h4 {
-  font-family: 'Merriweather Sans', sans-serif;
-  color: #424753;
-  font-size: 16px;
-  font-weight: 700;
 }
 
 /**
@@ -296,12 +292,17 @@ h4 {
   text-align: center;
   .highlighted {
     background-image: 0.1;
-    color: #FFF;
+    color: #424753;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 400px;
-
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 90px;
+      a {
+      color: #424753;
+      }
     div.highlighted:after{
     content:"none";
     background-color: white;
@@ -313,6 +314,15 @@ h4 {
 }
 
 .noticias{
+  h4{
+  color: white;
+  margin-top: 30px;
+  }
+  li{
+  color: white;
+  margin-top: 10px;
+  text-align: left;
+  }
   div:nth-child(1) {
     div:nth-child(1) {
       background-color: #555163;

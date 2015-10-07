@@ -5,9 +5,7 @@
   <div class="row" ng-repeat="npair in highlighted_news">
     <div class="col-md-4" ng-repeat-start="n in npair" ng-repeat-end>
       <h3>[[n.title]]</h3>
-      <p>
-        [[n.summary]]
-      </p>
+      <p ng-bind-html="n.summary"></p>
       <ul class="list-inline">
         <!-- <li><i class="fa fa-tag"></i> tag</li> -->
         <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
@@ -19,9 +17,7 @@
         <div class="row" ng-repeat="npair in news">
           <div class="col-md-6" ng-repeat-start="n in npair" ng-repeat-end>
             <h3>[[n.title]]</h3>
-            <p>
-              [[n.summary]]
-            </p>
+            <p ng-bind-html="n.summary"></p>
             <ul class="list-inline">
               <!-- <li><i class="fa fa-tag"></i> tag</li> -->
               <li><i class="fa fa-clock-o"></i> [[n.date]]</li>

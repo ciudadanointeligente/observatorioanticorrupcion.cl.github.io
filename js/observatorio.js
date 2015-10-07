@@ -1,4 +1,4 @@
-var app = angular.module('observatorioApp', [], function($interpolateProvider) {
+var app = angular.module('observatorioApp', ['ngSanitize'], function($interpolateProvider) {
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
 });
@@ -29,7 +29,7 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
   }
 }])
 
-app.controller('NewsController', ["$scope", "$http", function ($scope, $http){
+app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $http, $sce){
   // GET
   get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
   $scope.news = [];
@@ -44,6 +44,7 @@ app.controller('NewsController', ["$scope", "$http", function ($scope, $http){
 
       response.data.forEach( function( d ){
         d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
+        d['summary'] = $sce.trustAsHtml(d['summary']);
         if (d['highlighted'] == 1) {
           // highlighteds news
           if ( !contain_itemh ) {

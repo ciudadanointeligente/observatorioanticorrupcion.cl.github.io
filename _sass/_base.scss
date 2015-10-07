@@ -46,6 +46,16 @@ p {
   margin-top: 12px;
   margin-bottom: 5px;
 }
+h4 {
+  width: initial;
+  text-align: initial;
+  font-family: inherit;
+  color: initial;
+  font-size: 18px;
+  padding: initial;
+  background: initial;
+}
+/*overwrite clndr css*/
 
 .navbar {
   background: transparent;
@@ -122,6 +132,31 @@ p {
   width: 185px;
 }
 
+.ct-chart-fulfillment{
+  .ct-series-a {
+    .ct-slice-donut {
+      stroke: #FF765D;
+    }
+  }
+  .ct-label {
+    fill: #FF765D;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 4rem;
+    line-height: 1;
+  }
+}
+
+/*cumplimientos*/
+.fulfillment {
+  h3, h4 {
+    margin-top: initial;
+  }
+  .percentage {
+    float: right;
+    width: 95px;
+  }
+}
+
 /**
  * Headings
  */
@@ -194,7 +229,7 @@ h2 {
  .btn:hover{
   background-color: white;
   color: #F9B542;
-  box-shadow: 0px 6px 30px rgba(249, 181, 66, 90);
+  box-shadow: 0px 6px 30px rgba(249, 181, 66, 1);
 
   transition:all ease 0.6s;
  }
@@ -202,7 +237,7 @@ h2 {
  .primary:hover{
   background-color: white;
   color: #FB8D5B;
-  box-shadow: 0px 6px 30px rgba(245, 124, 93, 90);
+  box-shadow: 0px 6px 30px rgba(245, 124, 93, 1);
 
   transition:all ease 0.6s;
 }

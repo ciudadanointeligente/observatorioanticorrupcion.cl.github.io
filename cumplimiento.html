@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+{% include header-fulfillment.html %}
+
+<div class="container">
+  <section id="fulfillments">
+    <article>
+      <h2 class="text-center">1. Mega tema 1</h2>
+      <p class="text-center">33% de avance</p>
+
+      <div class="panel panel-default">
+        <div class="panel-heading fulfillment">
+          <div class="row">
+            <div class="col-md-7">
+              <h3>1.1 Agricultura</h3>
+              <p>3 promesas( 1 Completa, 0 Incompletas, 2 Sin progreso )</p>
+            </div>
+            <div class="col-md-5">
+              <div class="percentage">
+                <h3 class="text-right">60%</h3>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                  <span class="sr-only">60% Complete</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-8">
+              <h4>Beatae eum esse, hic tenetur magnam sed ipsum repellat doloremque natus ab, aliquam dolor expedita quasi possimus consequuntur magni.</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi voluptates fuga molestias ea ratione cumque magni ipsa recusandae facere, consectetur velit rem dignissimos laudantium rerum id reprehenderit aut nobis vel.</p>
+            </div>
+            <div class="col-md-2">
+              <p class="text-center">80%</p>
+              <p class="text-center">cumplimiento<br><a href="#" data-toggle="modal" data-target="#myfulfillment_1">¿Por qué?</a></p>
+            </div>
+            <div class="col-md-2">
+              <p class="text-center">5,1</p>
+              <p class="text-center">nota de calidad<br><a href="#" data-toggle="modal" data-target="#mynote_1">¿Por qué?</a></p>
+            </div>
+          </div>
+          <!-- modales -->
+          <div class="modal fade" id="myfulfillment_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel_1">cumplimiento</h4>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="mynote_1" tabindex="-1" role="dialog" aria-labelledby="myNoteLabel_1">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myNoteLabel_1">nota de calidad</h4>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modales -->
+        </div>
+      </div>
+    </article>
+  </section>
+</div>

@@ -3,8 +3,9 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sed, eius iure nihil illo nobis consectetur, dolor maxime consequatur optio inventore omnis vero possimus suscipit accusantium. Veniam quia, laudantium est?</p>
 
   <div class="row" ng-repeat="npair in highlighted_news">
-    <div class="col-md-6 uno" ng-repeat-start="n in npair" ng-repeat-end>
-      <h3>[[n.title]]</h3>
+
+    <div class="col-md-6 highlighted" ng-repeat-start="n in npair" ng-repeat-end style="background-image: url([[n.img]]);">
+      <h3><a href="[[n.source]]">[[n.title]]</a></h3>
       <p>
         [[n.summary]]
       </p>

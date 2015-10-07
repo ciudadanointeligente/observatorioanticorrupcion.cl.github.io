@@ -5,24 +5,52 @@ var app = angular.module('observatorioApp', [], function($interpolateProvider) {
 
 app.controller('PromissesController', ["$scope", "$http", function ($scope, $http){
   // GET
-  get_cat_url = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20category%20from%20data&callback=JSON_CALLBACK";
-  $scope.categories = [];
-  $scope.promisses_by_categories = {};
+  get_macroarea = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20macro_area%20from%20data%20order%20by%20macro_area&callback=JSON_CALLBACK";
 
-  $http.jsonp(get_cat_url)
-    .then( function (response){
+  $http.jsonp(get_macroarea)
+    .then(function (response){
+      // console.log(response)
+      $scope.macro_area = []
       response.data.forEach( function( d ){
-        $scope.categories.push( d.category );
-        get_promisse_by_category( d.category );
+        $scope.macro_area.push(d.macro_area)
+        get_category_by_macro_category( d.macro_area );
       })
+
     }, function(response){
       console.log(response);
     });
 
-  function get_promisse_by_category(cat) {
+  function get_category_by_macro_category(macro) {
+    get_cat_url = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20category%20from%20data%20where%20macro_area%20like%20'"+macro+"'&callback=JSON_CALLBACK";
+    $scope.categories = [];
+    $scope.promisses_by_categories = {};
+
+    $http.jsonp(get_cat_url)
+      .then( function (response){
+        response.data.forEach( function( d ){
+          $scope.categories.push( d.category );
+          get_promisse_by_category( macro, d.category );
+        })
+      }, function(response){
+        console.log(response);
+      });
+  }
+
+  function get_promisse_by_category(macro, cat) {
+    $scope.promisses = {};
+    $scope.promisses_by_categories = {};
+    $scope.promisses_by_macro = {};
     $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'"+encodeURIComponent(cat)+"'&callback=JSON_CALLBACK")
       .then( function (response){
-        $scope.promisses_by_categories[cat] = response.data;
+        $scope.promisses_by_categories.name = cat;
+        $scope.promisses_by_categories.items = response.data;
+        $scope.promisses_by_macro.name = macro
+        $scope.promisses_by_macro.items = []
+        $scope.promisses_by_macro.items.push($scope.promisses_by_categories);
+        $scope.promisses.name = "Promisses"
+        $scope.promisses.items = []
+        $scope.promisses.items.push($scope.promisses_by_macro);
+
       }, function(response){
         console.log(response);
       });

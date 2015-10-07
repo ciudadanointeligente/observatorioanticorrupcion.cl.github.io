@@ -4,7 +4,11 @@ layout: default
 
 {% include header-fulfillment.html %}
 
-<div class="container">
+<div class="container" ng-controller="PromissesController">
+  <ul class="list-inline">
+    <li ng-repeat="ma in macro_area"><span class="label label-default">[[ma]]</span></li>
+  </ul>
+  [[promisses]]
   <section id="fulfillments">
     <article>
       <h2 class="text-center">1. Mega tema 1</h2>

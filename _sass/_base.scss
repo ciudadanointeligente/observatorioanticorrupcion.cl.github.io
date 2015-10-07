@@ -248,4 +248,14 @@ h2 {
 
 #news{
   text-align: center;
+
+  .highlighted {
+    color: #FFF;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    h3 a, p {
+      color: #FFF;
+    }
+  }
 }

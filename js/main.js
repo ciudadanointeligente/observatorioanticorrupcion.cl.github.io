@@ -1,11 +1,5 @@
 (function ($) {
     "use strict";
-
-    ///////////////////////////////////////////////////// Your
-    var venueAddress = "Libertador Bernardo O'Higgins 227, Providencia, Santiago, Chile"; // Venue
-    var placeName = "Centro Gabriela Mistral";
-    /////////////////////////////////////////////////// Adress
-
     var fn = {
 
         // Launch Functions

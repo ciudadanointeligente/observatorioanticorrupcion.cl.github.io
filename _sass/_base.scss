@@ -2,6 +2,7 @@ body {
   font-family: 'Merriweather Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: $grey;
 }
 
 p {
@@ -11,7 +12,6 @@ p {
   padding-bottom: initial;
   border-bottom: initial;
   background: initial;
-  color: #424753;
 }
 
 a {
@@ -20,6 +20,10 @@ a {
 
 a:hover {
   color: $orange;
+}
+
+section {
+    margin: 90px 0;
 }
 
 /**
@@ -91,20 +95,6 @@ a:hover {
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
   border-bottom: 10px solid black;
-}
-
-
-.agenda-main {
-  .agenda-day {
-    background-color: #EEE;
-    margin-bottom: 10px;
-    li:first-child {
-      font-weight: bold;
-    }
-    li:nth-child(2) {
-      width: 89%;
-    }
-  }
 }
 
 .ct-series-a {
@@ -339,6 +329,35 @@ h4 {
     }
   }
  } 
+
+/*AGENDA*/
+
+.agenda-main {
+  .agenda-day {
+    background-color: $grey-lighter;
+    margin-bottom: 10px;
+    padding: 20px;
+    li:first-child {
+      font-weight: bold;
+    }
+    li:nth-child(2) {
+      width: 89%;
+    }
+  }
+}
+
+.dia {
+  font-size: 26px;
+  text-align: center;
+  color: $grey-dark
+}
+
+.mes {
+  color: $grey-dark
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 11px;
+}
 
 /*FOOTER*/
 

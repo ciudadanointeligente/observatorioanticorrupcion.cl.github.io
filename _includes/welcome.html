@@ -1,41 +1,44 @@
 <section id="welcome">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <h1>Lore m ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-        <p>Rerum est quasi, iure fugit animi tempora delectus voluptate, provident recusandae voluptas fuga molestias perspiciatis facilis voluptatibus nam soluta repellat laudantium. Facilis.</p>
-      </div>
-      <div class="col-md-4">
-        <div class="ct-chart"></div>
-        <script>
-        $(document).ready(function(){
-          new Chartist.Pie('.ct-chart', {
-            series: [
-              {
-                value: 25
-              }
-            ]
-          }, {
-            donut: true,
-            donutWidth: 10,
-            startAngle: 0,
-            total: 100,
-            showLabel: true,
-            labelOffset: -55
+  <div class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Lore m ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+          <p>Rerum est quasi, iure fugit animi tempora delectus voluptate, provident recusandae voluptas fuga molestias perspiciatis facilis voluptatibus nam soluta repellat laudantium. Facilis.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="ct-chart"></div>
+          <script>
+          $(document).ready(function(){
+            new Chartist.Pie('.ct-chart', {
+              series: [
+                {
+                  value: 25
+                }
+              ]
+            }, {
+              donut: true,
+              donutWidth: 10,
+              startAngle: 0,
+              total: 100,
+              showLabel: true,
+              labelOffset: -55
+            });
           });
-        });
-        </script>
+          </script>
+        </div>
       </div>
-    </div>
-    <div class="text-right">
-      <ul class="list-inline">
-        <li>
-          <a href="" class="btn btn-default">Mira que está pasando</a>
-        </li>
-        <li>
-          <a href="" class="btn btn-default">Revisa el cumplimiento</a>
-        </li>
-      </ul>
+        <div class="text-right">
+          <ul class="list-inline">
+            <li>
+              <a href="" class="btn">Mira que está pasando</a>
+            </li>
+            <li>
+              <a href="" class="btn primary">Revisa el cumplimiento</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>

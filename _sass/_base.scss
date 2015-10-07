@@ -33,7 +33,7 @@ p {
   -moz-animation: bounceInDown 0.5s;
   -webkit-animation: bounceInDown 0.5s;
   animation: bounceInDown 0.5s;
-  background: #000;
+  background: $grey-lighter;
 }
 
 .header-menu.fixed {

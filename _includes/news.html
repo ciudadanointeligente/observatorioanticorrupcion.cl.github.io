@@ -6,9 +6,7 @@
 
     <div class="col-md-6 highlighted" ng-repeat-start="n in npair" ng-repeat-end style="background-image: url([[n.img]]);">
       <h3><a href="[[n.source]]">[[n.title]]</a></h3>
-      <p>
-        [[n.summary]]
-      </p>
+      <p ng-bind-html="n.summary"></p>
       <ul class="list-inline">
         <!-- <li><i class="fa fa-tag"></i> tag</li> -->
         <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
@@ -23,6 +21,8 @@
             <!-- <li><i class="fa fa-tag"></i> tag</li> -->
             <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
           </ul>
+
+    
         </div>
       </div>
     </div>

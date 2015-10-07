@@ -165,3 +165,26 @@ h2 {
 #news{
   text-align: center;
 }
+
+.noticias{
+  div:nth-child(1) {
+    div:nth-child(1) {
+      background-color: #555163;
+    }
+    div:nth-child(2) {
+      background-color: #676379;
+    }
+  }
+
+  div:nth-child(2) {
+    div:nth-child(1) {
+      background-color: #FB8D5B;
+    }
+    div:nth-child(2) {
+      background-color: #312F38;
+    }
+  }
+ } 
+
+
+

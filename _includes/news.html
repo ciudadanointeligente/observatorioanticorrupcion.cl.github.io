@@ -3,7 +3,7 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sed, eius iure nihil illo nobis consectetur, dolor maxime consequatur optio inventore omnis vero possimus suscipit accusantium. Veniam quia, laudantium est?</p>
 
   <div class="row" ng-repeat="npair in highlighted_news">
-    <div class="col-md-4" ng-repeat-start="n in npair" ng-repeat-end>
+    <div class="col-md-6 uno" ng-repeat-start="n in npair" ng-repeat-end>
       <h3>[[n.title]]</h3>
       <p>
         [[n.summary]]
@@ -14,19 +14,17 @@
       </ul>
     </div>
 
-    <div class="col-md-8">
-      <div>
-        <div class="row" ng-repeat="npair in news">
-          <div class="col-md-6" ng-repeat-start="n in npair" ng-repeat-end>
-            <h3>[[n.title]]</h3>
-            <p>
-              [[n.summary]]
-            </p>
-            <ul class="list-inline">
-              <!-- <li><i class="fa fa-tag"></i> tag</li> -->
-              <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
-            </ul>
-          </div>
+    <div class="col-md-6 noticias">
+      <div class="row" ng-repeat="npair in news">
+        <div class="col-md-6 noticias" ng-repeat-start="n in npair" ng-repeat-end>
+          <h3>[[n.title]]</h3>
+          <p>
+            [[n.summary]]
+          </p>
+          <ul class="list-inline">
+            <!-- <li><i class="fa fa-tag"></i> tag</li> -->
+            <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
+          </ul>
         </div>
       </div>
     </div>

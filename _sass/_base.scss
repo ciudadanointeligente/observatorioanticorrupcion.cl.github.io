@@ -36,6 +36,15 @@ p {
   }
 }
 
+.navbar-default .navbar-nav > li > a:hover{
+  color: #555163;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+  border-bottom: 10px solid black;
+}
+
+
 .agenda-main {
   .agenda-day {
     background-color: #EEE;

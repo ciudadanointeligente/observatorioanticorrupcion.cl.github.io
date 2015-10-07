@@ -27,7 +27,6 @@ html[xmlns] .clearfix {
 h4 {
   width: 75%;
   text-align: center;
-  font-family: 'Droid Sans Mono';
   font-weight: normal;
   color: white;
   font-size: 14px;
@@ -37,7 +36,6 @@ h4 {
 }
 p {
   text-align: center;
-  font-family: 'Droid Sans Mono';
   margin: 3em auto 1em auto;
   padding-top: 0.5em;
   padding-bottom: 0.5em;

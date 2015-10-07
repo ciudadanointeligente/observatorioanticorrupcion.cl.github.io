@@ -1,6 +1,11 @@
+body {
+  font-family: 'Merriweather Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 p {
   text-align: initial;
-  font-family: 'Lato', sans-serif;  
   margin: initial;
   padding-top: initial;
   padding-bottom: initial;
@@ -13,19 +18,40 @@ p {
  * Navbar
  */
 
+
+.header-menu {
+  position: absolute;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 15px;
+    z-index: 55;
+}
+
+.header-menu.sticky {
+  position: fixed;
+  margin: 0;
+  -moz-animation: bounceInDown 0.5s;
+  -webkit-animation: bounceInDown 0.5s;
+  animation: bounceInDown 0.5s;
+  background: #000;
+}
+
+.header-menu.fixed {
+  -moz-animation: bounceIn 0.5s;
+  -webkit-animation: bounceIn 0.5s;
+  animation: bounceIn 0.5s;
+}
+
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header{
   margin-top: 12px;
 }
 
 .navbar {
   background: transparent;
-  margin-bottom: 0px;
-  border-radius: 0px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  font-size: 12px;
-  height: 80px;
 }
+
 .navbar-default {
   border-color: transparent;
   .navbar-brand {
@@ -91,15 +117,14 @@ h2 {
  */
 
 #welcome {
-    background-image: url('/img/header.png');
     background-position: center;
     background-repeat: no-repeat;
-    background: linear-gradient(45deg, #F57C5D, #F9B542);
-    margin-top: -80px;
     max-height: 780px;
+    background-image: url('/img/header.png');
 }
 
 .jumbotron{
+    background: linear-gradient(45deg, rgba(245, 124, 93, 0.8), rgba(249, 181, 66, 0.8));
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;

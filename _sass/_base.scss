@@ -1,3 +1,4 @@
+/*overwrite clndr css*/
 p {
   text-align: initial;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -7,6 +8,16 @@ p {
   border-bottom: initial;
   background: initial;
 }
+h4 {
+  width: initial;
+  text-align: initial;
+  font-family: inherit;
+  color: initial;
+  font-size: 18px;
+  padding: initial;
+  background: initial;
+}
+/*overwrite clndr css*/
 
 .navbar {
   margin-bottom: 0px;
@@ -54,3 +65,29 @@ p {
   font-size: 4rem;
   line-height: 1;
 }
+
+.ct-chart-fulfillment{
+  .ct-series-a {
+    .ct-slice-donut {
+      stroke: #FF765D;
+    }
+  }
+  .ct-label {
+    fill: #FF765D;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 4rem;
+    line-height: 1;
+  }
+}
+
+/*cumplimientos*/
+.fulfillment {
+  h3, h4 {
+    margin-top: initial;
+  }
+  .percentage {
+    float: right;
+    width: 95px;
+  }
+}
+/*cumplimientos*/

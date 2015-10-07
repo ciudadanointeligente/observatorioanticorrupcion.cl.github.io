@@ -171,6 +171,12 @@ h2 {
   font-size: 20px;
 }
 
+h4 {
+  font-family: 'Merriweather Sans', sans-serif;
+  color: #424753;
+  font-size: 20px;
+}
+
 /**
  * Welcome
  */
@@ -250,13 +256,12 @@ h2 {
   text-align: center;
 
   .highlighted {
+    background-image: 0.1;
     color: #FFF;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    h3 a, p {
-      color: #FFF;
-    }
+    height: 400px;
   }
 }
 
@@ -264,18 +269,22 @@ h2 {
   div:nth-child(1) {
     div:nth-child(1) {
       background-color: #555163;
+      height: 200px;
     }
     div:nth-child(2) {
       background-color: #676379;
+      height: 200px;
     }
   }
 
   div:nth-child(2) {
     div:nth-child(1) {
-      background-color: #FB8D5B;
+      background-color: $orange;
+      height: 200px;
     }
     div:nth-child(2) {
-      background-color: #312F38;
+      background-color: $grey-dark;
+      height: 200px;
     }
   }
  } 

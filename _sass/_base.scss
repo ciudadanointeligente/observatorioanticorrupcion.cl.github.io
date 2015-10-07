@@ -346,7 +346,8 @@ footer {
   background: $grey-dark;
   color: $grey-light;
   margin-top: 60px;
-  padding: 50px 0 20px;
+  padding: 75px 0 50px;
+  position: relative;
 }
 
 footer a {
@@ -355,4 +356,18 @@ footer a {
 
 footer img {
   max-width: 220px;
+}
+
+footer:after {
+  content: url(../img/lampara-footer.png);
+  position: absolute;
+  left: 7px;
+  top: -208px;
+}
+
+footer:before {
+  content: url(../img/tazasydiario-footer.png);
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }

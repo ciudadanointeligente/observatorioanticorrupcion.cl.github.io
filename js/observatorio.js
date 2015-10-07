@@ -82,3 +82,22 @@ app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $
       console.log(response);
     });
 }])
+
+app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($scope, $http, $sce){
+  // GET
+  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
+  $scope.news = [];
+
+  $http.jsonp(get_news_url)
+    .then( function (response){
+      response.data.forEach( function( d ){
+        d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
+        d['summary'] = $sce.trustAsHtml(d['summary']);
+        d['source'] = "<a href='" + d['source'] + "'>" + d['source'] + "</a>";
+        d['tags'] = JSON.parse(d['tags']);
+        $scope.news.push( d );
+      })
+    }, function(response){
+      console.log(response);
+    });
+}])

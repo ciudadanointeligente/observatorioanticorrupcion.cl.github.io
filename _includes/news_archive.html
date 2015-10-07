@@ -1,8 +1,21 @@
-<section id="news" ng-controller="NewsController">
+<section id="news" ng-controller="NewsArchiveController">
   <h2>Repositorio de noticias</h2>
+
   <div>
-    <h2>Titulo</h2>
-    <p>bajada</p>
-    <p>2 de Septiembre de 2015</p>
+    <!-- aquí irá un filtro para los elementos -->
+  </div>
+
+  <div ng-repeat="n in news">
+    <h2>
+      [[n.title]]
+    </h2>
+    <p ng-bind-html="n.summary"></p>
+    <p ng-bind-html="n.source"></p>
+    <p ng-repeat="tag in n.tags">
+      [[tag]]
+    </p>
+    <p>
+      [[n.date]]
+    </p>
   </div>
 </section>

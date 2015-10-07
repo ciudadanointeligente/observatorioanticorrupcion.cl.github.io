@@ -2,6 +2,7 @@ body {
   font-family: 'Merriweather Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: $grey;
 }
 
 p {
@@ -11,7 +12,18 @@ p {
   padding-bottom: initial;
   border-bottom: initial;
   background: initial;
-  color: #424753;
+}
+
+a {
+  color: $red;
+}
+
+a:hover {
+  color: $orange;
+}
+
+section {
+    margin: 90px 0;
 }
 
 /**
@@ -46,15 +58,7 @@ p {
   margin-top: 12px;
   margin-bottom: 5px;
 }
-h4 {
-  width: initial;
-  text-align: initial;
-  font-family: inherit;
-  color: initial;
-  font-size: 18px;
-  padding: initial;
-  background: initial;
-}
+
 /*overwrite clndr css*/
 
 .navbar {
@@ -91,20 +95,6 @@ h4 {
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
   border-bottom: 10px solid black;
-}
-
-
-.agenda-main {
-  .agenda-day {
-    background-color: #EEE;
-    margin-bottom: 10px;
-    li:first-child {
-      font-weight: bold;
-    }
-    li:nth-child(2) {
-      width: 89%;
-    }
-  }
 }
 
 .ct-series-a {
@@ -160,6 +150,7 @@ h4 {
 /**
  * Headings
  */
+
 h1 {
   font-family: 'Merriweather Sans', sans-serif;
   color: white;
@@ -168,7 +159,24 @@ h1 {
 h2 {
   font-family: 'Merriweather Sans', sans-serif;
   color: #424753;
-  font-size: 20px;
+  font-size: 28px;
+}
+
+h4 {
+  width: initial;
+  text-align: initial;
+  font-family: inherit;
+  color: initial;
+  font-size: 18px;
+  padding: initial;
+  background: initial;
+}
+
+.bajada {
+  font-size: 16px;
+  color: $grey;
+  max-width: 800px;
+  margin: 0 auto 60px;
 }
 
 h4 {
@@ -216,36 +224,69 @@ h4 {
  * Buttons
  */
 .btn{
-  height: 50px;
-  background-color: #F9B542;
   border-radius: 25px;
   border: none;
-  font-family: 'Merriweather Sans', sans-serif;
-  font-size: 11px;
+  letter-spacing: 1px;
   font-weight: 700;
   color: white;
   text-transform: uppercase;
-  padding: 0 20px 0 20px;
-  line-height: 4.8;
-  &.primary{
-    background-color: #FB8D5B;
-  }
+  padding: 10px 20px 10px 20px;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
  }
 
- .btn:hover{
+.btn:hover {
+  color: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: all ease 0.6s;
+}
+
+
+.btn-default {
+  background: #f57c5d;
+  background: -moz-linear-gradient(-45deg,  #f57c5d 0%, #fb9a5b 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#f57c5d), color-stop(100%,#fb9a5b));
+  background: -webkit-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: -o-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: -ms-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: linear-gradient(135deg,  #f57c5d 0%,#fb9a5b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f57c5d', endColorstr='#fb9a5b',GradientType=1 );
+}
+
+.btn-default:hover {
+  background: #fb9a5b;
+  background: -moz-linear-gradient(-45deg,  #fb9a5b 0%, #f9b542 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fb9a5b), color-stop(100%,#f9b542));
+  background: -webkit-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: -o-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: -ms-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: linear-gradient(135deg,  #fb9a5b 0%,#f9b542 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb9a5b', endColorstr='#f9b542',GradientType=1 );
+}
+
+.btn-primary {
   background-color: white;
-  color: #F9B542;
-  box-shadow: 0px 6px 30px rgba(249, 181, 66, 1);
+  color: $orange;
+}
 
-  transition:all ease 0.6s;
- }
+.btn-primary:hover{
+  background: $yellow;
+}
 
- .primary:hover{
-  background-color: white;
-  color: #FB8D5B;
-  box-shadow: 0px 6px 30px rgba(245, 124, 93, 1);
+.btn-info {
+  background: $orange;
+}
 
-  transition:all ease 0.6s;
+.btn-info:hover{
+  background: $yellow;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+  padding: 20px 30px;
+  font-size: 14px;
+  border-radius: 40px;
 }
 
 /**
@@ -289,5 +330,63 @@ h4 {
   }
  } 
 
+/*AGENDA*/
 
+.agenda-main {
+  .agenda-day {
+    background-color: $grey-lighter;
+    margin-bottom: 10px;
+    padding: 20px;
+    li:first-child {
+      font-weight: bold;
+    }
+    li:nth-child(2) {
+      width: 89%;
+    }
+  }
+}
 
+.dia {
+  font-size: 26px;
+  text-align: center;
+  color: $grey-dark
+}
+
+.mes {
+  color: $grey-dark
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+/*FOOTER*/
+
+footer {
+  background: $grey-dark;
+  color: $grey-light;
+  margin-top: 60px;
+  padding: 75px 0 50px;
+  position: relative;
+}
+
+footer a {
+  /*color: $red;*/
+}
+
+footer img {
+  max-width: 220px;
+}
+
+footer:after {
+  content: url(../img/lampara-footer.png);
+  position: absolute;
+  left: 7px;
+  top: -208px;
+}
+
+footer:before {
+  content: url(../img/tazasydiario-footer.png);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

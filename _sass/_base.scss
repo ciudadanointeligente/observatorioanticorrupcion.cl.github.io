@@ -404,3 +404,14 @@ footer:before {
   right: 0;
   bottom: 0;
 }
+
+
+
+
+
+@media screen and (orientation:portrait){
+  #news .highlighted{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

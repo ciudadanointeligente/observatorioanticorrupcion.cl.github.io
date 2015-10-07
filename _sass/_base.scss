@@ -1,7 +1,11 @@
-/*overwrite clndr css*/
+body {
+  font-family: 'Merriweather Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 p {
   text-align: initial;
-  font-family: 'Lato', sans-serif;
   margin: initial;
   padding-top: initial;
   padding-bottom: initial;
@@ -14,8 +18,33 @@ p {
  * Navbar
  */
 
+
+.header-menu {
+  position: absolute;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 15px;
+    z-index: 55;
+}
+
+.header-menu.sticky {
+  position: fixed;
+  margin: 0;
+  -moz-animation: bounceInDown 0.5s;
+  -webkit-animation: bounceInDown 0.5s;
+  animation: bounceInDown 0.5s;
+  background: $grey-lighter;
+}
+
+.header-menu.fixed {
+  -moz-animation: bounceIn 0.5s;
+  -webkit-animation: bounceIn 0.5s;
+  animation: bounceIn 0.5s;
+}
+
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header{
   margin-top: 12px;
+  margin-bottom: 5px;
 }
 h4 {
   width: initial;
@@ -30,13 +59,10 @@ h4 {
 
 .navbar {
   background: transparent;
-  margin-bottom: 0px;
-  border-radius: 0px;
-  font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  font-size: 12px;
-  height: 80px;
+  border-radius: 0px;
 }
+
 .navbar-default {
   border-color: transparent;
   .navbar-brand {
@@ -45,11 +71,22 @@ h4 {
   }
   .navbar-nav > li > a {
     color: #FFF;
+    padding: 6px 0px;
+    margin: 0 15px;
   }
 }
 
+.navbar-right {
+  margin-top: 10px;
+}
+
+.sticky .navbar-nav > li > a {
+  color: $grey-light;
+}
+
 .navbar-default .navbar-nav > li > a:hover{
-  color: #555163;
+  color: $grey;
+  border-bottom: 2px solid $yellow; 
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
@@ -83,6 +120,18 @@ h4 {
   line-height: 1;
 }
 
+.sticky .brand {
+  background: url(../img/logo-color.png) no-repeat;
+  width: 185px;
+  height: 53px;
+}
+
+.fixed .brand {
+  background: url(../img/logo.png) no-repeat;
+  height: 53px;
+  width: 185px;
+}
+
 .ct-chart-fulfillment{
   .ct-series-a {
     .ct-slice-donut {
@@ -107,7 +156,6 @@ h4 {
     width: 95px;
   }
 }
-/*cumplimientos*/
 
 /**
  * Headings
@@ -128,15 +176,14 @@ h2 {
  */
 
 #welcome {
-    background-image: url('/img/header.png');
     background-position: center;
     background-repeat: no-repeat;
-    background: linear-gradient(45deg, #F57C5D, #F9B542);
-    margin-top: -80px;
     max-height: 780px;
+    background-image: url('/img/header.png');
 }
 
 .jumbotron{
+    background: linear-gradient(45deg, rgba(245, 124, 93, 0.8), rgba(249, 181, 66, 0.8));
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;

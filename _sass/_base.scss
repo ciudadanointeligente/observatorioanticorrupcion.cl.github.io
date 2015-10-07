@@ -6,6 +6,7 @@ p {
   padding-bottom: initial;
   border-bottom: initial;
   background: initial;
+  color: #424753;
 }
 
 /**
@@ -79,6 +80,11 @@ h1 {
   color: white;
 }
 
+h2 {
+  font-family: 'Merriweather Sans', sans-serif;
+  color: #424753;
+  font-size: 20px;
+}
 
 /**
  * Welcome
@@ -152,4 +158,10 @@ h1 {
   transition:all ease 0.6s;
 }
 
+/**
+ * News
+ */
 
+#news{
+  text-align: center;
+}

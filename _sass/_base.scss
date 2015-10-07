@@ -174,7 +174,8 @@ h2 {
 h4 {
   font-family: 'Merriweather Sans', sans-serif;
   color: #424753;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 /**
@@ -254,7 +255,6 @@ h4 {
 
 #news{
   text-align: center;
-
   .highlighted {
     background-image: 0.1;
     color: #FFF;
@@ -262,7 +262,15 @@ h4 {
     background-repeat: no-repeat;
     background-size: cover;
     height: 400px;
+
+    div.highlighted:after{
+    content:"none";
+    background-color: white;
+    opacity: 0.5;
+    z-index: -1;
+    }
   }
+
 }
 
 .noticias{

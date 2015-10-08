@@ -161,8 +161,6 @@ section {
  */
 
 h1 {
-  font-family: 'Merriweather Sans', sans-serif;
-  color: white;
 }
 
 h2 {
@@ -172,13 +170,16 @@ h2 {
 }
 
 h4 {
+  color: $grey;
   width: initial;
   text-align: initial;
   font-family: inherit;
   color: initial;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 700;
   padding: initial;
   background: initial;
+  font-family: 'Merriweather Sans', sans-serif;
 }
 
 .bajada {
@@ -186,12 +187,14 @@ h4 {
   color: $grey;
   max-width: 800px;
   margin: 0 auto 60px;
+  text-align: center;
 }
 
-h4 {
-  font-family: 'Merriweather Sans', sans-serif;
-  color: #424753;
-  font-size: 20px;
+.small, small {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $grey-light;
 }
 
 /**
@@ -303,21 +306,51 @@ h4 {
 /**
  * News
  */
-
+.imagen{
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+} 
 #news{
-  text-align: center;
-
   .highlighted {
-    background-image: 0.1;
-    color: #FFF;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 400px;
+      padding-right: 0;
+      padding-left: 0;
+      a {
+      color: #424753;
+      }
+      li{
+      opacity: 0.7;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      }
   }
+}
+.destacada {
+height: 400px;
+padding-left: 60px;
+padding-right: 40px;
+padding-top: 90px;
+position: absolute;
+top: 0;
+left: 0;
+background-color: rgba(255, 255, 255, 0.7);
 }
 
 .noticias{
+  h4{
+  color: white;
+  padding-top: 30px;
+  }
+  li{
+  color: white;
+  opacity: 0.7;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  }
   div:nth-child(1) {
     div:nth-child(1) {
       background-color: #555163;
@@ -340,6 +373,26 @@ h4 {
     }
   }
  } 
+
+ /*NEWS REPO*/
+
+ #news h1 {
+  margin: 130px 0 70px;
+ }
+
+.news-element {
+  margin-bottom: 60px;
+  border-left: 4px solid $yellow;
+  padding-left: 20px;
+}
+
+.news-element h4 {
+    margin-bottom: 0px;
+}
+
+.news-element p {
+    margin-top: 15px;
+}
 
 /*AGENDA*/
 
@@ -400,4 +453,15 @@ footer:before {
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+
+
+
+
+@media screen and (orientation:portrait){
+  .destacada {
+  padding-left: 15px;
+  padding-right: 15px;
+  }
 }

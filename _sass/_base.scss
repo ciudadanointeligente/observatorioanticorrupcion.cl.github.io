@@ -26,6 +26,14 @@ section {
     margin: 90px 0;
 }
 
+.light {
+  color: $grey-light;
+}
+
+.strong {
+  font-weight: 900;
+}
+
 /**
  * Navbar
  */
@@ -169,6 +177,10 @@ h2 {
   font-size: 28px;
 }
 
+h3 {
+    font-weight: 900;
+}
+
 h4 {
   color: $grey;
   width: initial;
@@ -179,22 +191,29 @@ h4 {
   font-weight: 700;
   padding: initial;
   background: initial;
-  font-family: 'Merriweather Sans', sans-serif;
 }
 
+h5 {
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
 .bajada {
   font-size: 16px;
   color: $grey;
   max-width: 800px;
   margin: 0 auto 60px;
-  text-align: center;
 }
 
-.small, small {
+.small {
     font-size: 11px;
     text-transform: uppercase;
     font-weight: 600;
     color: $grey-light;
+}
+
+small {
+    font-size: 11px;
 }
 
 /**
@@ -305,6 +324,14 @@ h4 {
 
 /*LABELS*/
 
+.label {
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5em 1em .4em;
+  border-radius: 10px;
+}
+
 .label-default {
   background-color: $grey-light;
 }
@@ -390,15 +417,8 @@ background-color: rgba(255, 255, 255, 0.7);
  /*NEWS REPO*/
 
 #news h1 {
-  margin: 130px 0 10px;
+  margin: 200px 0 10px;
  }
-
-#news .label {
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0.4em .6em .3em;
-}
 
 #news .list-inline.text-center {
     margin-bottom: 90px;
@@ -449,7 +469,79 @@ background-color: rgba(255, 255, 255, 0.7);
 
 /*CUMPLIMIENTO*/
 
+#fulfillment h1 {
+    margin-top: 200px;
+}
 
+#fulfillments h3 {
+  margin: 70px 0 0;
+}
+
+.category-percentage {
+  font-size: 24px;
+  font-weight: 900;
+  margin-left: 5px;
+}
+
+.percentage {
+  font-size: 24px;
+}
+
+#fulfillment .list-inline>li {
+  margin-bottom: 5px;
+}
+
+.fulfillment .col-md-5 {
+    margin: 10px 0 0;
+}
+
+.progress {
+  height: 15px;
+  margin: 7px 0 0;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.progress-bar {
+  background-color: $yellow;
+  border-radius: 10px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.panel-default>.panel-heading {
+    color: $grey;
+    background-color: $grey-lighter;
+    border-color: $grey-lighter;
+}
+
+.panel-default {
+    border-color: $grey-lighter;
+}
+
+.promess {
+    border-bottom: 1px solid $grey-lighter;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.promess:last-child {
+    border-bottom: none;
+}
+
+.promess .col-md-2 {
+    border-left: 1px solid $grey-lighter;
+}
+
+/*MODAL*/
+
+.modal-header {
+    background-color: $grey-lighter;
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+}
 
 /*FOOTER*/
 

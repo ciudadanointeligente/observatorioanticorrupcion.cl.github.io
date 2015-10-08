@@ -4,29 +4,29 @@
       <div class="row">
         <div class="col-md-8">
           <h1>Lore m ipsum dolor sit amet, consectetur adipisicing elit.</h1>
-          <p>Rerum est quasi, iure fugit animi tempora delectus voluptate, provident recusandae voluptas fuga molestias perspiciatis facilis voluptatibus nam soluta repellat laudantium. Facilis.</div>
-        </p>
+          <p>Rerum est quasi, iure fugit animi tempora delectus voluptate, provident recusandae voluptas fuga molestias perspiciatis facilis voluptatibus nam soluta repellat laudantium. Facilis.</p>
+        </div>
         <div class="col-md-4">
-          <div class="ct-chart"></div>
+          <div class="ct-chart pull-right">
+          </div>
           <script>
           $(document).ready(function(){
             new Chartist.Pie('.ct-chart', {
-              series: [
-                {
-                  value: 25
-                }
-              ]
+              labels: ['25%'],
+              series: [25, 75]
             }, {
               donut: true,
-              donutWidth: 10,
+              donutWidth: 15,
               startAngle: 0,
               total: 100,
               showLabel: true,
-              labelOffset: -55
+              labelOffset: -85,
+              width: 200,
+              height: 200
             });
           });
           </script>
-        </div>
+      </div>
       </div>
         <div class="text-right">
           <ul class="list-inline">

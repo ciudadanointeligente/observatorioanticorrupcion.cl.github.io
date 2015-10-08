@@ -303,6 +303,16 @@ h4 {
   border-radius: 40px;
 }
 
+/*LABELS*/
+
+.label-default {
+  background-color: $grey-light;
+}
+
+.label-primary {
+  background-color: $yellow;
+}
+
 /**
  * News
  */
@@ -376,9 +386,20 @@ background-color: rgba(255, 255, 255, 0.7);
 
  /*NEWS REPO*/
 
- #news h1 {
-  margin: 130px 0 70px;
+#news h1 {
+  margin: 130px 0 10px;
  }
+
+#news .label {
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.4em .6em .3em;
+}
+
+#news .list-inline.text-center {
+    margin-bottom: 90px;
+}
 
 .news-element {
   margin-bottom: 60px;
@@ -422,6 +443,10 @@ background-color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   font-size: 11px;
 }
+
+/*CUMPLIMIENTO*/
+
+
 
 /*FOOTER*/
 

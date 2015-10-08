@@ -535,6 +535,14 @@ background-color: rgba(255, 255, 255, 0.7);
     border-left: 1px solid $grey-lighter;
 }
 
+/*MODAL*/
+
+.modal-header {
+    background-color: $grey-lighter;
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+}
+
 /*FOOTER*/
 
 footer {

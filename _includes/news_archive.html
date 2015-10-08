@@ -1,21 +1,21 @@
 <section id="news" ng-controller="NewsArchiveController">
-  <h2>Repositorio de noticias</h2>
+  <h1>Repositorio de noticias</h1>
 
   <div>
     <!-- aquí irá un filtro para los elementos -->
   </div>
 
-  <div ng-repeat="n in news">
-    <h2>
+  <div ng-repeat="n in news" class="news-element">
+    <h4>
       [[n.title]]
-    </h2>
+    </h4>
+    <span ng-repeat="tag in n.tags" class="small">
+      <i class="fa fa-tags"></i> [[tag]]
+    </span>
+    <span class="small">
+      <i class="fa fa-clock-o"></i> [[n.date]]
+    </span>
     <p ng-bind-html="n.summary"></p>
-    <p ng-bind-html="n.source"></p>
-    <p ng-repeat="tag in n.tags">
-      [[tag]]
-    </p>
-    <p>
-      [[n.date]]
-    </p>
+    Ver noticia completa: <span ng-bind-html="n.source"></span>
   </div>
 </section>

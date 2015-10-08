@@ -161,8 +161,6 @@ section {
  */
 
 h1 {
-  font-family: 'Merriweather Sans', sans-serif;
-  color: white;
 }
 
 h2 {
@@ -172,12 +170,12 @@ h2 {
 }
 
 h4 {
-  color: #424753;
+  color: $grey;
   width: initial;
   text-align: initial;
   font-family: inherit;
   color: initial;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   padding: initial;
   background: initial;
@@ -189,6 +187,14 @@ h4 {
   color: $grey;
   max-width: 800px;
   margin: 0 auto 60px;
+  text-align: center;
+}
+
+.small, small {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $grey-light;
 }
 
 /**
@@ -367,6 +373,26 @@ background-color: rgba(255, 255, 255, 0.7);
     }
   }
  } 
+
+ /*NEWS REPO*/
+
+ #news h1 {
+  margin: 130px 0 70px;
+ }
+
+.news-element {
+  margin-bottom: 60px;
+  border-left: 4px solid $yellow;
+  padding-left: 20px;
+}
+
+.news-element h4 {
+    margin-bottom: 0px;
+}
+
+.news-element p {
+    margin-top: 15px;
+}
 
 /*AGENDA*/
 

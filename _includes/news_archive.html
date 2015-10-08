@@ -2,10 +2,14 @@
   <h1>Repositorio de noticias</h1>
 
   <div>
-    <!-- aquí irá un filtro para los elementos -->
+    <h3>Tags</h3>
+    <div ng-repeat="tc in tags_cat track by $index">
+      <button type="button" ng-click="filters.tags = tc">[[tc]]</button>
+    </div>
+    <button type="button" ng-click="filters.tags = ''">limpiar filtro!</button>
   </div>
 
-  <div ng-repeat="n in news" class="news-element">
+  <div ng-repeat="n in news | filter:filters.tags" class="news-element">
     <h4>
       [[n.title]]
     </h4>

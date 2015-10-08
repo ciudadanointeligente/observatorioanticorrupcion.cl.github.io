@@ -114,6 +114,11 @@ app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($s
   get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
   $scope.news = [];
 
+  get_tags_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20tags%20from%20data&callback=JSON_CALLBACK";
+  $scope.tags_cat = [];
+
+  $scope.filters = { };
+
   $http.jsonp(get_news_url)
     .then( function (response){
       response.data.forEach( function( d ){
@@ -122,6 +127,19 @@ app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($s
         d['source'] = "<a href='" + d['source'] + "'>" + d['source'] + "</a>";
         d['tags'] = JSON.parse(d['tags']);
         $scope.news.push( d );
+      })
+    }, function(response){
+      console.log(response);
+    });
+
+  $http.jsonp(get_tags_url)
+    .then( function (response){
+      response.data.forEach( function( d ){
+        JSON.parse(d['tags']).forEach( function( dt ){
+          if ( $scope.tags_cat.indexOf(dt) < 1 ) {
+            $scope.tags_cat.push( dt );
+          }
+        })
       })
     }, function(response){
       console.log(response);

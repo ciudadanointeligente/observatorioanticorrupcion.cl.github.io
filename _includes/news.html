@@ -1,22 +1,24 @@
 <section id="news" ng-controller="NewsController">
   <h2 class="text-center">Noticias</h2>
-  <div class="bajada text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sed, eius iure nihil illo nobis consectetur, dolor maxime consequatur optio inventore omnis vero possimus suscipit accusantium. Veniam quia, laudantium est?</div>
+  <div class="bajada">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sed, eius iure nihil illo nobis consectetur, dolor maxime consequatur optio inventore omnis vero possimus suscipit accusantium. Veniam quia, laudantium est?</div>
 
   <div class="row" ng-repeat="npair in highlighted_news">
-
-    <div class="col-md-6 highlighted" ng-repeat-start="n in npair" ng-repeat-end style="background-image: url([[n.img]]);">
-      <h3><a href="[[n.source]]">[[n.title]]</a></h3>
-      <p ng-bind-html="n.summary"></p>
-      <ul class="list-inline">
-        <!-- <li><i class="fa fa-tag"></i> tag</li> -->
-        <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
-      </ul>
-    </div>
+      <div class="col-md-6 highlighted" ng-repeat-start="n in npair" ng-repeat-end>
+        <div class="imagen" style="background-image: url([[n.img]]);"></div>
+          <div class="destacada">         
+            <h4><a href="[[n.source]]">[[n.title]]</a></h4>
+            <p ng-bind-html="n.summary"></p>
+            <ul class="list-inline">
+              <!-- <li><i class="fa fa-tag"></i> tag</li> -->
+              <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
+            </ul>
+          </div>
+      </div>
 
     <div class="col-md-6 noticias">
       <div class="row" ng-repeat="npair in news">
         <div class="col-md-6 noticias" ng-repeat-start="n in npair" ng-repeat-end>
-          <h3>[[n.title]]</h3>
+          <h4>[[n.title]]</h4>
           <ul class="list-inline">
             <!-- <li><i class="fa fa-tag"></i> tag</li> -->
             <li><i class="fa fa-clock-o"></i> [[n.date]]</li>

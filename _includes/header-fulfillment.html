@@ -10,21 +10,20 @@
       <div class="ct-chart-fulfillment"></div>
       <script>
       $(document).ready(function(){
-        new Chartist.Pie('.ct-chart-fulfillment', {
-          series: [
-            {
-              value: 25
-            }
-          ]
-        }, {
-          donut: true,
-          donutWidth: 10,
-          startAngle: 0,
-          total: 100,
-          showLabel: true,
-          labelOffset: -55
-        });
-      });
+            new Chartist.Pie('.ct-chart-fulfillment', {
+              labels: ['25%'],
+              series: [25, 75]
+            }, {
+              donut: true,
+              donutWidth: 15,
+              startAngle: 0,
+              total: 100,
+              showLabel: true,
+              labelOffset: -85,
+              width: 200,
+              height: 200
+            });
+          });
       </script>
     </div>
   </div>

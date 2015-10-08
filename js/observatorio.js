@@ -45,9 +45,25 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
   }
 
   function get_promisse_by_category(category) {
+    category.full = 0; category.advance = 0; category.progress = 0; category.total = 0; category.accomplished = 0; new_fulfillment = 0;
     $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'"+encodeURIComponent(category.name)+"'&callback=JSON_CALLBACK")
       .then( function (response){
         category.items = response.data;
+        var cnt = 1;
+        response.data.forEach( function (d){
+          if ( d.fulfillment == '100%') {
+            category.full = category.full+1;
+          } else if ( d.fulfillment == '0%') {
+            category.advance = category.advance+1;
+          } else {
+            category.progress = category.progress+1;
+          }
+
+          new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment) / cnt;
+          category.accomplished = new_fulfillment;
+
+          cnt++;
+        })
       }, function(response){
         console.log(response);
       });

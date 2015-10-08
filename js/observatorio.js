@@ -71,6 +71,7 @@ app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $
       response.data.forEach( function( d ){
         d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
         d['summary'] = $sce.trustAsHtml(d['summary']);
+        d['tags'] = JSON.parse(d['tags']);
         if (d['highlighted'] == 1) {
           // highlighteds news
           if ( !contain_itemh ) {

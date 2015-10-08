@@ -9,7 +9,7 @@
             <h4><a href="[[n.source]]">[[n.title]]</a></h4>
             <p ng-bind-html="n.summary"></p>
             <ul class="list-inline">
-              <!-- <li><i class="fa fa-tag"></i> tag</li> -->
+              <li ng-repeat="tag in n.tags"><i class="fa fa-tags"></i>[[tag]]</li>
               <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
             </ul>
           </div>
@@ -20,7 +20,7 @@
         <div class="col-md-6 noticias" ng-repeat-start="n in npair" ng-repeat-end>
           <h4>[[n.title]]</h4>
           <ul class="list-inline">
-            <!-- <li><i class="fa fa-tag"></i> tag</li> -->
+            <li ng-repeat="tag in n.tags"><i class="fa fa-tags"></i>[[tag]]</li>
             <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
           </ul>
 

@@ -4,8 +4,7 @@
 
   <div class="row" ng-repeat="npair in highlighted_news">
 
-    <div class="col-md-6 imagen" style="background-image: url([[n.img]]);">
-      <div class="col-md-12 highlighted" ng-repeat-start="n in npair" ng-repeat-end>
+      <div class="col-md-6 highlighted" ng-repeat-start="n in npair" ng-repeat-end style="background-image: url([[n.img]]);">
         <h4><a href="[[n.source]]">[[n.title]]</a></h4>
         <p ng-bind-html="n.summary"></p>
         <ul class="list-inline">
@@ -13,7 +12,6 @@
           <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
         </ul>
       </div>
-    </div>
 
     <div class="col-md-6 noticias">
       <div class="row" ng-repeat="npair in news">

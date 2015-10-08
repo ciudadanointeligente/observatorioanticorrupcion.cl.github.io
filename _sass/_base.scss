@@ -300,12 +300,6 @@ h4 {
 /**
  * News
  */
-  .imagen.col-md-6{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
 
 #news{
   .highlighted {
@@ -314,7 +308,9 @@ h4 {
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 90px;
-    z-index: 100;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
       a {
       color: #424753;
       }

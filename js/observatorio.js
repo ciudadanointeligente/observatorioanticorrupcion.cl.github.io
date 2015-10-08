@@ -34,7 +34,8 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
         response.data.forEach( function( d ){
           var category = {};
               category.name = d.category;
-              category.items = [];
+              get_promisse_by_category(category);
+              // category.items = get_promisse_by_category(category.name);
           categories.push( category );
         })
       }, function(response){
@@ -43,18 +44,15 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
       return categories;
   }
 
-  // function get_promisse_by_category(macro, cat) {
-  //   $scope.promisses_by_categories = {};
-  //   $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'"+encodeURIComponent(cat)+"'&callback=JSON_CALLBACK")
-  //     .then( function (response){
-  //       $scope.promisses_by_categories.name = cat;
-  //       $scope.promisses_by_categories.items = response.data;
-  //     }, function(response){
-  //       console.log(response);
-  //     });
-
-  //   return $scope.promisses_by_categories
-  // }
+  function get_promisse_by_category(category) {
+    $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'"+encodeURIComponent(category.name)+"'&callback=JSON_CALLBACK")
+      .then( function (response){
+        category.items = response.data;
+      }, function(response){
+        console.log(response);
+      });
+      return category
+  }
 }])
 
 app.controller('NewsController', ["$scope", "$http", function ($scope, $http){

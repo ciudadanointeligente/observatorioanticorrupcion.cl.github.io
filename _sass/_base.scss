@@ -287,19 +287,21 @@ h4 {
 /**
  * News
  */
-
-#news{
-  .highlighted {
-    color: #424753;
+  .imagen.col-md-6{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+
+#news{
+  .highlighted {
     height: 400px;
+    color: #424753;
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 90px;
-    -webkit-filter: opacity(.4);
-    filter: opacity(.4);
+    z-index: 100;
       a {
       color: #424753;
       }

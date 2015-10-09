@@ -5,7 +5,6 @@
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <ul class="list-unstyled agenda-main">
-
         <li ng-repeat="item in agenda">
           <ul class="list-inline agenda-day">
             <li>
@@ -18,8 +17,8 @@
             </li>
           </ul>
         </li>
-
       </ul>
+
       <a href="{{ site.baseurl }}agenda.html" class="btn btn-default pull-right">Ver Anteriores</a>
     </div>
     <div class="col-xs-12 col-md-4">
@@ -61,9 +60,9 @@
   setTimeout(function (){
     window.agenda.forEach( function( a ) {
       if ( a.date != '' ) {
-        eventArray.push( { date: a['calendar_day'], title: a['title'] } );
+        eventArray.push( { date: a['cal_day'], title: a['title'] } );
       } else {
-        eventArray.push( { startDate: a['calendar_day_start'], endDate: a['calendar_day_end'], title: a['title'] } );
+        eventArray.push( { startDate: a['cal_startDate'], endDate: a['cal_endDate'], title: a['title'] } );
       }
     });
     // console.log(eventArray); // DEBUG
@@ -71,7 +70,6 @@
 
   $(document).ready( function() {
     var thisMonth = moment().format('YYYY-MM');
-
     setTimeout(function (){
       calendars.clndr1 = $('.cal1').clndr({
         template: $('#template-calendar').html(),

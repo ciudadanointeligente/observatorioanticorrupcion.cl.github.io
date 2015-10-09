@@ -166,30 +166,35 @@ app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($s
 app.controller('AgendaController', ["$scope", "$http", "$window", function ($scope, $http, $window){
   // GET
   get_agenda = "//api.morph.io/ciudadanointeligente/observatorio-agenda-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
-  $scope.months_with_activity = [];
+  $scope.months_with_events = [];
+  $scope.filters = { };
   $scope.agenda = [];
   $window.agenda = [];
 
   $http.jsonp(get_agenda)
     .then(function (response){
       response.data.forEach( function( d ){
-        if ( d['date'] != '' ) {
-          d['calendar_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
+        if ( d['date'] != '' ) { // single date
+          if ( $scope.months_with_events.indexOf( moment(d['date'], "DMMYYYY").format('MMMM') ) < 0 ) {
+            $scope.months_with_events.push( moment(d['date'], "DMMYYYY").format('MMMM') );
+          }
+          d['cal_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
           d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
           d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
-        } else {
-          d['calendar_day_start'] = moment(d['startDate'], "DMMYYYY").format('YYYY-MM-DD');
-          d['calendar_day_end'] = moment(d['endDate'], "DMMYYYY").format('YYYY-MM-DD');
+        } else {  // date range scenario
+          if ( $scope.months_with_events.indexOf( moment(d['startDate'], "DMMYYYY").format('MMMM') ) < 0 ) {
+            $scope.months_with_events.push( moment(d['startDate'], "DMMYYYY").format('MMMM') );
+          } else if ( $scope.months_with_events.indexOf( moment(d['endDate'], "DMMYYYY").format('MMMM') ) < 0 ) {
+            $scope.months_with_events.push( moment(d['endDate'], "DMMYYYY").format('MMMM') );
+          }
+          d['cal_startDate'] = moment(d['startDate'], "DMMYYYY").format('YYYY-MM-DD');
+          d['cal_endDate'] = moment(d['endDate'], "DMMYYYY").format('YYYY-MM-DD');
           d['date_day'] = moment(d['startDate'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['startDate'], "DMMYYYY").format('MMM');
-          d['date_month_long'] = moment(d['startDate'], "DMMYYYY").format('MMMM');
           d['startDate'] = moment(d['startDate'], "DMMYYYY").format('LL').toLowerCase();
           d['endDate'] = moment(d['endDate'], "DMMYYYY").format('LL').toLowerCase();
-        }
-        if ( $scope.months_with_activity.indexOf( d['date_month_long'] ) < 0 ) {
-          $scope.months_with_activity.push( d['date_month_long'] );
         }
         $scope.agenda.push( d );
       })

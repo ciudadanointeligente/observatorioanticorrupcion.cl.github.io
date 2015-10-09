@@ -227,6 +227,7 @@ small {
 
 #welcome {
     background-position: center;
+    background-position-y: 30px;
     background-repeat: no-repeat;
     max-height: 780px;
     background-image: url(../img/header.png);
@@ -614,7 +615,10 @@ footer:before {
   .jumbotron h1 {
       font-size: 32px;
   }
-
+  
+  #welcome {
+    background-position: center;
+    background-position-y: 70px;
 }
 
 

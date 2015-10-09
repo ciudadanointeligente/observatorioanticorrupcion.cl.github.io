@@ -35,7 +35,6 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
           var category = {};
               category.name = d.category;
               get_promisse_by_category(category);
-              // category.items = get_promisse_by_category(category.name);
           categories.push( category );
         })
       }, function(response){
@@ -45,11 +44,12 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
   }
 
   function get_promisse_by_category(category) {
-    category.full = 0; category.advance = 0; category.progress = 0; category.total = 0; category.accomplished = 0; new_fulfillment = 0;
+    category.full = 0; category.advance = 0; category.progress = 0; category.total = 0; category.accomplished = 0;
     $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'"+encodeURIComponent(category.name)+"'&callback=JSON_CALLBACK")
       .then( function (response){
         category.items = response.data;
         var cnt = 1;
+        var new_fulfillment = 0;
         response.data.forEach( function (d){
           if ( d.fulfillment == '100%') {
             category.full = category.full+1;
@@ -59,7 +59,8 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
             category.progress = category.progress+1;
           }
 
-          new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment) / cnt;
+          new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment);
+
           category.accomplished = new_fulfillment;
 
           cnt++;
@@ -67,7 +68,6 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
       }, function(response){
         console.log(response);
       });
-      return category
   }
 }])
 

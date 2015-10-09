@@ -261,7 +261,6 @@ small {
 li.redes {
     position: relative;
     top: -58px;
-    left: -19px;
 }
 
 /**
@@ -641,4 +640,13 @@ footer:before {
     content: none;
   }
 
+  #welcome .text-right{
+    text-align: center;
+  }
+
+  .col-md-2{
+    text-align: center;
+    position: relative;
+    top: 60px;
+  }
 }

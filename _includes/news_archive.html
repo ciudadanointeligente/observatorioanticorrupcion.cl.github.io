@@ -1,5 +1,5 @@
 <section id="news" ng-controller="NewsArchiveController">
-  <h1 class="text-center">Repositorio de noticias</h1>
+  <h1 class="text-center"><span class="ico-intro"><i class="fa fa-newspaper-o fa-2x"></i></span><br />Repositorio de noticias</h1>
   <ul class="list-inline text-center">
     <li ng-repeat="tc in tags_cat track by $index">
         <span class="label label-default" ng-click="filters.tags = tc">[[tc]]</span>

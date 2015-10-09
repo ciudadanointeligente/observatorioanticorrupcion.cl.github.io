@@ -1,6 +1,6 @@
 <section id="agenda" ng-controller="AgendaController">
   <h2 class="text-center">Agenda [[current_month]]</h2>
-  <div class="bajada">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam harum et, iste id mollitia ipsum, quisquam adipisci dolore tempora labore nostrum, voluptatum iure! Recusandae vel consequuntur officia, provident, suscipit officiis.</div>
+  <div class="bajada text-center">En la Agenda encontrarás las fechas y eventos más importantes, como sesiones de la Cámara de Diputados o del Senado, donde se esté avanzando en las medidas de la Comisión Engel.</div>
 
   <div class="row">
     <div class="col-xs-12 col-md-8">
@@ -13,7 +13,8 @@
               <div class="mes">[[ item.date_month ]]</div>
             </li>
             <li>
-              <strong>[[item.title]]</strong> [[item.summary]]
+              <strong>[[item.title]]</strong> 
+              [[item.summary | limitTo: 180]][[item.summary.length > 180 ? '...' : '']]
             </li>
           </ul>
         </li>

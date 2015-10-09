@@ -615,12 +615,16 @@ footer:before {
   .jumbotron h1 {
       font-size: 32px;
   }
+
+}
   
+
+@media screen and (max-width: 600px) {
   #welcome {
     background-position: center;
-    background-position-y: 70px;
+    background-position-y: 180px;
+  }
 }
-
 
 @media screen and (max-width: 1000px) {
 

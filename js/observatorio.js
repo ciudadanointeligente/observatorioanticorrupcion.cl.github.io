@@ -45,9 +45,25 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
   }
 
   function get_promisse_by_category(category) {
+    category.full = 0; category.advance = 0; category.progress = 0; category.total = 0; category.accomplished = 0; new_fulfillment = 0;
     $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'"+encodeURIComponent(category.name)+"'&callback=JSON_CALLBACK")
       .then( function (response){
         category.items = response.data;
+        var cnt = 1;
+        response.data.forEach( function (d){
+          if ( d.fulfillment == '100%') {
+            category.full = category.full+1;
+          } else if ( d.fulfillment == '0%') {
+            category.advance = category.advance+1;
+          } else {
+            category.progress = category.progress+1;
+          }
+
+          new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment) / cnt;
+          category.accomplished = new_fulfillment;
+
+          cnt++;
+        })
       }, function(response){
         console.log(response);
       });
@@ -145,4 +161,34 @@ app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($s
     }, function(response){
       console.log(response);
     });
+}])
+
+app.controller('AgendaController', ["$scope", "$http", function ($scope, $http){
+  // GET
+  get_agenda = "//api.morph.io/ciudadanointeligente/observatorio-agenda-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
+  $scope.agenda = [];
+
+  $http.jsonp(get_agenda)
+    .then(function (response){
+      response.data.forEach( function( d ){
+        if ( d['date'] != '' ) {
+          d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
+          d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
+          d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
+        } else {
+          d['date_day'] = moment(d['startDate'], "DMMYYYY").format('DD');
+          d['date_month'] = moment(d['startDate'], "DMMYYYY").format('MMM');
+          d['startDate'] = moment(d['startDate'], "DMMYYYY").format('LL').toLowerCase();
+          d['endDate'] = moment(d['endDate'], "DMMYYYY").format('LL').toLowerCase();
+        }
+        $scope.agenda.push( d );
+        // console.log(d); // DEBUG
+      })
+    }, function(response){
+      console.log(response);
+    });
+
+  var now = moment();
+  $scope.current_month = now.format('MMMM');
+  $scope.current_year = now.format('YYYY');
 }])

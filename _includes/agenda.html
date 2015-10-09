@@ -1,56 +1,25 @@
-<section id="agenda">
-  <h2 class="text-center">Agenda Octubre</h2>
+<section id="agenda" ng-controller="AgendaController">
+  <h2 class="text-center">Agenda [[current_month]]</h2>
   <div class="bajada">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam harum et, iste id mollitia ipsum, quisquam adipisci dolore tempora labore nostrum, voluptatum iure! Recusandae vel consequuntur officia, provident, suscipit officiis.</div>
 
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <ul class="list-unstyled agenda-main">
-        <li>
+
+        <li ng-repeat="item in agenda">
           <ul class="list-inline agenda-day">
             <li>
-              <div class="dia">03</div>
-              <div class="mes">oct</div>
+              <div class="dia">[[ item.date_day ]]</div>
+              <div class="mes">[[ item.date_month ]]</div>
             </li>
             <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
+              <strong>[[item.title]]</strong> [[item.summary]]
             </li>
           </ul>
         </li>
-        <li>
-          <ul class="list-inline agenda-day">
-            <li>
-              <div class="dia">12</div>
-              <div class="mes">oct</div>
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
-            </li>
-          </ul>
-        </li>
-        <li>
-          <ul class="list-inline agenda-day">
-            <li>
-              <div class="dia">22</div>
-              <div class="mes">oct</div>
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
-            </li>
-          </ul>
-        </li>
-        <li>
-          <ul class="list-inline agenda-day">
-            <li>
-              <div class="dia">29</div>
-              <div class="mes">oct</div>
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis illum harum impedit delectus distinctio nobis, dignissimos ab vitae at consequuntur ea, rerum dolorum natus sit eligendi? Voluptatem quaerat repellendus eos!
-            </li>
-          </ul>
-        </li>
+
       </ul>
-      <a href="#" class="btn btn-default pull-right">Ver Anteriores</a>
+      <a href="{{ site.baseurl }}agenda.html" class="btn btn-default pull-right">Ver Anteriores</a>
     </div>
     <div class="col-xs-12 col-md-4">
       <div id="default" class="cal1"></div>

@@ -3,18 +3,18 @@
   <div class="bajada">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sed, eius iure nihil illo nobis consectetur, dolor maxime consequatur optio inventore omnis vero possimus suscipit accusantium. Veniam quia, laudantium est?</div>
 
   <div class="row" ng-repeat="npair in highlighted_news">
-      <div class="col-md-6 highlighted" ng-repeat-start="n in npair" ng-repeat-end>
-        <div class="imagen" style="background-image: url([[n.img]]);"></div>
-          <div class="destacada">         
-            <h4><a href="[[n.source]]">[[n.title]]</a></h4>
-            <p ng-bind-html="n.summary"></p>
-            <ul class="list-inline">
-              <li ng-repeat="tag in n.tags"><i class="fa fa-tags"></i>[[tag]]</li>
-              <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
-            </ul>
-            <a href="[[n.source]]" target="blank"><i class="fa fa-long-arrow-right"></i></a>
-          </div>
+    <div class="col-md-6 highlighted" ng-repeat-start="n in npair" ng-repeat-end>
+      <div class="imagen" style="background-image: url([[n.img]]);"></div>
+      <div class="destacada">
+        <h4><a href="[[n.source]]">[[n.title]]</a></h4>
+        <p ng-bind-html="n.summary"></p>
+        <ul class="list-inline">
+          <li ng-repeat="tag in n.tags"><i class="fa fa-tags"></i>[[tag]]</li>
+          <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
+        </ul>
+        <a href="[[n.source]]" target="blank"><i class="fa fa-long-arrow-right"></i></a>
       </div>
+    </div>
 
     <div class="col-md-6 ultimas">
       <div class="row" ng-repeat="npair in news">
@@ -23,14 +23,11 @@
           <ul class="list-inline">
             <li ng-repeat="tag in n.tags"><i class="fa fa-tags"></i>[[tag]]</li>
             <li><i class="fa fa-clock-o"></i> [[n.date]]</li>
-          </ul> 
+          </ul>
           <a href="[[n.source]]" target="blank"><i class="fa fa-long-arrow-right"></i></a>
         </div>
       </div>
     </div>
-
-    <a href="#" class="btn btn-default pull-right">Ver Anteriores</a>
-
+    <a href="{{ site.baseurl }}noticias.html" class="btn btn-default pull-right">Ver Anteriores</a>
   </div>
-
 </section>

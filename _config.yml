@@ -1,7 +1,7 @@
 # site settings
 title: Observatorio anticorrupción
 email: prensa@ciudadanointeligente.org
-description: '' # write an awesome description for your new site here
+description: '' El Observatorio anticorrupción, conformado por Espacio Público y Ciudadano Iteligente, sigue el debate y el avance de las medidas propuestas por la Comisión Engel para mayor probidad y transparencia.
 baseurl: '//ciudadanointeligente.github.io/observatorio/' # the subpath of your site, e.g. /blog/
 url: 'http://yourdomain.com' # the base hostname & protocol for your site
 analytics: '' # google analytics tracking code

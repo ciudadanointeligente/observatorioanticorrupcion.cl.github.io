@@ -1,6 +1,6 @@
 <section id="noticias" ng-controller="NewsController">
   <h2 class="text-center">Noticias</h2>
-  <div class="bajada">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sed, eius iure nihil illo nobis consectetur, dolor maxime consequatur optio inventore omnis vero possimus suscipit accusantium. Veniam quia, laudantium est?</div>
+  <div class="bajada text-center">Aquí encontrarás las noticias destacadas sobre el debate de las medidas más importantes de la Comisión Engel</div>
 
   <div class="row" ng-repeat="npair in highlighted_news">
     <div class="col-md-6 highlighted" ng-repeat-start="n in npair" ng-repeat-end>
@@ -28,6 +28,6 @@
         </div>
       </div>
     </div>
-    <a href="#" class="btn btn-default pull-right">Ver Anteriores</a>
+    <a href="{{ site.baseurl }}noticias.html" class="btn btn-default pull-right">Ver Anteriores</a>
   </div>
 </section>

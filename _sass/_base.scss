@@ -227,6 +227,7 @@ small {
 
 #welcome {
     background-position: center;
+    background-position-y: 30px;
     background-repeat: no-repeat;
     max-height: 780px;
     background-image: url(../img/header.png);
@@ -256,6 +257,11 @@ small {
 
 .ct-chart {
     font-weight: 800;
+}
+
+li.redes {
+    position: relative;
+    top: -58px;
 }
 
 /**
@@ -611,7 +617,14 @@ footer:before {
   }
 
 }
+  
 
+@media screen and (max-width: 600px) {
+  #welcome {
+    background-position: center;
+    background-position-y: 180px;
+  }
+}
 
 @media screen and (max-width: 1000px) {
 
@@ -635,4 +648,13 @@ footer:before {
     content: none;
   }
 
+  #welcome .text-right{
+    text-align: center;
+  }
+
+  .col-md-2{
+    text-align: center;
+    position: relative;
+    top: 60px;
+  }
 }

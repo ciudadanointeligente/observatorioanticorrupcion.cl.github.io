@@ -153,7 +153,7 @@ app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($s
     .then( function (response){
       response.data.forEach( function( d ){
         JSON.parse(d['tags']).forEach( function( dt ){
-          if ( $scope.tags_cat.indexOf(dt) < 1 ) {
+          if ( $scope.tags_cat.indexOf(dt) < 0 ) {
             $scope.tags_cat.push( dt );
           }
         })
@@ -167,6 +167,7 @@ app.controller('AgendaController', ["$scope", "$http", function ($scope, $http){
   // GET
   get_agenda = "//api.morph.io/ciudadanointeligente/observatorio-agenda-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
   $scope.agenda = [];
+  $scope.months_with_activity = [];
 
   $http.jsonp(get_agenda)
     .then(function (response){
@@ -174,12 +175,17 @@ app.controller('AgendaController', ["$scope", "$http", function ($scope, $http){
         if ( d['date'] != '' ) {
           d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
+          d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
         } else {
           d['date_day'] = moment(d['startDate'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['startDate'], "DMMYYYY").format('MMM');
+          d['date_month_long'] = moment(d['startDate'], "DMMYYYY").format('MMMM');
           d['startDate'] = moment(d['startDate'], "DMMYYYY").format('LL').toLowerCase();
           d['endDate'] = moment(d['endDate'], "DMMYYYY").format('LL').toLowerCase();
+        }
+        if ( $scope.months_with_activity.indexOf( d['date_month_long'] ) < 0 ) {
+          $scope.months_with_activity.push( d['date_month_long'] );
         }
         $scope.agenda.push( d );
         // console.log(d); // DEBUG
@@ -190,5 +196,5 @@ app.controller('AgendaController', ["$scope", "$http", function ($scope, $http){
 
   var now = moment();
   $scope.current_month = now.format('MMMM');
-  $scope.current_year = now.format('YYYY');
+  // $scope.current_year = now.format('YYYY');
 }])

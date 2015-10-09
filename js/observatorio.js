@@ -163,21 +163,25 @@ app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($s
     });
 }])
 
-app.controller('AgendaController', ["$scope", "$http", function ($scope, $http){
+app.controller('AgendaController', ["$scope", "$http", "$window", function ($scope, $http, $window){
   // GET
   get_agenda = "//api.morph.io/ciudadanointeligente/observatorio-agenda-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
-  $scope.agenda = [];
   $scope.months_with_activity = [];
+  $scope.agenda = [];
+  $window.agenda = [];
 
   $http.jsonp(get_agenda)
     .then(function (response){
       response.data.forEach( function( d ){
         if ( d['date'] != '' ) {
+          d['calendar_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
           d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
           d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
         } else {
+          d['calendar_day_start'] = moment(d['startDate'], "DMMYYYY").format('YYYY-MM-DD');
+          d['calendar_day_end'] = moment(d['endDate'], "DMMYYYY").format('YYYY-MM-DD');
           d['date_day'] = moment(d['startDate'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['startDate'], "DMMYYYY").format('MMM');
           d['date_month_long'] = moment(d['startDate'], "DMMYYYY").format('MMMM');
@@ -188,12 +192,12 @@ app.controller('AgendaController', ["$scope", "$http", function ($scope, $http){
           $scope.months_with_activity.push( d['date_month_long'] );
         }
         $scope.agenda.push( d );
-        // console.log(d); // DEBUG
       })
     }, function(response){
       console.log(response);
     });
 
+  $window.agenda = $scope.agenda;
   var now = moment();
   $scope.current_month = now.format('MMMM');
   // $scope.current_year = now.format('YYYY');

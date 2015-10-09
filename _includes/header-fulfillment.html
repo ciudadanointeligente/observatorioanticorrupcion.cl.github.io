@@ -1,0 +1,30 @@
+<section id="header-fulfillment" class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Cumplimiento de las propuestas</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sequi rem, exercitationem quibusdam quidem. Velit cum possimus architecto sapiente necessitatibus, suscipit voluptatem nemo maxime omnis, et perspiciatis sequi fugiat nesciunt.
+      </p>
+    </div>
+    <div class="col-md-4">
+      <div class="ct-chart-fulfillment"></div>
+      <script>
+      $(document).ready(function(){
+            new Chartist.Pie('.ct-chart-fulfillment', {
+              labels: ['25%'],
+              series: [25, 75]
+            }, {
+              donut: true,
+              donutWidth: 15,
+              startAngle: 0,
+              total: 100,
+              showLabel: true,
+              labelOffset: -85,
+              width: 200,
+              height: 200
+            });
+          });
+      </script>
+    </div>
+  </div>
+</section>

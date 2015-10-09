@@ -1,0 +1,22 @@
+<section id="news" ng-controller="AgendaController">
+  <h1 class="text-center">Histórico de la agenda</h1>
+<!--   <ul class="list-inline text-center">
+    <li ng-repeat="tc in tags_cat track by $index">
+        <span class="label label-default" ng-click="filters.tags = tc">[[tc]]</span>
+    </li>
+    <li><span class="label label-primary" ng-click="filters.tags = ''">limpiar filtro</span></li>
+  </ul> -->
+
+  <div ng-repeat="a in agenda | filter:filters.tags" class="news-element">
+    <h4>
+      [[a.title]]
+    </h4>
+<!--     <span ng-repeat="tag in n.tags" class="small">
+      <i class="fa fa-tags"></i> [[tag]]
+    </span> -->
+    <span class="small">
+      <i class="fa fa-clock-o"></i> [[a.date]]
+    </span>
+    <p ng-bind-html="a.summary"></p>
+  </div>
+</section>

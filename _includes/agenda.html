@@ -5,7 +5,6 @@
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <ul class="list-unstyled agenda-main">
-
         <li ng-repeat="item in agenda">
           <ul class="list-inline agenda-day">
             <li>
@@ -13,71 +12,77 @@
               <div class="mes">[[ item.date_month ]]</div>
             </li>
             <li>
-              <strong>[[item.title]]</strong> 
+              <strong>[[item.title]]</strong>
               [[item.summary | limitTo: 180]][[item.summary.length > 180 ? '...' : '']]
             </li>
           </ul>
         </li>
-
       </ul>
+
       <a href="{{ site.baseurl }}agenda.html" class="btn btn-default pull-right">Ver Anteriores</a>
     </div>
     <div class="col-xs-12 col-md-4">
       <div id="default" class="cal1"></div>
     </div>
   </div>
-</section>
 
-<script type="text/template" id="template-calendar">
-  <div class='clndr-controls'>
-    <div class='text-center'><%= month %> <%= year %></div>
-  </div>
-  <table class='clndr-table' border='0' cellspacing='0' cellpadding='0'>
-    <thead>
-      <tr class='header-days'>
-        <% for(var i = 0; i < daysOfTheWeek.length; i++) { %>
-          <td class='header-day'><%= daysOfTheWeek[i] %></td>
+  <script type="text/template" id="template-calendar">
+    <div class='clndr-controls'>
+      <div class='text-center'><%= month %> <%= year %></div>
+    </div>
+    <table class='clndr-table' border='0' cellspacing='0' cellpadding='0'>
+      <thead>
+        <tr class='header-days'>
+          <% for(var i = 0; i < daysOfTheWeek.length; i++) { %>
+            <td class='header-day'><%= daysOfTheWeek[i] %></td>
+          <% } %>
+        </tr>
+      </thead>
+      <tbody>
+      <% for(var i = 0; i < numberOfRows; i++){ %>
+        <tr>
+        <% for(var j = 0; j < 7; j++){ %>
+          <% var d = j + i * 7; %>
+          <td class='<%= days[d].classes %>'>
+            <div class='day-contents'><%= days[d].day %></div>
+          </td>
         <% } %>
-      </tr>
-    </thead>
-    <tbody>
-    <% for(var i = 0; i < numberOfRows; i++){ %>
-      <tr>
-      <% for(var j = 0; j < 7; j++){ %>
-        <% var d = j + i * 7; %>
-        <td class='<%= days[d].classes %>'>
-          <div class='day-contents'><%= days[d].day %></div>
-        </td>
+        </tr>
       <% } %>
-      </tr>
-    <% } %>
-    </tbody>
-  </table>
-</script>
+      </tbody>
+    </table>
+  </script>
 
-<script>
-var calendars = {};
-$(document).ready( function() {
-  var thisMonth = moment().format('YYYY-MM');
+  <script>
+  var calendars = {};
+  var eventArray = [];
 
-  var eventArray = [
-    // { startDate: thisMonth + '-21', endDate: thisMonth + '-23', title: 'Another Multi-Day Event' },
-    { date: thisMonth + '-03', title: 'Single Day Event' },
-    { date: thisMonth + '-12', title: 'Single Day Event' },
-    { date: thisMonth + '-22', title: 'Single Day Event' },
-    { date: thisMonth + '-29', title: 'Single Day Event' }
-  ];
+  setTimeout(function (){
+    window.agenda.forEach( function( a ) {
+      if ( a.date != '' ) {
+        eventArray.push( { date: a['cal_day'], title: a['title'] } );
+      } else {
+        eventArray.push( { startDate: a['cal_startDate'], endDate: a['cal_endDate'], title: a['title'] } );
+      }
+    });
+    // console.log(eventArray); // DEBUG
+  }, 2000);
 
-  calendars.clndr1 = $('.cal1').clndr({
-    template: $('#template-calendar').html(),
-    events: eventArray,
-    multiDayEvents: {
-      startDate: 'startDate',
-      endDate: 'endDate',
-      singleDay: 'date'
-    },
-    showAdjacentMonths: false,
-    adjacentDaysChangeMonth: false
-  });
-})
-</script>
+  $(document).ready( function() {
+    var thisMonth = moment().format('YYYY-MM');
+    setTimeout(function (){
+      calendars.clndr1 = $('.cal1').clndr({
+        template: $('#template-calendar').html(),
+        events: eventArray,
+        multiDayEvents: {
+          startDate: 'startDate',
+          endDate: 'endDate',
+          singleDay: 'date'
+        },
+        showAdjacentMonths: false,
+        adjacentDaysChangeMonth: false
+      });
+    }, 3000);
+  })
+  </script>
+</section>

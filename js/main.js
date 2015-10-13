@@ -5,6 +5,7 @@
         // Launch Functions
         Launch: function () {
             fn.MenuSticky();
+            fn.Navigation();
         },
 
 
@@ -23,6 +24,18 @@
                 }
             }
             document.onscroll = scroll;
+        },
+
+
+        // One Page Navigation
+        Navigation: function () {
+            $('#menu').onePageNav({
+                currentClass: 'current',
+                scrollSpeed: 500,
+                scrollOffset: 60,
+                scrollThreshold: 0.2,
+                easing: 'swing'
+            });
         }
 
     };

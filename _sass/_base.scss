@@ -72,6 +72,14 @@ section {
   margin-right: 0px;
 }
 
+.navbar-header span {
+  color: #FF5F37;
+}
+
+.sticky .navbar-header span {
+  display: none;
+}
+
 /*overwrite clndr css*/
 
 .navbar {
@@ -203,11 +211,19 @@ h5 {
   font-weight: 900;
   text-transform: uppercase;
 }
+
 .bajada {
   font-size: 16px;
   color: $grey;
   max-width: 800px;
   margin: 0 auto 60px;
+}
+
+.destacado {
+  font-size: 16px;
+  color: #646975;
+  margin-bottom: 20px;
+  font-weight: 200;
 }
 
 .small {
@@ -565,6 +581,12 @@ background-color: rgba(255, 255, 255, 0.7);
     background-color: $grey-lighter;
     border-radius: 5px 5px 0 0;
     border-bottom: none;
+}
+
+/*NOSOTROS*/
+
+#nosotros img {
+  max-width: 250px;
 }
 
 /*FOOTER*/

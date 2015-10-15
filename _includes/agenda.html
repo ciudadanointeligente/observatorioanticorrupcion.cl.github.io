@@ -6,7 +6,7 @@
     <div class="col-xs-12 col-md-8">
       <ul class="list-unstyled agenda-main">
         <li ng-repeat="item in agenda">
-          <ul class="list-inline agenda-day">
+          <ul class="list-inline agenda-day" id="event-[[item.id]]">
             <li>
               <div class="dia">[[ item.date_day ]]</div>
               <div class="mes">[[ item.date_month ]]</div>
@@ -59,9 +59,9 @@
   setTimeout(function (){
     window.agenda.forEach( function( a ) {
       if ( a.date != '' ) {
-        eventArray.push( { date: a['cal_day'], title: a['title'] } );
+        eventArray.push( { id: a['id'], date: a['cal_day'], title: a['title'] } );
       } else {
-        eventArray.push( { startDate: a['cal_startDate'], endDate: a['cal_endDate'], title: a['title'] } );
+        eventArray.push( { id: a['id'], startDate: a['cal_startDate'], endDate: a['cal_endDate'], title: a['title'] } );
       }
     });
     // console.log(eventArray); // DEBUG
@@ -79,7 +79,14 @@
           singleDay: 'date'
         },
         showAdjacentMonths: false,
-        adjacentDaysChangeMonth: false
+        adjacentDaysChangeMonth: false,
+        clickEvents: {
+          click: function(target){
+            elem = document.getElementById("event-" + target.events[0].id);
+            elem.setAttribute("class", "list-inline agenda-day efectoperrito");
+            console.log(elem);  // DEBUG
+          },
+        }
       });
     }, 3000);
   })

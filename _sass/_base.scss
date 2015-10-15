@@ -507,6 +507,86 @@ background-color: rgba(255, 255, 255, 0.7);
   font-size: 11px;
 }
 
+/*CALENDAR*/
+
+.cal1 {
+  margin: 0px auto;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.cal1 .clndr .clndr-controls {
+  display: none;
+}
+
+.cal1 .clndr .clndr-table tr {
+  height: 50px;
+}
+
+.cal1 .clndr .clndr-table .header-days {
+  height: 32px;
+  background: $grey-lighter;
+  color: $grey-light;
+}
+
+.cal1 .clndr .clndr-table .header-days .header-day {
+  border-left: 8px solid #FFFFFF;
+  color: $grey;
+  border-top: 0;
+}
+
+.cal1 .clndr .clndr-table .header-days .header-day:last-child, .cal1 .clndr .clndr-table tr .day:last-child, .cal1 .clndr .clndr-table tr .empty:last-child {
+    border-right: 0;
+}
+
+.cal1 .clndr .clndr-table tr:last-child .empty, .cal1 .clndr .clndr-table tr:last-child .my-empty, .cal1 .clndr .clndr-table tr:last-child .day, .cal1 .clndr .clndr-table tr:last-child .my-day {
+    border-bottom: 0;
+}
+
+.cal1 .clndr .clndr-table tr .day.today:hover, .cal1 .clndr .clndr-table tr .day.my-today:hover {
+  background: $grey-dark;
+}
+
+.cal1 .clndr .clndr-table tr .day.today, .cal1 .clndr .clndr-table tr .day.my-today {
+  background: $grey-dark;
+  color: white;
+}
+
+.cal1 .clndr .clndr-table tr .empty, .cal1 .clndr .clndr-table tr .adjacent-month, .cal1 .clndr .clndr-table tr .my-empty, .cal1 .clndr .clndr-table tr .my-adjacent-month {
+    border-left: 8px solid #FFFFFF;
+    border-top: 8px solid #FFFFFF;
+    background: $grey-lighter;
+}
+
+.cal1 .clndr .clndr-table tr .day {
+  border-left: 8px solid #FFFFFF;
+  border-top: 8px solid #FFFFFF;
+  background: $grey-light;
+  color: white;
+  cursor: pointer;
+}
+
+.cal1 .clndr .clndr-table tr .day.event, .cal1 .clndr .clndr-table tr .day.my-event {
+  background: #f57c5d;
+  background: -moz-linear-gradient(-45deg,  #f57c5d 0%, #fb9a5b 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#f57c5d), color-stop(100%,#fb9a5b));
+  background: -webkit-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: -o-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: -ms-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: linear-gradient(135deg,  #f57c5d 0%,#fb9a5b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f57c5d', endColorstr='#fb9a5b',GradientType=1 );
+}
+
+.cal1 .clndr .clndr-table tr .day.event:hover, .cal1 .clndr .clndr-table tr .day.my-event:hover {
+  background: #fb9a5b;
+  background: -moz-linear-gradient(-45deg,  #fb9a5b 0%, #f9b542 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fb9a5b), color-stop(100%,#f9b542));
+  background: -webkit-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: -o-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: -ms-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: linear-gradient(135deg,  #fb9a5b 0%,#f9b542 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb9a5b', endColorstr='#f9b542',GradientType=1 );
+}
+
 /*CUMPLIMIENTO*/
 
 #fulfillment h1 {

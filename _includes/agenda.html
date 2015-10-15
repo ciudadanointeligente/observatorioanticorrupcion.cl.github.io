@@ -82,9 +82,12 @@
         adjacentDaysChangeMonth: false,
         clickEvents: {
           click: function(target){
+            if (target.events[0] != null) {
             elem = document.getElementById("event-" + target.events[0].id);
             elem.setAttribute("class", "list-inline agenda-day efectoperrito");
             console.log(elem);  // DEBUG
+            }
+
           },
         }
       });

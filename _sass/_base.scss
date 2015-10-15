@@ -655,6 +655,27 @@ background-color: rgba(255, 255, 255, 0.7);
     border-left: 1px solid $grey-lighter;
 }
 
+/*CUMPLIMIENTO: GRAFICO TOTAL*/
+
+#fulfillment .ct-series-a .ct-slice-donut {
+  stroke: $red;
+}
+
+#fulfillment .ct-label {
+  fill: $grey;
+  font-weight: 900;
+}
+
+#fulfillment .ct-series-b .ct-slice-donut {
+  stroke: $grey-lighter;
+}
+
+.ct-chart-fulfillment {
+  margin-top: 150px;
+  float: right;
+  margin-bottom: 60px;
+}
+
 /*MODAL*/
 
 .modal-header {

@@ -2,7 +2,7 @@
   <h1 class="text-center"><span class="ico-intro"><i class="fa fa-newspaper-o fa-2x"></i></span><br />Repositorio de noticias</h1>
   <ul class="list-inline text-center">
     <li ng-repeat="tc in tags_cat track by $index">
-        <span class="label label-default" ng-click="filters.tags = tc">[[tc]]</span>
+      <span class="label label-default" ng-click="filters.tags = tc">[[tc]]</span>
     </li>
     <li><span class="label label-primary" ng-click="filters.tags = ''">limpiar filtro</span></li>
   </ul>

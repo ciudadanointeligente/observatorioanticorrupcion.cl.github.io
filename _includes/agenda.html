@@ -84,8 +84,10 @@
           click: function(target){
             if (target.events[0] != null) {
             elem = document.getElementById("event-" + target.events[0].id);
-            elem.setAttribute("class", "list-inline agenda-day efectoperrito");
-            console.log(elem);  // DEBUG
+            $( elem ).effect( "highlight", {}, 1000, setTimeout(function() {
+                $( elem ).removeAttr( "style" ).fadeIn();
+              }, 1000 ) );
+            // console.log(elem);  // DEBUG
             }
 
           },

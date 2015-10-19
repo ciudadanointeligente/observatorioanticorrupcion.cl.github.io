@@ -20,10 +20,25 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
         $scope.promisses.name = "Promisses"
         $scope.promisses.items.push( {"name": d.macro_area, "items": get_category_by_macro_category(d.macro_area)} );
       })
-
+      fill_total();
     }, function(response){
       console.log(response);
     });
+
+  function fill_total(){
+    get_total = "//api.morph.io/ciudadanointeligente/observatorio_totales/data.json?key=C317BJoPzKOOMj%2B83VbD&query=select%20*%20from%20%27data%27%20limit%2010&callback=JSON_CALLBACK"
+    $http.jsonp(get_total)
+      .then( function (response){
+        $scope.macro_total = []
+        response.data.forEach( function (d){
+          $scope.macro_total.push({'id': d.id, 'macro_area' : d.macro_area, 'total': d.total})
+          var el = document.getElementById('macro-area-'+(parseInt(d.id)-1))
+          el.innerHTML = d.total
+        })
+      }, function (response){
+        console.log(response);
+      })
+  }
 
   function get_category_by_macro_category(macro) {
     get_cat_url = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20category%20from%20data%20where%20macro_area%20like%20'"+macro+"'&callback=JSON_CALLBACK";

@@ -17,7 +17,22 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
           startAngle: 0,
           showLabel: true,
           labelOffset: -85
-        });
+        },
+        [
+          ['screen and (max-width: 640px)', {
+            donutWidth: 5,
+            labelOffset: -40
+          }],
+          ['screen and (max-width: 768px)', {
+            donutWidth: 7,
+            labelOffset: -40
+          }],
+          ['screen and (max-width: 800px)', {
+            donutWidth: 9,
+            labelOffset: -40
+          }]
+        ]
+        );
       })
     }, function (response){
       console.log(response);

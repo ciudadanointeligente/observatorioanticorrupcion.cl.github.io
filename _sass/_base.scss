@@ -759,13 +759,22 @@ footer:before {
       font-size: 32px;
   }
 
-}
+  .ct-label {
+    font-size: 1.5rem;
+  }
 
+}
 
 @media screen and (max-width: 600px) {
   #welcome {
     background-position: center;
     background-position-y: 180px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .ct-label {
+    font-size: 2rem;
   }
 }
 

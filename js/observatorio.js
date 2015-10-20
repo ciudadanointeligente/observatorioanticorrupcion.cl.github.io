@@ -224,6 +224,51 @@ app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($s
 app.controller('AgendaController', ["$scope", "$http", "$window", function ($scope, $http, $window){
   // GET
   get_agenda = "//api.morph.io/ciudadanointeligente/observatorio-agenda-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
+  $scope.agenda = [];
+  $window.agenda = [];
+
+  $http.jsonp(get_agenda)
+    .then(function (response){
+      response.data.forEach( function( d ){
+        if ( d['date'] != '' ) { // single date
+          d['cal_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
+          d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
+          d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
+          d['month_txt'] = moment(d['date'], "DMMYYYY").format('MMMM');
+          d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
+          d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
+          $scope.agenda.push( d );
+        } else {  // date range case
+          var ms = moment(d['endDate'], "DMMYYYY").diff(moment(d['startDate'], "DMMYYYY"));
+          var tdays = Math.floor(moment.duration(ms).asDays());
+          var i = 0;
+          while (i <= tdays) {
+            auxd = [];
+            date = moment(d['startDate'], "DMMYYYY").add(i, 'days');
+            auxd['date_day'] = date.format('DD');
+            auxd['date_month'] = date.format('MMM');
+            auxd['month_txt'] = date.format('MMMM');
+            auxd['date'] = date;
+            auxd['cal_day'] = moment(auxd['date'], "DMMYYYY").format('YYYY-MM-DD');;
+            auxd['title'] = d['title'];
+            auxd['summary'] = d['summary'];
+            auxd['id'] = d['id'] + "_" + i ;
+            $scope.agenda.push( auxd );
+            i++;
+          }
+        }
+      })
+    }, function(response){
+      console.log(response);
+    });
+  $window.agenda = $scope.agenda;
+  var now = moment();
+  $scope.current_month = now.format('MMMM');
+}])
+
+app.controller('AgendaArchiveController', ["$scope", "$http", "$window", function ($scope, $http, $window){
+  // GET
+  get_agenda = "//api.morph.io/ciudadanointeligente/observatorio-agenda-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
   $scope.months_with_events = [];
   $scope.filters = { };
   $scope.agenda = [];
@@ -263,5 +308,4 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
   $window.agenda = $scope.agenda;
   var now = moment();
   $scope.current_month = now.format('MMMM');
-  // $scope.current_year = now.format('YYYY');
 }])

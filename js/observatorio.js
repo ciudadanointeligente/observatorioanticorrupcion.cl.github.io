@@ -3,6 +3,27 @@ var app = angular.module('observatorioApp', ['ngSanitize'], function($interpolat
   $interpolateProvider.endSymbol(']]');
 });
 
+app.controller('MainController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout){
+  get_total = "//api.morph.io/ciudadanointeligente/observatorio_totales/data.json?key=C317BJoPzKOOMj%2B83VbD&query=select%20*%20from%20%27data%27%20limit%2010&callback=JSON_CALLBACK"
+  $http.jsonp(get_total)
+    .then( function (response){
+      response.data.forEach( function (d){
+        new Chartist.Pie('.ct-chart-'+d.id, {
+          labels: [d.total+"%"],
+          series: [parseInt(d.total), (100-parseInt(d.total))]
+        }, {
+          donut: true,
+          donutWidth: 15,
+          startAngle: 0,
+          showLabel: true,
+          labelOffset: -85
+        });
+      })
+    }, function (response){
+      console.log(response);
+    })
+}]);
+
 app.controller('PromissesController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout){
   // GET
   get_macroarea = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20macro_area%20from%20data%20order%20by%20macro_area&callback=JSON_CALLBACK";

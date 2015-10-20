@@ -1,15 +1,13 @@
 <section id="news" ng-controller="AgendaArchiveController">
-
   <h1 class="text-center"><span class="ico-intro"><i class="fa fa-calendar-check-o fa-2x"></i></span><br />Histórico de la agenda</h1>
-
   <ul class="list-inline text-center">
     <li ng-repeat="month in months_with_events track by $index">
-      <span class="label label-default" ng-click="filters = month">[[month]]</span>
+      <span class="label label-default" ng-click="filters.months = month">[[month]]</span>
     </li>
-    <li><span class="label label-primary" ng-click="filters = ''">limpiar filtro</span></li>
+    <li><span class="label label-primary" ng-click="filters.months = ''">limpiar filtro</span></li>
   </ul>
 
-  <div ng-repeat="a in agenda | filter:filters" class="news-element">
+  <div ng-repeat="a in agenda | filter:filters.months" class="news-element">
     <h4>
       [[a.title]]
     </h4>

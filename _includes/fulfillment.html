@@ -1,7 +1,7 @@
 <div class="container" ng-controller="PromissesController">
   <!-- [[promisses]] -->
-  <ul class="list-inline text-center">
-    <li ng-repeat="ma in macro_area"><span class="label label-default">[[ma]]</span></li>
+  <ul class="list-inline text-center macroareas">
+    <li ng-repeat="ma in macro_area"><a href="#fulfillment-[[$index]]"><span class="label label-default">[[ma]]</span></a></li>
   </ul>
   <div id="fulfillment-[[$index]]" class="fulfillment-box" ng-repeat="macro_area in promisses.items">
     <!-- [[macro_area]] -->

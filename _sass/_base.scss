@@ -748,33 +748,8 @@ footer:before {
 
 @media screen and (orientation:portrait){
   .destacada {
-  padding-left: 15px;
-  padding-right: 15px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-
-  .jumbotron h1 {
-      font-size: 32px;
-  }
-
-  .ct-label {
-    font-size: 1.5rem;
-  }
-
-}
-
-@media screen and (max-width: 600px) {
-  #welcome {
-    background-position: center;
-    background-position-y: 180px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .ct-label {
-    font-size: 2rem;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -808,5 +783,33 @@ footer:before {
     text-align: center;
     position: relative;
     top: 60px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .ct-label {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .ct-label {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #welcome {
+    background-position: center;
+    background-position-y: 180px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .jumbotron h1 {
+      font-size: 32px;
+  }
+  .ct-label {
+    font-size: 1.5rem;
   }
 }

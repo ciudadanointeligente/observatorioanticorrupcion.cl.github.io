@@ -30,6 +30,10 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
           ['screen and (max-width: 800px)', {
             donutWidth: 9,
             labelOffset: -40
+          }],
+          ['screen and (max-width: 980px)', {
+            donutWidth: 11,
+            labelOffset: -40
           }]
         ]
         );

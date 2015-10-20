@@ -176,6 +176,7 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
           d['cal_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
           d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
+          d['month_txt'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
           $scope.agenda.push( d );
@@ -183,13 +184,12 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
           var ms = moment(d['endDate'], "DMMYYYY").diff(moment(d['startDate'], "DMMYYYY"));
           var tdays = Math.floor(moment.duration(ms).asDays());
           var i = 0;
-          d['aux_events'] = [];
-
           while (i <= tdays) {
             auxd = [];
             date = moment(d['startDate'], "DMMYYYY").add(i, 'days');
             auxd['date_day'] = date.format('DD');
             auxd['date_month'] = date.format('MMM');
+            auxd['month_txt'] = date.format('MMMM');
             auxd['date'] = date;
             auxd['cal_day'] = moment(auxd['date'], "DMMYYYY").format('YYYY-MM-DD');;
             auxd['title'] = d['title'];

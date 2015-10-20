@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <ul class="list-unstyled agenda-main">
-        <li ng-repeat="item in agenda">
+        <li ng-repeat="item in agenda | orderBy:'date_day'">
           <ul ng-if="[[item.month_txt]] == current_month" class="list-inline agenda-day" id="event-[[item.id]]">
             <li>
               <div class="dia">[[ item.date_day ]]</div>

@@ -670,6 +670,20 @@ background-color: rgba(255, 255, 255, 0.7);
   stroke: $grey-lighter;
 }
 
+.fulfillment-box {
+  article.hideme {
+    max-height: 400px;
+    overflow: hidden;
+  }
+  article.showme {
+    max-height: initial;
+    overflow: initial;
+  }
+  p.showme-more {
+    background-color: #F7F7F7;
+  }
+}
+
 .ct-chart-fulfillment {
   margin-top: 150px;
   float: right;

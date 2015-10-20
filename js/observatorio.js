@@ -3,7 +3,7 @@ var app = angular.module('observatorioApp', ['ngSanitize'], function($interpolat
   $interpolateProvider.endSymbol(']]');
 });
 
-app.controller('PromissesController', ["$scope", "$http", function ($scope, $http){
+app.controller('PromissesController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout){
   // GET
   get_macroarea = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20macro_area%20from%20data%20order%20by%20macro_area&callback=JSON_CALLBACK";
 
@@ -84,6 +84,28 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
         console.log(response);
       });
   }
+
+  $timeout(function (){
+    $('.showme-more').click( function() {
+      if( $(this).siblings().attr('class') === 'hideme') {
+        $('article.showme').removeClass('showme');
+        $('p i').addClass('fa-arrow-down');
+        $('p i').removeClass('fa-arrow-up');
+        $('#fulfillment-'+$(this).data('id')+' article').removeClass('hideme');
+        $('#fulfillment-'+$(this).data('id')+' article').addClass('showme');
+        $('#fulfillment-'+$(this).data('id')+' p i').removeClass('fa-arrow-down');
+        $('#fulfillment-'+$(this).data('id')+' p i').addClass('fa-arrow-up');
+      } else {
+        $('article.showme').removeClass('hideme');
+        $('p i').addClass('fa-arrow-up');
+        $('p i').removeClass('fa-arrow-dow');
+        $('#fulfillment-'+$(this).data('id')+' article').removeClass('showme');
+        $('#fulfillment-'+$(this).data('id')+' article').addClass('hideme');
+        $('#fulfillment-'+$(this).data('id')+' p i').removeClass('fa-arrow-up');
+        $('#fulfillment-'+$(this).data('id')+' p i').addClass('fa-arrow-down');
+      }
+    })
+  },3000)
 }])
 
 app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $http, $sce){

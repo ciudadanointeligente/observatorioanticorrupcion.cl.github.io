@@ -243,7 +243,7 @@ small {
 
 #welcome {
     background-position: center;
-    background-position-y: 30px;
+    background-position-y: 70px;
     background-repeat: no-repeat;
     max-height: 780px;
     background-image: url(../img/header.png);
@@ -801,7 +801,7 @@ footer:before {
 @media screen and (max-width: 600px) {
   #welcome {
     background-position: center;
-    background-position-y: 180px;
+    background-position-y: 250px;
   }
 }
 

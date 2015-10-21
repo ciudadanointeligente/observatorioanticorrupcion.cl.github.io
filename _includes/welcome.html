@@ -2,38 +2,21 @@
   <div class="jumbotron">
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
           <h1>Sigue aquí el avance de la Comisión Engel</h1>
           <p>El Observatorio Anticorrupción, conformado por Espacio Público y Ciudadano Inteligente, sigue el debate y el avance de las medidas propuestas por la Comisión Engel para mayor probidad y transparencia.</p>
         </div>
-        <div class="col-md-4">
-          <div class="ct-chart pull-right">
-          </div>
-          <script>
-          $(document).ready(function(){
-            new Chartist.Pie('.ct-chart', {
-              labels: ['25%'],
-              series: [25, 75]
-            }, {
-              donut: true,
-              donutWidth: 15,
-              startAngle: 0,
-              total: 100,
-              showLabel: true,
-              labelOffset: -85,
-              width: 200,
-              height: 200
-            });
-          });
-          </script>
-      </div>
+        <!-- <div class="col-md-4">
+
+
+        </div> -->
       </div>
       <div class="col-md-12">
         <div class="row">
           <div class="text-right">
             <ul class="list-inline">
               <li>
-                <a href="#noticias" class="btn btn-primary btn-lg">Mira que está pasando</a>
+                <a href="{{ site.baseurl }}#noticias" class="btn btn-primary btn-lg">Mira que está pasando</a>
               </li>
               <li>
                 <a href="{{ site.baseurl }}cumplimiento.html" class="btn btn-info btn-lg">Revisa el cumplimiento</a>
@@ -44,7 +27,7 @@
           <div class="col-md-2">
             <ul class="list-unstyled list-inline">
               <li class="redes">
-                <a href="#" onclick="window.open(&quot;//twitter.com/share?url=http://labcivico.org/&amp;via=ciudadanoi&amp;hashtags=LabCivico&amp;text=Colaboración, tecnología e incidencia para el cambio social&quot;,&quot;twitter&quot;,&quot;width=450, height=250&quot;)">
+                <a href="#" onclick="window.open(&quot;//twitter.com/share?url=http://observatorioanticorrupcion.cl/&amp;via=ciudadanoi&amp;text=Sigue aquí el avance de la Comisión Engel&quot;,&quot;twitter&quot;,&quot;width=450, height=250&quot;)">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                     <i class="fa fa-twitter fa-stack-1x"></i>
@@ -53,7 +36,7 @@
               </li>
 
               <li class="redes">
-                <a href="#" onclick="window.open(&quot;//www.facebook.com/sharer/sharer.php?u=http://labcivico.org/&quot;,&quot;facebook&quot;,&quot;width=450, height=250&quot;)">
+                <a href="#" onclick="window.open(&quot;//www.facebook.com/sharer/sharer.php?u=http://observatorioanticorrupcion.cl/&quot;,&quot;facebook&quot;,&quot;width=450, height=250&quot;)">
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
                     <i class="fa fa-facebook fa-stack-1x"></i>
@@ -63,10 +46,32 @@
             </ul>
           </div>
 
-
-
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="graphs container" ng-controller="MainController">
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-1 col-md-2 col-md-offset-1">
+      <div class="ct-chart-1"></div>
+      <p><a href="/cumplimiento.html#fulfillment-0">Confianza en los mercados</a></p>
+    </div>
+    <div class="col-xs-2 col-md-2">
+      <div class="ct-chart-2"></div>
+      <p><a href="/cumplimiento.html#fulfillment-1">Financiamiento de la política para fortalecer la democracia</a></p>
+    </div>
+    <div class="col-xs-2 col-md-2">
+      <div class="ct-chart-3"></div>
+      <p><a href="/cumplimiento.html#fulfillment-2">Integridad, ética y derechos humanos</a></p>
+    </div>
+    <div class="col-xs-2 col-md-2">
+      <div class="ct-chart-4"></div>
+      <p><a href="/cumplimiento.html#fulfillment-3">Prevención de la corrupción</a></p>
+    </div>
+    <div class="col-xs-2 col-md-2">
+      <div class="ct-chart-5"></div>
+      <p><a href="/cumplimiento.html#fulfillment-4">Regulación de conflictos de interés</a></p>
     </div>
   </div>
 </div>

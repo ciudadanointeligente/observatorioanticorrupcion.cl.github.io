@@ -72,6 +72,14 @@ section {
   margin-right: 0px;
 }
 
+.navbar-header span {
+  color: #FF5F37;
+}
+
+.sticky .navbar-header span {
+  display: none;
+}
+
 /*overwrite clndr css*/
 
 .navbar {
@@ -103,7 +111,7 @@ section {
 
 .navbar-default .navbar-nav > li > a:hover{
   color: $grey;
-  border-bottom: 2px solid $yellow; 
+  border-bottom: 2px solid $yellow;
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
@@ -117,7 +125,7 @@ section {
 }
 
 .ct-label {
-  fill: rgba(255, 255, 255, 1);
+  fill: #646975;
   color: rgba(0, 0, 0, 0.4);
   font-size: 4rem;
   line-height: 1;
@@ -203,11 +211,19 @@ h5 {
   font-weight: 900;
   text-transform: uppercase;
 }
+
 .bajada {
   font-size: 16px;
   color: $grey;
   max-width: 800px;
   margin: 0 auto 60px;
+}
+
+.destacado {
+  font-size: 16px;
+  color: #646975;
+  margin-bottom: 20px;
+  font-weight: 200;
 }
 
 .small {
@@ -360,7 +376,7 @@ li.redes {
   background-size: cover;
   background-position: center center;
   position: relative;
-} 
+}
 #noticias{
   .highlighted {
       padding-right: 0;
@@ -423,7 +439,7 @@ background-color: rgba(255, 255, 255, 0.7);
       margin-bottom: 20px;
     }
   }
- } 
+ }
 
  /*NEWS REPO*/
 
@@ -489,6 +505,86 @@ background-color: rgba(255, 255, 255, 0.7);
   text-align: center;
   text-transform: uppercase;
   font-size: 11px;
+}
+
+/*CALENDAR*/
+
+.cal1 {
+  margin: 0px auto;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.cal1 .clndr .clndr-controls {
+  display: none;
+}
+
+.cal1 .clndr .clndr-table tr {
+  height: 50px;
+}
+
+.cal1 .clndr .clndr-table .header-days {
+  height: 32px;
+  background: $grey-lighter;
+  color: $grey-light;
+}
+
+.cal1 .clndr .clndr-table .header-days .header-day {
+  border-left: 8px solid #FFFFFF;
+  color: $grey;
+  border-top: 0;
+}
+
+.cal1 .clndr .clndr-table .header-days .header-day:last-child, .cal1 .clndr .clndr-table tr .day:last-child, .cal1 .clndr .clndr-table tr .empty:last-child {
+    border-right: 0;
+}
+
+.cal1 .clndr .clndr-table tr:last-child .empty, .cal1 .clndr .clndr-table tr:last-child .my-empty, .cal1 .clndr .clndr-table tr:last-child .day, .cal1 .clndr .clndr-table tr:last-child .my-day {
+    border-bottom: 0;
+}
+
+.cal1 .clndr .clndr-table tr .day.today:hover, .cal1 .clndr .clndr-table tr .day.my-today:hover {
+  background: $grey-dark;
+}
+
+.cal1 .clndr .clndr-table tr .day.today, .cal1 .clndr .clndr-table tr .day.my-today {
+  background: $grey-dark;
+  color: white;
+}
+
+.cal1 .clndr .clndr-table tr .empty, .cal1 .clndr .clndr-table tr .adjacent-month, .cal1 .clndr .clndr-table tr .my-empty, .cal1 .clndr .clndr-table tr .my-adjacent-month {
+    border-left: 8px solid #FFFFFF;
+    border-top: 8px solid #FFFFFF;
+    background: $grey-lighter;
+}
+
+.cal1 .clndr .clndr-table tr .day {
+  border-left: 8px solid #FFFFFF;
+  border-top: 8px solid #FFFFFF;
+  background: $grey-light;
+  color: white;
+  cursor: pointer;
+}
+
+.cal1 .clndr .clndr-table tr .day.event, .cal1 .clndr .clndr-table tr .day.my-event {
+  background: #f57c5d;
+  background: -moz-linear-gradient(-45deg,  #f57c5d 0%, #fb9a5b 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#f57c5d), color-stop(100%,#fb9a5b));
+  background: -webkit-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: -o-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: -ms-linear-gradient(-45deg,  #f57c5d 0%,#fb9a5b 100%);
+  background: linear-gradient(135deg,  #f57c5d 0%,#fb9a5b 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f57c5d', endColorstr='#fb9a5b',GradientType=1 );
+}
+
+.cal1 .clndr .clndr-table tr .day.event:hover, .cal1 .clndr .clndr-table tr .day.my-event:hover {
+  background: #fb9a5b;
+  background: -moz-linear-gradient(-45deg,  #fb9a5b 0%, #f9b542 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fb9a5b), color-stop(100%,#f9b542));
+  background: -webkit-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: -o-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: -ms-linear-gradient(-45deg,  #fb9a5b 0%,#f9b542 100%);
+  background: linear-gradient(135deg,  #fb9a5b 0%,#f9b542 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fb9a5b', endColorstr='#f9b542',GradientType=1 );
 }
 
 /*CUMPLIMIENTO*/
@@ -559,12 +655,59 @@ background-color: rgba(255, 255, 255, 0.7);
     border-left: 1px solid $grey-lighter;
 }
 
+/*CUMPLIMIENTO: GRAFICO TOTAL*/
+
+.macroareas li a:hover {
+  text-decoration: none;
+}
+
+#fulfillment .ct-series-a .ct-slice-donut {
+  stroke: $red;
+}
+
+#fulfillment .ct-label {
+  fill: $grey;
+  font-weight: 900;
+}
+
+#fulfillment .ct-series-b .ct-slice-donut {
+  stroke: $grey-lighter;
+}
+
+.fulfillment-box {
+  padding-top: 70px;
+
+  /*article.hideme {
+    max-height: 400px;
+    overflow: hidden;
+  }
+  article.showme {
+    max-height: initial;
+    overflow: initial;
+  }
+  p.showme-more {
+    background-color: #F7F7F7;
+  }*/
+}
+
+.ct-chart-fulfillment {
+  margin-top: 150px;
+  float: right;
+  margin-bottom: 60px;
+}
+
 /*MODAL*/
 
 .modal-header {
     background-color: $grey-lighter;
     border-radius: 5px 5px 0 0;
     border-bottom: none;
+}
+
+/*NOSOTROS*/
+
+#nosotros img {
+  max-width: 250px;
 }
 
 /*FOOTER*/
@@ -605,24 +748,8 @@ footer:before {
 
 @media screen and (orientation:portrait){
   .destacada {
-  padding-left: 15px;
-  padding-right: 15px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-
-  .jumbotron h1 {
-      font-size: 32px;
-  }
-
-}
-  
-
-@media screen and (max-width: 600px) {
-  #welcome {
-    background-position: center;
-    background-position-y: 180px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -635,7 +762,7 @@ footer:before {
   .ct-chart {
     display: none;
   }
-   
+
   .jumbotron .btn {
     margin-bottom: 10px;
   }
@@ -656,5 +783,33 @@ footer:before {
     text-align: center;
     position: relative;
     top: 60px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .ct-label {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .ct-label {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #welcome {
+    background-position: center;
+    background-position-y: 180px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .jumbotron h1 {
+      font-size: 32px;
+  }
+  .ct-label {
+    font-size: 1.5rem;
   }
 }

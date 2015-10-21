@@ -4,7 +4,7 @@
 
   <div class="row" ng-repeat="npair in highlighted_news">
     <div class="col-md-6 highlighted" ng-repeat-start="n in npair" ng-repeat-end>
-      <div class="imagen" style="background-image: url([[n.img]]);"></div>
+      <div class="imagen" ng-style="{'background-image': 'url([[n.img]])'}"></div>
       <div class="destacada">
         <h4><a href="[[n.source]]">[[n.title]]</a></h4>
         <p ng-bind-html="n.summary"></p>

@@ -3,7 +3,47 @@ var app = angular.module('observatorioApp', ['ngSanitize'], function($interpolat
   $interpolateProvider.endSymbol(']]');
 });
 
-app.controller('PromissesController', ["$scope", "$http", function ($scope, $http){
+app.controller('MainController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout){
+  get_total = "//api.morph.io/ciudadanointeligente/observatorio_totales/data.json?key=C317BJoPzKOOMj%2B83VbD&query=select%20*%20from%20%27data%27%20limit%2010&callback=JSON_CALLBACK"
+  $http.jsonp(get_total)
+    .then( function (response){
+      response.data.forEach( function (d){
+        new Chartist.Pie('.ct-chart-'+d.id, {
+          labels: [d.total+"%"],
+          series: [parseInt(d.total), (100-parseInt(d.total))]
+        }, {
+          donut: true,
+          donutWidth: 15,
+          startAngle: 0,
+          showLabel: true,
+          labelOffset: -85
+        },
+        [
+          ['screen and (max-width: 640px)', {
+            donutWidth: 5,
+            labelOffset: -40
+          }],
+          ['screen and (max-width: 768px)', {
+            donutWidth: 7,
+            labelOffset: -40
+          }],
+          ['screen and (max-width: 800px)', {
+            donutWidth: 9,
+            labelOffset: -40
+          }],
+          ['screen and (max-width: 980px)', {
+            donutWidth: 11,
+            labelOffset: -40
+          }]
+        ]
+        );
+      })
+    }, function (response){
+      console.log(response);
+    })
+}]);
+
+app.controller('PromissesController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout){
   // GET
   get_macroarea = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20macro_area%20from%20data%20order%20by%20macro_area&callback=JSON_CALLBACK";
 
@@ -20,10 +60,25 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
         $scope.promisses.name = "Promisses"
         $scope.promisses.items.push( {"name": d.macro_area, "items": get_category_by_macro_category(d.macro_area)} );
       })
-
+      fill_total();
     }, function(response){
       console.log(response);
     });
+
+  function fill_total(){
+    get_total = "//api.morph.io/ciudadanointeligente/observatorio_totales/data.json?key=C317BJoPzKOOMj%2B83VbD&query=select%20*%20from%20%27data%27%20limit%2010&callback=JSON_CALLBACK"
+    $http.jsonp(get_total)
+      .then( function (response){
+        $scope.macro_total = []
+        response.data.forEach( function (d){
+          $scope.macro_total.push({'id': d.id, 'macro_area' : d.macro_area, 'total': d.total})
+          var el = document.getElementById('macro-area-'+(parseInt(d.id)-1))
+          el.innerHTML = d.total
+        })
+      }, function (response){
+        console.log(response);
+      })
+  }
 
   function get_category_by_macro_category(macro) {
     get_cat_url = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20category%20from%20data%20where%20macro_area%20like%20'"+macro+"'&callback=JSON_CALLBACK";
@@ -69,6 +124,28 @@ app.controller('PromissesController', ["$scope", "$http", function ($scope, $htt
         console.log(response);
       });
   }
+
+  $timeout(function (){
+    $('.showme-more').click( function() {
+      if( $(this).siblings().attr('class') === 'hideme') {
+        $('article.showme').removeClass('showme');
+        $('p i').addClass('fa-arrow-down');
+        $('p i').removeClass('fa-arrow-up');
+        $('#fulfillment-'+$(this).data('id')+' article').removeClass('hideme');
+        $('#fulfillment-'+$(this).data('id')+' article').addClass('showme');
+        $('#fulfillment-'+$(this).data('id')+' p i').removeClass('fa-arrow-down');
+        $('#fulfillment-'+$(this).data('id')+' p i').addClass('fa-arrow-up');
+      } else {
+        $('article.showme').removeClass('hideme');
+        $('p i').addClass('fa-arrow-up');
+        $('p i').removeClass('fa-arrow-dow');
+        $('#fulfillment-'+$(this).data('id')+' article').removeClass('showme');
+        $('#fulfillment-'+$(this).data('id')+' article').addClass('hideme');
+        $('#fulfillment-'+$(this).data('id')+' p i').removeClass('fa-arrow-up');
+        $('#fulfillment-'+$(this).data('id')+' p i').addClass('fa-arrow-down');
+      }
+    })
+  },3000)
 }])
 
 app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $http, $sce){
@@ -166,30 +243,80 @@ app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($s
 app.controller('AgendaController', ["$scope", "$http", "$window", function ($scope, $http, $window){
   // GET
   get_agenda = "//api.morph.io/ciudadanointeligente/observatorio-agenda-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
-  $scope.months_with_activity = [];
   $scope.agenda = [];
   $window.agenda = [];
 
   $http.jsonp(get_agenda)
     .then(function (response){
       response.data.forEach( function( d ){
-        if ( d['date'] != '' ) {
-          d['calendar_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
+        if ( d['date'] != '' ) { // single date
+          d['cal_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
+          d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
+          d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
+          d['month_txt'] = moment(d['date'], "DMMYYYY").format('MMMM');
+          d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
+          d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
+          $scope.agenda.push( d );
+        } else {  // date range case
+          var ms = moment(d['endDate'], "DMMYYYY").diff(moment(d['startDate'], "DMMYYYY"));
+          var tdays = Math.floor(moment.duration(ms).asDays());
+          var i = 0;
+          while (i <= tdays) {
+            auxd = [];
+            date = moment(d['startDate'], "DMMYYYY").add(i, 'days');
+            auxd['date_day'] = date.format('DD');
+            auxd['date_month'] = date.format('MMM');
+            auxd['month_txt'] = date.format('MMMM');
+            auxd['date'] = date;
+            auxd['cal_day'] = moment(auxd['date'], "DMMYYYY").format('YYYY-MM-DD');;
+            auxd['title'] = d['title'];
+            auxd['summary'] = d['summary'];
+            auxd['id'] = d['id'] + "_" + i ;
+            $scope.agenda.push( auxd );
+            i++;
+          }
+        }
+      })
+    }, function(response){
+      console.log(response);
+    });
+  $window.agenda = $scope.agenda;
+  var now = moment();
+  $scope.current_month = now.format('MMMM');
+}])
+
+app.controller('AgendaArchiveController', ["$scope", "$http", "$window", function ($scope, $http, $window){
+  // GET
+  get_agenda = "//api.morph.io/ciudadanointeligente/observatorio-agenda-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
+  $scope.months_with_events = [];
+  $scope.filters = { };
+  $scope.agenda = [];
+  $window.agenda = [];
+
+  $http.jsonp(get_agenda)
+    .then(function (response){
+      response.data.forEach( function( d ){
+        if ( d['date'] != '' ) { // single date
+          if ( $scope.months_with_events.indexOf( moment(d['date'], "DMMYYYY").format('MMMM') ) < 0 ) {
+            $scope.months_with_events.push( moment(d['date'], "DMMYYYY").format('MMMM') );
+          }
+          d['cal_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
           d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
           d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
-        } else {
-          d['calendar_day_start'] = moment(d['startDate'], "DMMYYYY").format('YYYY-MM-DD');
-          d['calendar_day_end'] = moment(d['endDate'], "DMMYYYY").format('YYYY-MM-DD');
+        } else {  // date range scenario
+          if ( $scope.months_with_events.indexOf( moment(d['startDate'], "DMMYYYY").format('MMMM') ) < 0 ) {
+            $scope.months_with_events.push( moment(d['startDate'], "DMMYYYY").format('MMMM') );
+          } else if ( $scope.months_with_events.indexOf( moment(d['endDate'], "DMMYYYY").format('MMMM') ) < 0 ) {
+            $scope.months_with_events.push( moment(d['endDate'], "DMMYYYY").format('MMMM') );
+          }
+          d['cal_startDate'] = moment(d['startDate'], "DMMYYYY").format('YYYY-MM-DD');
+          d['cal_endDate'] = moment(d['endDate'], "DMMYYYY").format('YYYY-MM-DD');
           d['date_day'] = moment(d['startDate'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['startDate'], "DMMYYYY").format('MMM');
-          d['date_month_long'] = moment(d['startDate'], "DMMYYYY").format('MMMM');
           d['startDate'] = moment(d['startDate'], "DMMYYYY").format('LL').toLowerCase();
           d['endDate'] = moment(d['endDate'], "DMMYYYY").format('LL').toLowerCase();
-        }
-        if ( $scope.months_with_activity.indexOf( d['date_month_long'] ) < 0 ) {
-          $scope.months_with_activity.push( d['date_month_long'] );
         }
         $scope.agenda.push( d );
       })
@@ -200,5 +327,4 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
   $window.agenda = $scope.agenda;
   var now = moment();
   $scope.current_month = now.format('MMMM');
-  // $scope.current_year = now.format('YYYY');
 }])

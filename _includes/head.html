@@ -8,8 +8,7 @@
   <meta property="og:type"          content="website" />
   <meta property="og:title"         content="{{ site.title }}" />
   <meta property="og:description"   content="{{ site.description }}" />
-  <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
-
+  <meta property="og:image"         content="{{ site.baseurl}}img/og-img.png" />
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
@@ -29,6 +28,7 @@
   <!-- js -->
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
   <script src="{{ site.baseurl }}js/angular-sanitize.min.js"></script>

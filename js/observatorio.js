@@ -245,17 +245,24 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
   get_agenda = "//api.morph.io/ciudadanointeligente/observatorio-agenda-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
   $scope.agenda = [];
   $window.agenda = [];
+  $scope.start_of_week = moment(new Date()).startOf('week');
+  $scope.end_of_week = moment(new Date()).endOf('week');
 
   $http.jsonp(get_agenda)
     .then(function (response){
       response.data.forEach( function( d ){
         if ( d['date'] != '' ) { // single date
           d['cal_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
+          d['date_raw'] = moment(d['date'], "DMMYYYY");
           d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
-          d['month_txt'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
+          if ( d['date_raw'] <= $scope.end_of_week && d['date_raw'] >= $scope.start_of_week ) {
+            d['current_week'] = true;
+          } else {
+            d['current_week'] = false;
+          }
           $scope.agenda.push( d );
         } else {  // date range case
           var ms = moment(d['endDate'], "DMMYYYY").diff(moment(d['startDate'], "DMMYYYY"));
@@ -266,12 +273,17 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
             date = moment(d['startDate'], "DMMYYYY").add(i, 'days');
             auxd['date_day'] = date.format('DD');
             auxd['date_month'] = date.format('MMM');
-            auxd['month_txt'] = date.format('MMMM');
             auxd['date'] = date;
-            auxd['cal_day'] = moment(auxd['date'], "DMMYYYY").format('YYYY-MM-DD');;
+            auxd['cal_day'] = moment(auxd['date'], "DMMYYYY").format('YYYY-MM-DD');
+            auxd['date_raw'] = auxd['date'];
             auxd['title'] = d['title'];
             auxd['summary'] = d['summary'];
             auxd['id'] = d['id'] + "_" + i ;
+            if ( auxd['date_raw'] <= $scope.end_of_week && auxd['date_raw'] >= $scope.start_of_week ) {
+              auxd['current_week'] = true;
+            } else {
+              auxd['current_week'] = false;
+            }
             $scope.agenda.push( auxd );
             i++;
           }

@@ -127,8 +127,9 @@ section {
 .ct-label {
   fill: #646975;
   color: rgba(0, 0, 0, 0.4);
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 1;
+
 }
 
 .sticky .brand {
@@ -145,11 +146,11 @@ section {
 
 
 .ct-series-a .ct-slice-donut {
-  stroke: white;
+  stroke: $yellow;
 }
 
 .ct-series-b .ct-slice-donut {
-  stroke: $yellow;
+  stroke: $grey-lighter;
 }
 
 .ct-chart {
@@ -278,6 +279,19 @@ small {
 li.redes {
     position: relative;
     top: -58px;
+}
+
+p.donut{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  a{
+    text-decoration: none;  
+  }
+  a:hover{
+    color: $grey-dark;  
+  }
 }
 
 /**

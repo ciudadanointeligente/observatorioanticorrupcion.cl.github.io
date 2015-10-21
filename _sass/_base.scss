@@ -434,7 +434,7 @@ background-color: rgba(255, 255, 255, 0.7);
       height: 200px;
     }
     div:nth-child(2) {
-      background-color: $093847;
+      background-color: $grey-dark;
       height: 200px;
       margin-bottom: 20px;
     }
@@ -713,7 +713,7 @@ background-color: rgba(255, 255, 255, 0.7);
 /*FOOTER*/
 
 footer {
-  background: $grey-dark;
+  background: #093847;
   color: $grey-light;
   margin-top: 140px;
   padding: 75px 0 50px;

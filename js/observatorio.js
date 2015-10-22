@@ -16,7 +16,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
           donutWidth: 15,
           startAngle: 0,
           showLabel: true,
-          labelOffset: -75
+          labelOffset: -68
         },
         [
           ['screen and (max-width: 980px)', {
@@ -58,14 +58,14 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
       .then( function (response){
         response.data.forEach( function (d){
           new Chartist.Pie('.ct-chart-'+d.id, {
-            labels: [d.total+"% de avance"],
+            labels: [d.total+"%"],
             series: [parseInt(d.total), (100-parseInt(d.total))]
           }, {
             donut: true,
             donutWidth: 15,
             startAngle: 0,
             showLabel: true,
-            labelOffset: -75
+            labelOffset: -68
           },
           [
             ['screen and (max-width: 980px)', {

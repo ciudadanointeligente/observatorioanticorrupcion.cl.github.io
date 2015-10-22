@@ -58,7 +58,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
       .then( function (response){
         response.data.forEach( function (d){
           new Chartist.Pie('.ct-chart-'+d.id, {
-            labels: [d.total+"%"],
+            labels: [d.total+"% de avance"],
             series: [parseInt(d.total), (100-parseInt(d.total))]
           }, {
             donut: true,

@@ -16,24 +16,11 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
           donutWidth: 15,
           startAngle: 0,
           showLabel: true,
-          labelOffset: -85
+          labelOffset: -75
         },
         [
-          ['screen and (max-width: 640px)', {
-            donutWidth: 5,
-            labelOffset: -40
-          }],
-          ['screen and (max-width: 768px)', {
-            donutWidth: 7,
-            labelOffset: -40
-          }],
-          ['screen and (max-width: 800px)', {
-            donutWidth: 9,
-            labelOffset: -40
-          }],
           ['screen and (max-width: 980px)', {
-            donutWidth: 11,
-            labelOffset: -40
+            labelOffset: -75
           }]
         ]
         );

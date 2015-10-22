@@ -244,6 +244,7 @@ small {
 
 #welcome {
     background-position: center;
+    background-position-y: -380px;
     background-repeat: no-repeat;
     max-height: 780px;
     background-image: url(../img/header.png);
@@ -293,6 +294,15 @@ p.donut{
     color: $grey-dark;  
   }
 }
+
+.col-xs-6{
+  height: 250px;
+}
+.col-xs-12{
+  height: 250px;
+  margin-bottom: 20px;
+}
+
 
 /**
  * Buttons
@@ -808,14 +818,14 @@ footer:before {
 
 @media screen and (max-width: 800px) {
   .ct-label {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 }
 
 @media screen and (max-width: 600px) {
   #welcome {
     background-position: center;
-    background-position-y: 250px;
+    background-position-y: -330px;
   }
 }
 
@@ -823,7 +833,5 @@ footer:before {
   .jumbotron h1 {
       font-size: 32px;
   }
-  .ct-label {
-    font-size: 1.5rem;
-  }
+
 }

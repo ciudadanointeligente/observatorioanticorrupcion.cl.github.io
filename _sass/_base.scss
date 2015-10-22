@@ -288,10 +288,10 @@ p.donut{
   font-size: 11px;
   font-weight: 600;
   a{
-    text-decoration: none;  
+    text-decoration: none;
   }
   a:hover{
-    color: $grey-dark;  
+    color: $grey-dark;
   }
 }
 
@@ -572,6 +572,18 @@ background-color: rgba(255, 255, 255, 0.7);
 
 .cal1 .clndr .clndr-table tr .day.today, .cal1 .clndr .clndr-table tr .day.my-today {
   background: $grey-dark;
+  color: white;
+}
+
+/* past events */
+.cal1 .clndr .clndr-table tr .day.past, .cal1 .clndr .clndr-table tr .day.my-today {
+  background: #d8d8da;
+  color: white;
+}
+
+/* past events with events */
+.cal1 .clndr .clndr-table tr .day.past.event, .cal1 .clndr .clndr-table tr .day.my-event {
+  background: #edb4a6;
   color: white;
 }
 

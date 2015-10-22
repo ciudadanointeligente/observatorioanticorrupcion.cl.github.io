@@ -56,11 +56,23 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     get_total = "//api.morph.io/ciudadanointeligente/observatorio_totales/data.json?key=C317BJoPzKOOMj%2B83VbD&query=select%20*%20from%20%27data%27%20limit%2010&callback=JSON_CALLBACK"
     $http.jsonp(get_total)
       .then( function (response){
-        $scope.macro_total = []
         response.data.forEach( function (d){
-          $scope.macro_total.push({'id': d.id, 'macro_area' : d.macro_area, 'total': d.total})
-          var el = document.getElementById('macro-area-'+(parseInt(d.id)-1))
-          el.innerHTML = d.total
+          new Chartist.Pie('.ct-chart-'+d.id, {
+            labels: [d.total+"%"],
+            series: [parseInt(d.total), (100-parseInt(d.total))]
+          }, {
+            donut: true,
+            donutWidth: 15,
+            startAngle: 0,
+            showLabel: true,
+            labelOffset: -75
+          },
+          [
+            ['screen and (max-width: 980px)', {
+              labelOffset: -75
+            }]
+          ]
+          );
         })
       }, function (response){
         console.log(response);

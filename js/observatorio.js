@@ -16,7 +16,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
           donutWidth: 15,
           startAngle: 0,
           showLabel: true,
-          labelOffset: -75
+          labelOffset: -68
         },
         [
           ['screen and (max-width: 980px)', {
@@ -65,7 +65,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
             donutWidth: 15,
             startAngle: 0,
             showLabel: true,
-            labelOffset: -75
+            labelOffset: -68
           },
           [
             ['screen and (max-width: 980px)', {

@@ -127,8 +127,9 @@ section {
 .ct-label {
   fill: #646975;
   color: rgba(0, 0, 0, 0.4);
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 1;
+
 }
 
 .sticky .brand {
@@ -145,11 +146,11 @@ section {
 
 
 .ct-series-a .ct-slice-donut {
-  stroke: white;
+  stroke: $yellow;
 }
 
 .ct-series-b .ct-slice-donut {
-  stroke: $yellow;
+  stroke: $grey-lighter;
 }
 
 .ct-chart {
@@ -243,14 +244,13 @@ small {
 
 #welcome {
     background-position: center;
-    background-position-y: 30px;
     background-repeat: no-repeat;
     max-height: 780px;
     background-image: url(../img/header.png);
 }
 
 .jumbotron {
-    background: linear-gradient(45deg, rgba(245, 124, 93, 0.8), rgba(249, 181, 66, 0.8));
+    background: linear-gradient(45deg, rgba(245, 124, 93, 0.8), rgba(249, 181, 66, 0.9));
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
@@ -269,6 +269,7 @@ small {
   font-size: 18px;
   line-height: 1.3;
   margin-bottom: 80px;
+  font-weight: 400;
 }
 
 .ct-chart {
@@ -278,6 +279,19 @@ small {
 li.redes {
     position: relative;
     top: -58px;
+}
+
+p.donut{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  a{
+    text-decoration: none;  
+  }
+  a:hover{
+    color: $grey-dark;  
+  }
 }
 
 /**
@@ -419,11 +433,11 @@ background-color: rgba(255, 255, 255, 0.7);
   }
   div:nth-child(1) {
     div:nth-child(1) {
-      background-color: #555163;
+      background-color: #2B5D6D;
       height: 200px;
     }
     div:nth-child(2) {
-      background-color: #676379;
+      background-color: #568696;
       height: 200px;
     }
   }
@@ -713,7 +727,7 @@ background-color: rgba(255, 255, 255, 0.7);
 /*FOOTER*/
 
 footer {
-  background: $grey-dark;
+  background: #093847;
   color: $grey-light;
   margin-top: 140px;
   padding: 75px 0 50px;
@@ -801,7 +815,7 @@ footer:before {
 @media screen and (max-width: 600px) {
   #welcome {
     background-position: center;
-    background-position-y: 180px;
+    background-position-y: 250px;
   }
 }
 

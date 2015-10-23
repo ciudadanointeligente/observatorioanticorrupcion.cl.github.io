@@ -24,6 +24,12 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
           }]
         ]
         );
+        var classname = ''
+        if(d.mensaje){
+          label = d.mensaje
+          classname = 'only-txt'
+          $('.ct-chart-'+d.id).addClass(classname)
+        }
       })
     }, function (response){
       console.log(response);

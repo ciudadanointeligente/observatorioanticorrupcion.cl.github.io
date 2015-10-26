@@ -3,7 +3,7 @@
   <div class="bajada text-center">Aquí encontrarás las fechas y eventos más importantes, como foros y sesiones de la Cámara de Diputados o del Senado, para seguir el avance de las medidas del Consejo Anticorrupción.</div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-8">
+    <div class="col-md-8">
       <ul class="list-unstyled agenda-main">
         <li ng-repeat="item in agenda | orderBy:'date_day'">
           <ul ng-if="[[item.current_week]] == 'true'" class="list-inline agenda-day" id="event-[[item.id]]">
@@ -21,7 +21,7 @@
 
       <a href="{{ site.baseurl }}agenda.html" class="btn btn-default pull-right">Ver Anteriores</a>
     </div>
-    <div class="col-xs-12 col-md-4">
+    <div class="col-md-4">
       <div id="default" class="cal1"></div>
     </div>
   </div>

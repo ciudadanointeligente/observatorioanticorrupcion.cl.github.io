@@ -9,14 +9,15 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
     .then( function (response){
       response.data.forEach( function (d){
         var classname = '';
-        var label = d.total+"%";
+        if( d.total == '' ) { d.total = 0; }
+        var label = [d.total+"%"];
         if(d.mensaje){
-          label = d.mensaje;
+          label = [d.mensaje,'lanzamiento'];
           classname = 'only-txt';
           $('.ct-chart-'+d.id).addClass(classname);
         }
         new Chartist.Pie('.ct-chart-'+d.id, {
-          labels: [label],
+          labels: label,
           series: [parseInt(d.total), (100-parseInt(d.total))]
         }, {
           donut: true,

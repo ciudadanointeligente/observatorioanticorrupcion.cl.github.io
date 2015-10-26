@@ -59,9 +59,9 @@
   setTimeout(function (){
     window.agenda.forEach( function( a ) {
       if ( a.date != '' ) {
-        eventArray.push( { id: a['id'], date: a['cal_day'], title: a['title'] } );
+        eventArray.push( { id: a['id'], date: a['cal_day'], title: a['title'], current_week: a['current_week'] } );
       } else {
-        eventArray.push( { id: a['id'], startDate: a['cal_startDate'], endDate: a['cal_endDate'], title: a['title'] } );
+        eventArray.push( { id: a['id'], startDate: a['cal_startDate'], endDate: a['cal_endDate'], title: a['title'], current_week: a['current_week'] } );
       }
     });
     // console.log(eventArray); // DEBUG
@@ -82,6 +82,10 @@
         adjacentDaysChangeMonth: false,
         clickEvents: {
           click: function(target){
+            if (target.events[0].current_week == false) {
+              var aanchor = 'agenda-' + target.events[0].id.split('_')[0];
+              window.location.href = 'agenda.html#' + aanchor;
+            }
             if (target.events[0] != null) {
             elem = document.getElementById("event-" + target.events[0].id);
             $( elem ).effect( "highlight", {}, 1000, setTimeout(function() {

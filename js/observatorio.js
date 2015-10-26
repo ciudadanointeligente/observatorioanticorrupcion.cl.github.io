@@ -8,8 +8,15 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
   $http.jsonp(get_total)
     .then( function (response){
       response.data.forEach( function (d){
+        var classname = '';
+        var label = d.total+"%";
+        if(d.mensaje){
+          label = d.mensaje;
+          classname = 'only-txt';
+          $('.ct-chart-'+d.id).addClass(classname);
+        }
         new Chartist.Pie('.ct-chart-'+d.id, {
-          labels: [d.total+"%"],
+          labels: [label],
           series: [parseInt(d.total), (100-parseInt(d.total))]
         }, {
           donut: true,
@@ -24,12 +31,6 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
           }]
         ]
         );
-        var classname = ''
-        if(d.mensaje){
-          label = d.mensaje
-          classname = 'only-txt'
-          $('.ct-chart-'+d.id).addClass(classname)
-        }
       })
     }, function (response){
       console.log(response);

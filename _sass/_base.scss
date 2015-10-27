@@ -792,6 +792,10 @@ footer:before {
 }
 
 
+footer .col-md-4{
+  text-align: right;
+}
+
 
 
 
@@ -839,6 +843,17 @@ footer:before {
   .ct-label {
     font-size: 3rem;
   }
+
+  footer {
+    .col-md-4 {
+    margin-top: 70px;
+    text-align: center;
+    }
+    .col-md-8 {
+    text-align: center;
+    }
+  }
+
 }
 
 @media screen and (max-width: 800px) {

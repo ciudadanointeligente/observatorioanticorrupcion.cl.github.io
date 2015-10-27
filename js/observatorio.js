@@ -27,11 +27,18 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
           labelOffset: -68
         },
         [
-          ['screen and (max-width: 980px)', {
-            labelOffset: -75
+          ['screen and (max-width: 1199px)', {
+            labelOffset: -68
+          }],
+          ['screen and (max-width: 991px)', {
+            labelOffset: -70
+          }],
+          ['screen and (max-width: 320px)', {
+            labelOffset: -60
           }]
         ]
         );
+
       })
     }, function (response){
       console.log(response);

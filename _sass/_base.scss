@@ -862,6 +862,12 @@ footer .col-md-4{
   }
 }
 
+@media screen and (max-width: 1000px){
+  div#bs-example-navbar-collapse-1{
+    background: linear-gradient(45deg, rgba(251, 141, 91, 1), rgba(249, 181, 66, 1));
+  }
+}
+
 @media screen and (max-width: 600px) {
   #welcome {
     background-position: center;

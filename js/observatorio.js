@@ -270,6 +270,7 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
           d['date_raw'] = moment(d['date'], "DMMYYYY");
           d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
           d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
+          d['month_txt'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
           if ( d['date_raw'] <= $scope.end_of_week && d['date_raw'] >= $scope.start_of_week ) {
@@ -288,6 +289,7 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
             auxd['date_day'] = date.format('DD');
             auxd['date_month'] = date.format('MMM');
             auxd['date'] = date;
+            auxd['month_txt'] = moment(auxd['date'], "DMMYYYY").format('MMMM');
             auxd['cal_day'] = moment(auxd['date'], "DMMYYYY").format('YYYY-MM-DD');
             auxd['date_raw'] = auxd['date'];
             auxd['title'] = d['title'];

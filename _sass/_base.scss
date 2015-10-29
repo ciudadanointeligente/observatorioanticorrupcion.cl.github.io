@@ -150,7 +150,7 @@ section {
 
 
 .ct-series-a .ct-slice-donut {
-  stroke: $yellow;
+  stroke: $blue;
 }
 
 .ct-series-b .ct-slice-donut {
@@ -304,7 +304,7 @@ p.donut{
     text-decoration: none;
   }
   a:hover{
-    color: $grey-dark;
+    color: $blue-dark;
   }
 }
 
@@ -456,7 +456,7 @@ background-color: rgba(255, 255, 255, 0.7);
   }
   div:nth-child(1) {
     div:nth-child(1) {
-      background-color: #2B5D6D;
+      background-color: $blue;
       height: 200px;
     }
     div:nth-child(2) {
@@ -471,7 +471,7 @@ background-color: rgba(255, 255, 255, 0.7);
       height: 200px;
     }
     div:nth-child(2) {
-      background-color: $grey-dark;
+      background-color: $blue-dark;
       height: 200px;
       margin-bottom: 20px;
     }
@@ -534,11 +534,11 @@ background-color: rgba(255, 255, 255, 0.7);
 .dia {
   font-size: 26px;
   text-align: center;
-  color: $grey-dark;
+  color: $blue-dark;
 }
 
 .mes {
-  color: $grey-dark;
+  color: $blue-dark;
   text-align: center;
   text-transform: uppercase;
   font-size: 11px;
@@ -580,11 +580,11 @@ background-color: rgba(255, 255, 255, 0.7);
 }
 
 .cal1 .clndr .clndr-table tr .day.today:hover, .cal1 .clndr .clndr-table tr .day.my-today:hover {
-  background: $grey-dark;
+  background: $blue-dark;
 }
 
 .cal1 .clndr .clndr-table tr .day.today, .cal1 .clndr .clndr-table tr .day.my-today {
-  background: $grey-dark;
+  background: $blue-dark;
   color: white;
 }
 

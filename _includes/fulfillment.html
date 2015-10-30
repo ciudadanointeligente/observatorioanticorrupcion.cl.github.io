@@ -1,5 +1,5 @@
 <div class="container" ng-controller="PromissesController">
-  <!-- [[promisses]] -->
+  <!--[[promisses]]-->
   <ul class="list-inline text-center macroareas">
     <li ng-repeat="ma in macro_area"><a href="#fulfillment-[[$index]]"><span class="label label-default">[[ma]]</span></a></li>
   </ul>
@@ -22,10 +22,11 @@
                 <div class="small">[[ca.items.length]] promesas( [[ca.full]] Completa, [[ca.progress]] Incompletas, [[ca.advance]] Sin progreso )</div>
               </div>
               <div class="col-md-5">
-                <div class="category-percentage pull-right">[[ca.accomplished / ca.items.length | number:0]]%</div>
+
+                <div class="category-percentage pull-right">[[ca.accomplished | number:0]]%</div>
                 <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="[[ca.accomplished / ca.items.length | number:0]]" aria-valuemin="0" aria-valuemax="100" style="width: [[ca.accomplished / ca.items.length | number:0]]%;">
-                    <span class="sr-only">[[ca.accomplished / ca.items.length | number:0]]% Complete</span>
+                  <div class="progress-bar" role="progressbar" aria-valuenow="[[ca.accomplished | number:0]]" aria-valuemin="0" aria-valuemax="100" style="width: [[ca.accomplished | number:0]]%;">
+                    <span class="sr-only">[[ca.accomplished | number:0]]% Completado</span>
                   </div>
                 </div>
               </div>
@@ -39,7 +40,7 @@
                   <p>[[p.description]]</p>
                 </div>
                 <div class="col-md-2">
-                  <div class="text-center percentage">[[p.fulfillment]]</div>
+                  <div class="text-center percentage">[[ p.ponderator.replace("%", "")*100 | number:0 ]]%</div>
                   <p class="text-center"><small>Cumplimiento</small><br><a href="#" data-toggle="modal" data-target="#myfulfillment_1"><small>¿Por qué?</small></a></p>
                 </div>
                 <div class="col-md-2">

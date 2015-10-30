@@ -41,52 +41,52 @@
                 </div>
               </div>
             </div>
-            <div class="panel-body panel-collapse collapse" id="collapse-[[$parent.$index]]-[[$index]]">
-              <div class="promess" ng-repeat="p in ca.items">
-                <div class="row">
-                  <div class="col-md-8 color-high">
-                    <p class="strong">[[p.promess]]</p>
-                    <p>[[p.description]]</p>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="text-center percentage">[[ p.ponderator.replace("%", "")*100 | number:0 ]]%</div>
-                    <p class="text-center"><small>Cumplimiento</small><br><a href="#" data-toggle="modal" data-target="#myfulfillment_1"><small>¿Por qué?</small></a></p>
-                  </div>
-                  <div class="col-md-2">
-                    <p class="text-center percentage">[[p.quality]]</p>
-                    <p class="text-center"><small>Nota de calidad</small><br><a href="#" data-toggle="modal" data-target="#mynote_1"><small>¿Por qué?</small></a></p>
-                  </div>
+          </div>
+          <div class="panel-body panel-collapse collapse" id="collapse-[[$parent.$index]]-[[$index]]">
+            <div class="promess" ng-repeat="p in ca.items">
+              <div class="row">
+                <div class="col-md-8 color-high">
+                  <p class="strong">[[p.promess]]</p>
+                  <p>[[p.description]]</p>
                 </div>
-                <!-- modales -->
-                <div class="modal fade" id="myfulfillment_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h5 class="modal-title" id="myModalLabel_1">Cumplimiento</h5>
-                      </div>
-                      <div class="modal-body">
-                        ...
-                      </div>
-                    </div>
-                  </div>
+                <div class="col-md-2">
+                  <div class="text-center percentage">[[ p.ponderator.replace("%", "")*100 | number:0 ]]%</div>
+                  <p class="text-center"><small>Cumplimiento</small><br><a href="#" data-toggle="modal" data-target="#myfulfillment_1"><small>¿Por qué?</small></a></p>
                 </div>
-
-                <div class="modal fade" id="mynote_1" tabindex="-1" role="dialog" aria-labelledby="myNoteLabel_1">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h5 class="modal-title" id="myNoteLabel_1">Nota de calidad</h5>
-                      </div>
-                      <div class="modal-body">
-                        ...
-                      </div>
-                    </div>
-                  </div>
+                <div class="col-md-2">
+                  <p class="text-center percentage">[[p.quality]]</p>
+                  <p class="text-center"><small>Nota de calidad</small><br><a href="#" data-toggle="modal" data-target="#mynote_1"><small>¿Por qué?</small></a></p>
                 </div>
-              <!-- modales -->
               </div>
+              <!-- modales -->
+              <div class="modal fade" id="myfulfillment_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h5 class="modal-title" id="myModalLabel_1">Cumplimiento</h5>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="mynote_1" tabindex="-1" role="dialog" aria-labelledby="myNoteLabel_1">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h5 class="modal-title" id="myNoteLabel_1">Nota de calidad</h5>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- modales -->
             </div>
           </div>
         </div>

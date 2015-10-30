@@ -174,27 +174,6 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
       });
   }
 
-  $timeout(function () {
-    $('.showme-more').click(function () {
-      if ($(this).siblings().attr('class') === 'hideme') {
-        $('article.showme').removeClass('showme');
-        $('p i').addClass('fa-arrow-down');
-        $('p i').removeClass('fa-arrow-up');
-        $('#fulfillment-' + $(this).data('id') + ' article').removeClass('hideme');
-        $('#fulfillment-' + $(this).data('id') + ' article').addClass('showme');
-        $('#fulfillment-' + $(this).data('id') + ' p i').removeClass('fa-arrow-down');
-        $('#fulfillment-' + $(this).data('id') + ' p i').addClass('fa-arrow-up');
-      } else {
-        $('article.showme').removeClass('hideme');
-        $('p i').addClass('fa-arrow-up');
-        $('p i').removeClass('fa-arrow-dow');
-        $('#fulfillment-' + $(this).data('id') + ' article').removeClass('showme');
-        $('#fulfillment-' + $(this).data('id') + ' article').addClass('hideme');
-        $('#fulfillment-' + $(this).data('id') + ' p i').removeClass('fa-arrow-up');
-        $('#fulfillment-' + $(this).data('id') + ' p i').addClass('fa-arrow-down');
-      }
-    })
-  }, 3000)
 }])
 
 app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $http, $sce) {

@@ -28,7 +28,7 @@
           <div class="panel-heading fulfillment">
             <div class="row">
               <div class="col-md-7">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-[[$parent.$index]]-[[$index]]" aria-expanded="true" aria-controls="collapse-[[$index]]"><h5>[[ca.name]]</h5></a>
+                <h5><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-[[$parent.$index]]-[[$index]]" aria-expanded="true" aria-controls="collapse-[[$index]]">[[ca.name]]</a></h5>
                 <div class="small">[[ca.items.length]] promesas( [[ca.full]] Completa, [[ca.progress]] Incompletas, [[ca.advance]] Sin progreso )</div>
               </div>
 
@@ -45,7 +45,7 @@
           <div class="panel-body panel-collapse collapse" id="collapse-[[$parent.$index]]-[[$index]]">
             <div class="promess" ng-repeat="p in ca.items">
               <div class="row">
-                <div class="col-md-8 color-high">
+                <div class="col-md-8" >
                   <p class="strong">[[p.promess]]</p>
                   <p>[[p.description]]</p>
                 </div>

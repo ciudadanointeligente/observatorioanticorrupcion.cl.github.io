@@ -650,8 +650,11 @@ background-color: rgba(255, 255, 255, 0.7);
   margin: 30px 0 30px;
 }
 
-h5.ng-binding{
+h5 {
   color: $blue-light;
+  a, a:hover {
+    color: $blue-light;
+  }
 }
 
 

@@ -150,7 +150,7 @@ section {
 
 
 .ct-series-a .ct-slice-donut {
-  stroke: $yellow;
+  stroke: $blue;
 }
 
 .ct-series-b .ct-slice-donut {
@@ -304,7 +304,7 @@ p.donut{
     text-decoration: none;
   }
   a:hover{
-    color: $grey-dark;
+    color: $blue-dark;
   }
 }
 
@@ -456,11 +456,11 @@ background-color: rgba(255, 255, 255, 0.7);
   }
   div:nth-child(1) {
     div:nth-child(1) {
-      background-color: #2B5D6D;
+      background-color: $blue;
       height: 200px;
     }
     div:nth-child(2) {
-      background-color: #568696;
+      background-color: $blue-light;
       height: 200px;
     }
   }
@@ -471,7 +471,7 @@ background-color: rgba(255, 255, 255, 0.7);
       height: 200px;
     }
     div:nth-child(2) {
-      background-color: $grey-dark;
+      background-color: $blue-dark;
       height: 200px;
       margin-bottom: 20px;
     }
@@ -534,11 +534,11 @@ background-color: rgba(255, 255, 255, 0.7);
 .dia {
   font-size: 26px;
   text-align: center;
-  color: $grey-dark;
+  color: $blue-dark;
 }
 
 .mes {
-  color: $grey-dark;
+  color: $blue-dark;
   text-align: center;
   text-transform: uppercase;
   font-size: 11px;
@@ -580,11 +580,11 @@ background-color: rgba(255, 255, 255, 0.7);
 }
 
 .cal1 .clndr .clndr-table tr .day.today:hover, .cal1 .clndr .clndr-table tr .day.my-today:hover {
-  background: $grey-dark;
+  background: $blue-dark;
 }
 
 .cal1 .clndr .clndr-table tr .day.today, .cal1 .clndr .clndr-table tr .day.my-today {
-  background: $grey-dark;
+  background: $blue-dark;
   color: white;
 }
 
@@ -646,6 +646,15 @@ background-color: rgba(255, 255, 255, 0.7);
   margin: 70px 0 0;
 }
 
+.row.macro{
+  margin: 30px 0 30px;
+}
+
+h5.ng-binding{
+  color: $blue-light;
+}
+
+
 .category-percentage {
   font-size: 24px;
   font-weight: 900;
@@ -671,13 +680,18 @@ background-color: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
   -webkit-box-shadow: none;
   box-shadow: none;
+  width: 77%;
 }
 
 .progress-bar {
-  background-color: $yellow;
+  background-color: $blue-light;
   border-radius: 10px;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+i.fa.fa-info-circle{
+  color: $grey-light;
 }
 
 .panel-default>.panel-heading {
@@ -704,6 +718,22 @@ background-color: rgba(255, 255, 255, 0.7);
     border-left: 1px solid $grey-lighter;
 }
 
+.color-high{
+  border-left: 2px solid;
+  border-color: $color-high;
+}
+
+.color-medium{
+  border-left: 2px solid;
+  border-color: $color-medium;
+}
+
+.color-low{
+  border-left: 2px solid;
+  border-color: $color-low;
+}
+
+
 /*CUMPLIMIENTO: GRAFICO TOTAL*/
 
 .macroareas li a:hover {
@@ -711,7 +741,7 @@ background-color: rgba(255, 255, 255, 0.7);
 }
 
 #fulfillment .ct-series-a .ct-slice-donut {
-  stroke: $red;
+  stroke: $blue-dark;
 }
 
 #fulfillment .ct-label {
@@ -806,6 +836,10 @@ footer .col-md-4{
   }
 }
 
+#fulfillment h1{
+  margin-top: 70px;
+}
+
 @media screen and (max-width: 1000px) {
 
   .jumbotron h1 {
@@ -859,12 +893,6 @@ footer .col-md-4{
 @media screen and (max-width: 800px) {
   .ct-label {
     font-size: 3rem;
-  }
-}
-
-@media screen and (max-width: 1000px){
-  div#bs-example-navbar-collapse-1{
-    background: linear-gradient(45deg, rgba(251, 141, 91, 1), rgba(249, 181, 66, 1));
   }
 }
 

@@ -116,6 +116,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           category.name = d.category;
           get_promisse_by_category(category);
           categories.push(category);
+          console.log(category);
         })
       }, function (response) {
         console.log(response);
@@ -129,6 +130,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     category.progress = 0;
     category.total = 0;
     category.accomplished = 0;
+    category.avg_progress = 0;
     $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'" + encodeURIComponent(category.name) + "'&callback=JSON_CALLBACK")
       .then(function (response) {
         category.items = response.data;
@@ -144,37 +146,12 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
             category.progress = category.progress + 1;
           }
 
-          new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment);
-          category.accomplished = new_fulfillment;
+          // new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment);
+          
+          category.avg_progress = parseInt(d.fulfillment.replace("%", "")) * parseFloat(d.ponderator.replace("%", "")) + category.avg_progress;
 
           ponderator = (parseFloat(d.ponderator.replace("%", "")) + ponderator);
-
-          switch(category.name) {
-            case "Probidad y fortalecimiento de Municipios":
-              category.accomplished = ponderator * 100 / 30;
-            break;
-            case "Reformas al sistema de alta dirección pública.":
-              category.accomplished = ponderator * 100 / 20;
-            break;
-            case "Reforma al sistema de compras públicas, concesiones y gastos en defensa":
-              category.accomplished = ponderator * 100 / 10;
-            break;
-            case "Persecución y sanción penal de la corrupción":
-              category.accomplished = ponderator * 100 / 20;
-            break;
-            case "Transparencia y acceso a la información pública":
-              category.accomplished = ponderator * 100 / 4;
-            break;
-            case "Responsabilidad penal de personal Jurídicas":
-              category.accomplished = ponderator * 100 / 4;
-            break;
-            case "Prevención de la corrupción en la planificación territorial":
-              category.accomplished = ponderator * 100 / 10;
-            break;
-            case "Creación de un servicio de evaluación de las políticas públicas.":
-              category.accomplished = ponderator * 100 / 2;
-            break;
-          }
+          category.accomplished = category.avg_progress / ponderator;
 
           cnt++;
         })

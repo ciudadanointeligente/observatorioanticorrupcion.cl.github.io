@@ -651,7 +651,11 @@ background-color: rgba(255, 255, 255, 0.7);
 
 .row.macro{
   margin: 30px 0 30px;
-}
+  }
+  .col-md-6{
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
 
 h5 {
   color: $blue-light;
@@ -753,7 +757,7 @@ i.fa.fa-info-circle:hover{
 }
 
 .row.leyenda{
-  padding: 15px 15px 0 15px;
+  padding: 0px 15px 0 15px;
 }
 
 

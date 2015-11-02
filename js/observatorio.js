@@ -47,6 +47,12 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
 
 app.controller('PromissesController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout) {
   // GET
+  get_all_promises = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20macro_area%20from%20data%20order%20by%20macro_area&callback=JSON_CALLBACK";
+  $http.jsonp(get_all_promises)
+    .then(function(response) {
+      // console.log(response);
+    })
+
   get_macroarea = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20macro_area%20from%20data%20order%20by%20macro_area&callback=JSON_CALLBACK";
 
   $http.jsonp(get_macroarea)
@@ -159,8 +165,10 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           category.avg_progress = parseInt(d.fulfillment.replace("%", "")) * parseFloat(d.ponderator.replace("%", "")) + category.avg_progress;
 
           ponderator = (parseFloat(d.ponderator.replace("%", "")) + ponderator);
-          category.accomplished = category.avg_progress / ponderator;
           category.items.push(d)
+          if(cnt == category.items.length){
+            category.accomplished = category.avg_progress / ponderator;
+          }
           cnt++;
         })
       }, function (response) {

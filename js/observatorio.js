@@ -116,7 +116,6 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           category.name = d.category;
           get_promisse_by_category(category);
           categories.push(category);
-          console.log(category);
         })
       }, function (response) {
         console.log(response);
@@ -133,7 +132,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     category.avg_progress = 0;
     $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'" + encodeURIComponent(category.name) + "'&callback=JSON_CALLBACK")
       .then(function (response) {
-        category.items = response.data;
+        category.items = [];
         var cnt = 1;
         var new_fulfillment = 0;
         var ponderator = 0;
@@ -145,14 +144,23 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           } else {
             category.progress = category.progress + 1;
           }
-
+          float_ponderator = parseInt(d.ponderator.replace("%", ""))
+          if (float_ponderator < 5) {
+            d.importance = "color-low";
+          }
+          if (float_ponderator >= 5 && float_ponderator < 10) {
+            d.importance = "color-medium";
+          }          
+          if (float_ponderator >= 10) {
+            d.importance = "color-high";
+          }
           // new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment);
           
           category.avg_progress = parseInt(d.fulfillment.replace("%", "")) * parseFloat(d.ponderator.replace("%", "")) + category.avg_progress;
 
           ponderator = (parseFloat(d.ponderator.replace("%", "")) + ponderator);
           category.accomplished = category.avg_progress / ponderator;
-
+          category.items.push(d)
           cnt++;
         })
       }, function (response) {

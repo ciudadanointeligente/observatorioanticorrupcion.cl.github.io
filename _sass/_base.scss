@@ -683,7 +683,7 @@ h5 {
   border-radius: 15px;
   -webkit-box-shadow: none;
   box-shadow: none;
-  width: 77%;
+  width: 75%;
 }
 
 .progress-bar {
@@ -696,6 +696,12 @@ h5 {
 i.fa.fa-info-circle{
   color: $grey-light;
 }
+
+i.fa.fa-info-circle:hover{
+  color: $blue-dark;
+}
+
+
 
 .panel-default>.panel-heading {
     color: $grey;
@@ -722,18 +728,28 @@ i.fa.fa-info-circle{
 }
 
 .color-high{
-  border-left: 2px solid;
+  border-left: 5px solid;
   border-color: $color-high;
 }
 
 .color-medium{
-  border-left: 2px solid;
+  border-left: 5px solid;
   border-color: $color-medium;
 }
 
 .color-low{
-  border-left: 2px solid;
+  border-left: 5px solid;
   border-color: $color-low;
+}
+
+.panel.panel-deafult.leyenda{
+  background-color: $grey-lighter;
+  padding: 15px;
+  margin-top: -15px;
+}
+
+.row.leyenda{
+  padding: 15px 15px 0 15px;
 }
 
 

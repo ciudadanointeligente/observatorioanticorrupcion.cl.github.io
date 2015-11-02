@@ -12,7 +12,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
         if (d.total == '') {
           d.total = 0;
         }
-        var label = ['de avance',d.total + "%"];
+        var label = [d.total + "%"];
         if (d.mensaje) {
           label = [d.mensaje, 'lanzamiento'];
           classname = 'only-txt';

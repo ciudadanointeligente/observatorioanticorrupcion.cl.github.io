@@ -125,6 +125,7 @@ section {
   color: rgba(0, 0, 0, 0.4);
   font-size: 3rem;
   line-height: 1;
+  font-weight: 600;
 }
 
 .only-txt .ct-label {
@@ -300,8 +301,10 @@ p.donut{
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 600;
+  color: $grey-light;
   a{
     text-decoration: none;
+    color: $blue-light;
   }
   a:hover{
     color: $blue-dark;
@@ -745,7 +748,8 @@ i.fa.fa-info-circle:hover{
 .panel.panel-deafult.leyenda{
   background-color: $grey-lighter;
   padding: 15px;
-  margin-top: -15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .row.leyenda{

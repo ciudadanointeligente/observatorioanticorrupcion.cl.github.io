@@ -26,6 +26,25 @@
     </div>
   </div>
 
+  <!-- modal -->
+  <div id="modal-content" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h3 id="modal-title"></h3>
+        </div>
+        <div class="modal-body">
+          <p id="modal-summary"></p>
+        </div>
+        <div class="modal-footer">
+          <p id="modal-date" class="label label-default"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal END -->
+
   <script type="text/template" id="template-calendar">
     <div class='clndr-controls'>
     </div>
@@ -59,12 +78,11 @@
   setTimeout(function (){
     window.agenda.forEach( function( a ) {
       if ( a.date != '' ) {
-        eventArray.push( { id: a['id'], date: a['cal_day'], title: a['title'], current_week: a['current_week'] } );
+        eventArray.push( { id: a['id'], date: a['cal_day'], title: a['title'], summary: a['summary'], current_week: a['current_week'] } );
       } else {
-        eventArray.push( { id: a['id'], startDate: a['cal_startDate'], endDate: a['cal_endDate'], title: a['title'], current_week: a['current_week'] } );
+        eventArray.push( { id: a['id'], startDate: a['cal_startDate'], endDate: a['cal_endDate'], title: a['title'], summary: a['summary'], current_week: a['current_week'] } );
       }
     });
-    // console.log(eventArray); // DEBUG
   }, 2000);
 
   $(document).ready( function() {
@@ -83,8 +101,10 @@
         clickEvents: {
           click: function(target){
             if (target.events[0].current_week == false) {
-              var aanchor = 'agenda-' + target.events[0].id.split('_')[0];
-              window.location.href = 'agenda.html#' + aanchor;
+              $("#modal-title").html(target.events[0].title);
+              $("#modal-date").html(moment(target.events[0].date, "YYYY-MM-DD").format('LL'));
+              $("#modal-summary").html(target.events[0].summary);
+              $("#modal-content").modal('show');
             }
             if (target.events[0] != null) {
             elem = document.getElementById("event-" + target.events[0].id);

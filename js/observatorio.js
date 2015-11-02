@@ -75,8 +75,18 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     $http.jsonp(get_total)
       .then(function (response) {
         response.data.forEach(function (d) {
+          var classname = '';
+          if (d.total == '') {
+            d.total = 0;
+          }
+          var label = [d.total + "%"];
+          if (d.mensaje!='' && d.macro_area === $('.ct-chart-' + d.id + ' svg g:eq(2) text')) {
+            label = [d.mensaje, 'lanzamiento'];
+            classname = 'only-txt';
+            $('.ct-chart-' + d.id).addClass(classname);
+          }
           new Chartist.Pie('.ct-chart-' + d.id, {
-            labels: [d.total + "%"],
+            labels: label,
             series: [parseInt(d.total), (100 - parseInt(d.total))]
           }, {
             donut: true,
@@ -119,7 +129,6 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     category.progress = 0;
     category.total = 0;
     category.accomplished = 0;
-    console.log("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'" + encodeURIComponent(category.name) + "'&callback=JSON_CALLBACK")
     $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'" + encodeURIComponent(category.name) + "'&callback=JSON_CALLBACK")
       .then(function (response) {
         category.items = response.data;

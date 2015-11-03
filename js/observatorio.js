@@ -150,7 +150,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           } else {
             category.progress = category.progress + 1;
           }
-          float_ponderator = parseInt(d.ponderator.replace("%", ""))
+          float_ponderator = parseFloat(d.ponderator.replace("%", ""))
           if (float_ponderator < 5) {
             d.importance = "color-low";
           }
@@ -162,12 +162,12 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           }
           // new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment);
           
-          category.avg_progress = parseInt(d.fulfillment.replace("%", "")) * parseFloat(d.ponderator.replace("%", "")) + category.avg_progress;
-
+          category.avg_progress = parseFloat(d.fulfillment.replace("%", "")) * parseFloat(d.ponderator.replace("%", "")) + category.avg_progress;
           ponderator = (parseFloat(d.ponderator.replace("%", "")) + ponderator);
+          console.log(d.description + "," + category.avg_progress + "," + d.ponderator)
           category.items.push(d)
           if(cnt == category.items.length){
-            category.accomplished = category.avg_progress / ponderator;
+            category.accomplished = category.avg_progress / 100;
           }
           cnt++;
         })

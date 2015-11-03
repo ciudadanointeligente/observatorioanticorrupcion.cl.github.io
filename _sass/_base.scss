@@ -258,14 +258,13 @@ small {
 
 #welcome {
     background-position: center;
-    background-position-y: -380px;
+    background-position-y: -240px;
     background-repeat: no-repeat;
     max-height: 780px;
     background-image: url(../img/header.png);
 }
 
 .jumbotron {
-    background: linear-gradient(45deg, rgba(245, 124, 93, 0.8), rgba(249, 181, 66, 0.9));
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
@@ -956,7 +955,7 @@ footer .col-md-4{
 @media screen and (max-width: 600px) {
   #welcome {
     background-position: center;
-    background-position-y: -330px;
+    background-position-y: -120px;
   }
 }
 

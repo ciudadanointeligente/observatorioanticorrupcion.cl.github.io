@@ -136,6 +136,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     category.total = 0;
     category.accomplished = 0;
     category.avg_progress = 0;
+    category.avg_quality = 0;
     $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'" + encodeURIComponent(category.name) + "'&callback=JSON_CALLBACK")
       .then(function (response) {
         category.items = [];
@@ -163,11 +164,12 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           // new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment);
           
           category.avg_progress = parseFloat(d.fulfillment.replace("%", "")) * parseFloat(d.ponderator.replace("%", "")) + category.avg_progress;
+          category.avg_quality = parseFloat(d.quality) + category.avg_quality
           ponderator = (parseFloat(d.ponderator.replace("%", "")) + ponderator);
-          console.log(d.description + "," + category.avg_progress + "," + d.ponderator)
           category.items.push(d)
           if(cnt == category.items.length){
             category.accomplished = category.avg_progress / 100;
+            category.quality = category.avg_quality / category.items.length;
           }
           cnt++;
         })

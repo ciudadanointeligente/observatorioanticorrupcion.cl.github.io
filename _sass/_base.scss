@@ -115,10 +115,6 @@ section {
 }
 
 
-ul.nav.navbar-nav.navbar-right{
-  background-color: rgb(244,152,71);
-}
-
 .ct-series-a {
   .ct-slice-donut {
     stroke: #FFF
@@ -946,6 +942,12 @@ footer .col-md-4{
 @media screen and (max-width: 800px) {
   .ct-label {
     font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 770px) {
+ul.nav.navbar-nav.navbar-right{
+  background-color: rgb(244,152,71);
   }
 }
 

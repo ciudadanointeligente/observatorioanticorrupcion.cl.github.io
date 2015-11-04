@@ -105,6 +105,8 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
               labelOffset: -75
             }]
           ]);
+          $(".ct-chart-" + d.id).parent().next().
+          append("<p class='text-center note ct-label'>"+ d.nota_promedio +"</p><p class='text-center notabajada'>Nota de calidad</p>");
         })
       }, function (response) {
         console.log(response);

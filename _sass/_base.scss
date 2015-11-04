@@ -173,6 +173,12 @@ section {
   width: 140px;
 }
 
+.notabajada{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+}
 .avancebajada{
     text-transform: uppercase;
     text-align: center;
@@ -191,6 +197,12 @@ section {
     float: right;
     width: 95px;
   }
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
 
 /**

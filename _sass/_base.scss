@@ -132,7 +132,7 @@ section {
 .only-txt .ct-label {
   fill: #646975;
   color: rgba(0, 0, 0, 0.4);
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1;
   text-transform: uppercase;
   font-weight: 700;
@@ -178,6 +178,7 @@ section {
   text-align: center;
   font-size: 9px;
   font-weight: 600;
+  margin-top: 6px;
 }
 .avancebajada{
     text-transform: uppercase;
@@ -325,7 +326,10 @@ p.donut{
 }
 
 p.text-center.note{
-  color: $blue-light;
+  color: $grey;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: -3px;
 }
 
 .col-xs-6{
@@ -793,6 +797,7 @@ i.fa.fa-info-circle:hover{
 #fulfillment .ct-label {
   fill: $grey;
   font-weight: 900;
+  margin-top: 53px;
 }
 
 #fulfillment .ct-series-b .ct-slice-donut {

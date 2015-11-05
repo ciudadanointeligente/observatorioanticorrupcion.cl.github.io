@@ -18,7 +18,7 @@
         <div class="col-md-3 col-sm-12 col-xs-12 vcenter">
         </div>
       </div>
-      <div class="panel panel-deafult leyenda">
+    <!--   <div class="panel panel-deafult leyenda">
         <div class="row leyenda">
           <div class="col-md-4 color-high">
             <p>Importancia muy alta</p>
@@ -30,7 +30,7 @@
             <p>Importancia normal</p>
           </div> 
         </div>
-      </div>
+      </div> -->
 
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default" ng-repeat="ca in macro_area.items">
@@ -77,7 +77,8 @@
           <div class="panel-body panel-collapse collapse" id="collapse-[[$parent.$index]]-[[$index]]">
             <div class="promess" ng-repeat="p in ca.items">
               <div class="row">
-                <div class="col-md-8 [[p.importance]]" >
+                <div class="col-md-8 
+                " >
                   <p class="strong">[[p.promess]]</p>
                   <p>[[p.description]]</p>
                 </div>

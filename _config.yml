@@ -6,6 +6,7 @@ baseurl: '//ciudadanointeligente.github.io/observatorio/' # the subpath of your 
 url: 'http://ciudadanointeligente.github.io/observatorio/' # the base hostname & protocol for your site
 analytics: '' # google analytics tracking code
 twitter_username: ciudadanoi
+launched: false
 
 # build settings
 markdown: kramdown

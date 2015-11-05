@@ -38,7 +38,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
             labelOffset: -60
           }]
         ]);
-
+        $('.note-' + d.id).text(d.nota_promedio)
       })
     }, function (response) {
       console.log(response);

@@ -6,6 +6,6 @@ baseurl: '//observatorioanticorrupcion.cl/' # the subpath of your site, e.g. /bl
 url: 'http://observatorioanticorrupcion.cl' # the base hostname & protocol for your site
 analytics: '' # google analytics tracking code
 twitter_username: ciudadanoi
-launched: false
+launched: true
 # build settings
 markdown: kramdown

@@ -160,7 +160,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
 
 app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
   // GET
-  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
+  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data%20order%20by%20date&callback=JSON_CALLBACK";
   $scope.news = [];
   $scope.highlighted_news = [];
 
@@ -170,13 +170,15 @@ app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $
       var contain_itemh = false;
       var gp = []
       var gph = []
+      var is_already_highlighted = false;
 
       response.data.forEach(function (d) {
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
           d['summary'] = $sce.trustAsHtml(d['summary']);
           d['tags'] = JSON.parse(d['tags']);
-          if (d['highlighted'] == 1) {
+          if (d['highlighted'] == 1 && !is_already_highlighted) {
             // highlighteds news
+            is_already_highlighted = false;
             if (!contain_itemh) {
               gph.push(d);
               contain_itemh = true;
@@ -215,7 +217,7 @@ app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $
 
 app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
   // GET
-  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
+  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data%20order%20by%20date&callback=JSON_CALLBACK";
   $scope.news = [];
 
   get_tags_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20tags%20from%20data&callback=JSON_CALLBACK";

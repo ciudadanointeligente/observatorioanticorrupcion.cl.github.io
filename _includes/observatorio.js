@@ -38,49 +38,39 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
             labelOffset: -60
           }]
         ]);
-
+        $('.note-' + d.id).text(d.nota_promedio)
       })
     }, function (response) {
       console.log(response);
     })
 }]);
+var macro_areas = {{site.data.macro_areas | jsonify }}
+var totales = {{site.data.totales | jsonify}}
+var categories_by_macro = {{site.data.categories_by_macro | jsonify}}
+var data_categories = {{site.data.data_categories | jsonify}}
 
 app.controller('PromissesController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout) {
-  // GET
-  get_all_promises = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20macro_area%20from%20data%20order%20by%20macro_area&callback=JSON_CALLBACK";
-  $http.jsonp(get_all_promises)
-    .then(function(response) {
-      // console.log(response);
-    })
+  $scope.macro_area = []
+  $scope.promisses = {};
+  $scope.promisses.items = [];
+  var categories = {};
+  macro_areas.forEach(function (d) {
+    $scope.macro_area.push(d.macro_area)
 
-  get_macroarea = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20macro_area%20from%20data%20order%20by%20macro_area&callback=JSON_CALLBACK";
-
-  $http.jsonp(get_macroarea)
-    .then(function (response) {
-      // console.log(response)
-      $scope.macro_area = []
-      $scope.promisses = {};
-      $scope.promisses.items = [];
-      var categories = {};
-      response.data.forEach(function (d) {
-        $scope.macro_area.push(d.macro_area)
-
-        $scope.promisses.name = "Promisses"
-        $scope.promisses.items.push({
-          "name": d.macro_area,
-          "items": get_category_by_macro_category(d.macro_area)
-        });
-      })
-      fill_total();
-    }, function (response) {
-      console.log(response);
+    $scope.promisses.name = "Promisses"
+    $scope.promisses.items.push({
+      "name": d.macro_area,
+      "items": get_category_by_macro_category(d.macro_area)
     });
+  })
+  fill_total();
 
   function fill_total() {
-    get_total = "//api.morph.io/ciudadanointeligente/observatorio_totales/data.json?key=C317BJoPzKOOMj%2B83VbD&query=select%20*%20from%20%27data%27%20limit%2010&callback=JSON_CALLBACK"
-    $http.jsonp(get_total)
-      .then(function (response) {
-        response.data.forEach(function (d) {
+    $(function(){
+
+      totales.forEach(function (d) {
+        if ($('.ct-chart-' + d.id).length) {
+
           var classname = '';
           if (d.total == '') {
             d.total = 0;
@@ -105,27 +95,22 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
               labelOffset: -75
             }]
           ]);
-        })
-      }, function (response) {
-        console.log(response);
+          $(".ct-chart-" + d.id).parent().next().
+          append("<p class='text-center ct-label'>"+ d.nota_promedio +"</p><p class='text-center notabajada'>Nota de calidad</p>");
+        }
       })
+    })
   }
 
   function get_category_by_macro_category(macro) {
     get_cat_url = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20category%20from%20data%20where%20macro_area%20like%20'" + macro + "'&callback=JSON_CALLBACK";
-    var categories = [];
-
-    $http.jsonp(get_cat_url)
-      .then(function (response) {
-        response.data.forEach(function (d) {
+    var categories = [];  
+        categories_by_macro[macro].forEach(function (d) {
           var category = {};
           category.name = d.category;
           get_promisse_by_category(category);
           categories.push(category);
         })
-      }, function (response) {
-        console.log(response);
-      });
     return categories;
   }
 
@@ -136,13 +121,12 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     category.total = 0;
     category.accomplished = 0;
     category.avg_progress = 0;
-    $http.jsonp("//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20'data'%20where%20category%20like%20'" + encodeURIComponent(category.name) + "'&callback=JSON_CALLBACK")
-      .then(function (response) {
+    category.avg_quality = 0;
         category.items = [];
         var cnt = 1;
         var new_fulfillment = 0;
         var ponderator = 0;
-        response.data.forEach(function (d) {
+        data_categories[category.name].forEach(function (d) {
           if (d.fulfillment == '100%') {
             category.full = category.full + 1;
           } else if (d.fulfillment == '0%') {
@@ -150,7 +134,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           } else {
             category.progress = category.progress + 1;
           }
-          float_ponderator = parseInt(d.ponderator.replace("%", ""))
+          float_ponderator = parseFloat(d.ponderator.replace("%", ""))
           if (float_ponderator < 5) {
             d.importance = "color-low";
           }
@@ -160,27 +144,23 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           if (float_ponderator >= 10) {
             d.importance = "color-high";
           }
-          // new_fulfillment = (parseInt(d.fulfillment.replace("%", "")) + new_fulfillment);
-          
-          category.avg_progress = parseInt(d.fulfillment.replace("%", "")) * parseFloat(d.ponderator.replace("%", "")) + category.avg_progress;
-
+          category.avg_progress = parseFloat(d.fulfillment.replace("%", "")) * parseFloat(d.ponderator.replace("%", "")) + category.avg_progress;
+          category.avg_quality = parseFloat(d.quality) + category.avg_quality
           ponderator = (parseFloat(d.ponderator.replace("%", "")) + ponderator);
           category.items.push(d)
           if(cnt == category.items.length){
-            category.accomplished = category.avg_progress / ponderator;
+            category.accomplished = category.avg_progress / 100;
+            category.quality = category.avg_quality / category.items.length;
           }
           cnt++;
         })
-      }, function (response) {
-        console.log(response);
-      });
   }
 
 }])
 
 app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
   // GET
-  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
+  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data%20order%20by%20date&callback=JSON_CALLBACK";
   $scope.news = [];
   $scope.highlighted_news = [];
 
@@ -190,13 +170,15 @@ app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $
       var contain_itemh = false;
       var gp = []
       var gph = []
+      var is_already_highlighted = false;
 
       response.data.forEach(function (d) {
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
           d['summary'] = $sce.trustAsHtml(d['summary']);
           d['tags'] = JSON.parse(d['tags']);
-          if (d['highlighted'] == 1) {
+          if (d['highlighted'] == 1 && !is_already_highlighted) {
             // highlighteds news
+            is_already_highlighted = false;
             if (!contain_itemh) {
               gph.push(d);
               contain_itemh = true;
@@ -235,7 +217,7 @@ app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $
 
 app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
   // GET
-  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data&callback=JSON_CALLBACK";
+  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data%20order%20by%20date&callback=JSON_CALLBACK";
   $scope.news = [];
 
   get_tags_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20tags%20from%20data&callback=JSON_CALLBACK";

@@ -32,6 +32,25 @@
         </div>
       </div> -->
 
+      <div class="panel panel-deafult leyenda">
+        <div class="row">
+          <div class="col-md-6">
+          Categorías
+          </div>
+          <div class="col-md-3 text-center">
+          Porcentaje de avance
+          </div>
+          <div class="col-md-2 text-center">
+            Nota de calidad
+          </div>
+          <div class="col-md-1 text-center">
+            <a href="#" data-toggle="modal" data-target="#mymethod_1">
+              <i class="fa fa-info-circle text-center"></i>
+            </a>
+          </div>
+        </div> 
+        
+      </div>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default" ng-repeat="ca in macro_area.items">
               <div class="modal fade" id="mymethod_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1">
@@ -70,12 +89,6 @@
                   <span>[[ ca.quality|number:1 ]]</span>
                 </div>
               </div>
-              <div class="col-md-1">
-                <a href="#" data-toggle="modal" data-target="#mymethod_1">
-                  <i class="fa fa-info-circle text-center"></i>
-                </a>
-              </div>
-
 
             </div>
           </div>

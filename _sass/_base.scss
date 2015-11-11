@@ -717,7 +717,7 @@ h5 {
   border-radius: 15px;
   -webkit-box-shadow: none;
   box-shadow: none;
-  width: 75%;
+  width: 70%;
   margin-top: 18px;
 }
 
@@ -731,6 +731,7 @@ h5 {
 i.fa.fa-info-circle{
   color: $grey-light;
   font-size: 24px;
+  margin-top: -7px;
 }
 
 i.fa.fa-info-circle:hover{
@@ -779,14 +780,17 @@ i.fa.fa-info-circle:hover{
 }
 
 .panel.panel-deafult.leyenda{
-  background-color: $grey-lighter;
-  padding: 15px;
+  background-color: #F7F7F7;
+  padding: 13px 15px 4px 15px;
   margin-top: 10px;
   margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
 }
 
 .row.leyenda{
-  padding: 0px 15px 0 15px;
+  padding: 0 15px 0 15px;
 }
 
 

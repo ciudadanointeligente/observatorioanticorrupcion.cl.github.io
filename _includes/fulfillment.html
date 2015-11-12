@@ -15,7 +15,7 @@
           <div class="ct-chart-[[$index + 1]]"></div>
           <p class="avancebajada">de avance</p>
         </div>
-        <div class="col-md-3 col-sm-12 col-xs-12 vcenter">
+        <div class="col-md-2 col-sm-12 col-xs-12 vcenter">
         </div>
       </div>
     <!--   <div class="panel panel-deafult leyenda">
@@ -32,6 +32,25 @@
         </div>
       </div> -->
 
+      <div class="panel panel-deafult leyenda">
+        <div class="row">
+          <div class="col-md-6">
+          <p>Categorías</p>
+          </div>
+          <div class="col-md-3">
+          <p class="text-center">Porcentajes de avance</p>
+          </div>
+          <div class="col-md-2">
+          <p class="text-center">Notas de calidad</p>
+          </div>
+          <div class="col-md-1 text-center">
+            <a href="#" data-toggle="modal" data-target="#mymethod_1">
+              <i class="fa fa-info-circle text-center"></i>
+            </a>
+          </div>
+        </div> 
+        
+      </div>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default" ng-repeat="ca in macro_area.items">
               <div class="modal fade" id="mymethod_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_1">
@@ -42,7 +61,7 @@
                       <h5 class="modal-title" id="myModalLabel_1">Metodología</h5>
                     </div>
                     <div class="modal-body">
-                    <p>El nivel de avance de esta categoría corresponde a un promedio ponderado de las propuestas que contiene. Es decir, para el resultado final, las propuestas que han sido definidas como prioritarias o más importantes por parte de un panel de expertos, pesan más. <!--El color de cada propuesta muestra el nivel de importancia de la propuesta.-->Para conocer el detalle de las ponderaciones, revisa el documento de metodología que se encuentra al inicio.</p>
+                    <p>El nivel de avance de cada categoría corresponde a un promedio ponderado de las propuestas que contiene. Es decir, para el resultado final, las propuestas que han sido definidas como prioritarias o más importantes por parte de un panel de expertos, pesan más. <!--El color de cada propuesta muestra el nivel de importancia de la propuesta.-->Para conocer el detalle de las ponderaciones, revisa el documento de metodología que se encuentra al inicio.</p>
                     </div>
                   </div>
                 </div>
@@ -51,23 +70,23 @@
         
           <div class="panel-heading fulfillment">
             <div class="row">
-              <div class="col-md-7">
+              <div class="col-md-6">
                 <h5><a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-[[$parent.$index]]-[[$index]]" aria-expanded="true" aria-controls="collapse-[[$index]]"> [[ca.name]]</a></h5>
                 <div class="small">[[ca.items.length]] promesas( [[ca.full]] Completa, [[ca.progress]] Incompletas, [[ca.advance]] Sin progreso )</div>
               </div>
 
-              <div class="col-md-5">
-                <div class="category-percentage pull-right">[[ca.accomplished | number:0]]% <a href="#" data-toggle="modal" data-target="#mymethod_1">
-                  <!--Hola Lissett este span dibuja la nota por categoría-->
-                  <span style="display:none">[[ ca.quality|number:1 ]]</span>
-                  <!--Findel mensaje-->
-
-                  <i class="fa fa-info-circle"></i></a></div>
+              <div class="col-xs-7 col-md-3">
+                <div class="category-percentage pull-right">[[ca.accomplished | number:0]]%
+                </div>
                 <div class="progress">
                   <div class="progress-bar" role="progressbar" aria-valuenow="[[ca.accomplished | number:0]]" aria-valuemin="0" aria-valuemax="100" style="width: [[ca.accomplished | number:0]]%;">
                     <span class="sr-only">[[ca.accomplished | number:0]]% Completado </span>
-
                   </div>
+                </div>
+              </div>
+              <div class="col-xs-4 col-md-2">
+                <div class="category-percentage text-center">
+                  <span>[[ ca.quality|number:1 ]]</span>
                 </div>
               </div>
             </div>
@@ -77,12 +96,12 @@
           <div class="panel-body panel-collapse collapse" id="collapse-[[$parent.$index]]-[[$index]]">
             <div class="promess" ng-repeat="p in ca.items">
               <div class="row">
-                <div class="col-md-8 
+                <div class="col-md-6 
                 " >
                   <p class="strong">[[p.promess]]</p>
                   <p>[[p.description]]</p>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <div class="text-center percentage">[[ p.fulfillment ]]</div>
                   <p class="text-center"><small>Cumplimiento</small><br><a href="#" data-toggle="modal" data-target="#myfulfillment_[[p.uid]]"><small>¿Por qué?</small></a></p>
                 </div>

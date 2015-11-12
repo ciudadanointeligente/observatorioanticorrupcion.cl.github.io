@@ -943,12 +943,16 @@ footer .col-md-4{
 }
 
 @media screen and (max-width: 992px) {
-
   .progress {
     width: 82%;
   }
 }
 
+@media screen and (max-width: 991px) {
+  .panel.panel-deafult.leyenda{
+    display: none;
+  }
+}
 
 @media screen and (max-width: 980px) {
   .ct-label {

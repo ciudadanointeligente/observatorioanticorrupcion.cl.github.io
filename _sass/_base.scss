@@ -788,6 +788,17 @@ i.fa.fa-info-circle:hover{
   font-weight: 700;
 }
 
+.panel.panel-deafult.leyenda-movil{
+  background-color: #F7F7F7;
+  padding: 13px 15px 4px 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+  display: none;
+}
+
 .row.leyenda{
   padding: 0 15px 0 15px;
 }
@@ -950,6 +961,9 @@ footer .col-md-4{
 @media screen and (max-width: 991px) {
   .panel.panel-deafult.leyenda{
     display: none;
+  }
+  .panel.panel-deafult.leyenda-movil{
+    display: block;
   }
 }
 

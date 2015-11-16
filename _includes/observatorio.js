@@ -38,7 +38,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
             labelOffset: -60
           }]
         ]);
-        $('.note-' + d.id).text(d.nota_promedio)
+        $('.note-' + d.id).text(d.nota)
       })
     }, function (response) {
       console.log(response);
@@ -69,13 +69,14 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     $(function(){
 
       totales.forEach(function (d) {
+        console.log(d)
         if ($('.ct-chart-' + d.id).length) {
 
           var classname = '';
-          if (d.total == '') {
-            d.total = 0;
+          if (d.fulfillment_macro_area == '') {
+            d.fulfillment_macro_area = 0;
           }
-          var label = [d.total + "%"];
+          var label = [d.fulfillment_macro_area + "%"];
           if (d.mensaje!='' && d.macro_area === $('.ct-chart-' + d.id + ' svg g:eq(2) text')) {
             label = [d.mensaje, 'lanzamiento'];
             classname = 'only-txt';
@@ -83,7 +84,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           }
           new Chartist.Pie('.ct-chart-' + d.id, {
             labels: label,
-            series: [parseInt(d.total), (100 - parseInt(d.total))]
+            series: [parseInt(d.fulfillment_macro_area), (100 - parseInt(d.fulfillment_macro_area))]
           }, {
             donut: true,
             donutWidth: 15,
@@ -96,21 +97,20 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
             }]
           ]);
           $(".ct-chart-" + d.id).parent().next().
-          append("<p class='text-center ct-label'>"+ d.nota_promedio +"</p><p class='text-center notabajada'>Nota de calidad</p>");
+          append("<p class='text-center ct-label'>"+ d.quality_macro_area +"</p><p class='text-center notabajada'>Nota de calidad</p>");
         }
       })
     })
   }
 
   function get_category_by_macro_category(macro) {
-    get_cat_url = "//api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20category%20from%20data%20where%20macro_area%20like%20'" + macro + "'&callback=JSON_CALLBACK";
     var categories = [];  
-        categories_by_macro[macro].forEach(function (d) {
-          var category = {};
-          category.name = d.category;
-          get_promisse_by_category(category);
-          categories.push(category);
-        })
+    categories_by_macro[macro].forEach(function (d) {
+      var category = {};
+      category.name = d.category;
+      get_promisse_by_category(category);
+      categories.push(category);
+    })
     return categories;
   }
 
@@ -122,38 +122,35 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     category.accomplished = 0;
     category.avg_progress = 0;
     category.avg_quality = 0;
-        category.items = [];
-        var cnt = 1;
-        var new_fulfillment = 0;
-        var ponderator = 0;
-        data_categories[category.name].forEach(function (d) {
-          if (d.fulfillment == '100%') {
-            category.full = category.full + 1;
-          } else if (d.fulfillment == '0%') {
-            category.advance = category.advance + 1;
-          } else {
-            category.progress = category.progress + 1;
-          }
-          float_ponderator = parseFloat(d.ponderator.replace("%", ""))
-          if (float_ponderator < 5) {
-            d.importance = "color-low";
-          }
-          if (float_ponderator >= 5 && float_ponderator < 10) {
-            d.importance = "color-medium";
-          }          
-          if (float_ponderator >= 10) {
-            d.importance = "color-high";
-          }
-          category.avg_progress = parseFloat(d.fulfillment.replace("%", "")) * parseFloat(d.ponderator.replace("%", "")) + category.avg_progress;
-          category.avg_quality = parseFloat(d.quality) + category.avg_quality
-          ponderator = (parseFloat(d.ponderator.replace("%", "")) + ponderator);
-          category.items.push(d)
-          if(cnt == category.items.length){
-            category.accomplished = category.avg_progress / 100;
-            category.quality = category.avg_quality / category.items.length;
-          }
-          cnt++;
-        })
+    category.items = [];
+    var cnt = 1;
+    var new_fulfillment = 0;
+    var ponderator = 0;
+    data_categories[category.name].forEach(function (d) {
+      if (d.fulfillment == '100%') {
+        category.full = category.full + 1;
+      } else if (d.fulfillment == '0%') {
+        category.advance = category.advance + 1;
+      } else {
+        category.progress = category.progress + 1;
+      }
+      float_ponderator = parseFloat(d.ponderator.replace("%", ""))
+      if (float_ponderator < 5) {
+        d.importance = "color-low";
+      }
+      if (float_ponderator >= 5 && float_ponderator < 10) {
+        d.importance = "color-medium";
+      }          
+      if (float_ponderator >= 10) {
+        d.importance = "color-high";
+      }
+      if(cnt == 1){
+        category.accomplished = d.fulfillment_cat * 100;
+        category.quality = d.quality_cat;
+      }
+      cnt++;
+      category.items.push(d)
+    })
   }
 
 }])

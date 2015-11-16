@@ -114,22 +114,22 @@
                 </div>
                 <div class="col-md-3">
                   <div class="text-center percentage">[[ p.fulfillment ]]</div>
-                  <p class="text-center"><small>Cumplimiento</small><br><a href="#" data-toggle="modal" data-target="#myfulfillment_[[p.uid]]"><small>¿Por qué?</small></a></p>
+                  <p class="text-center"><small>Cumplimiento</small><br><a href="#" data-toggle="modal" data-target="#myfulfillment_[[p.id]]"><small>¿Por qué?</small></a></p>
                 </div>
                 <div class="col-md-2">
                   <p class="text-center percentage">[[p.quality]]</p>
-                  <p class="text-center"><small>Nota de calidad</small><br><a href="#" data-toggle="modal" data-target="#mynote_[[p.uid]]"><small>¿Por qué?</small></a></p>
+                  <p class="text-center"><small>Nota de calidad</small><br><a href="#" data-toggle="modal" data-target="#mynote_[[p.id]]"><small>¿Por qué?</small></a></p>
                 </div>
               </div>
               <!-- modales -->
 
 
-              <div class="modal fade" id="myfulfillment_[[p.uid]]" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_[[p.uid]]">
+              <div class="modal fade" id="myfulfillment_[[p.id]]" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_[[p.id]]">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h5 class="modal-title" id="myModalLabel_[[p.uid]]">Cumplimiento</h5>
+                      <h5 class="modal-title" id="myModalLabel_[[p.id]]">Cumplimiento</h5>
                     </div>
                     <div class="modal-body">
                       [[p.readmore_fulfillment]]
@@ -138,7 +138,7 @@
                 </div>
               </div>
 
-              <div class="modal fade" id="mynote_[[p.uid]]" tabindex="-1" role="dialog" aria-labelledby="myNoteLabel_[[p.uid]]">
+              <div class="modal fade" id="mynote_[[p.id]]" tabindex="-1" role="dialog" aria-labelledby="myNoteLabel_[[p.id]]">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">

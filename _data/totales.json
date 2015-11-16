@@ -1,1 +1,14 @@
-[{"id":"1","macro_area":"Prevención de la corrupción","mensaje":"","total":"20","nota_promedio":"3.1","last_update":"2015-11-04"},{"id":"2","macro_area":"Regulación de conflictos de interés","mensaje":"","total":"49","nota_promedio":"4.4","last_update":"2015-11-04"},{"id":"3","macro_area":"Confianza en los mercados","mensaje":"20 de noviembre","total":"0","nota_promedio":"0","last_update":"2015-11-04"},{"id":"4","macro_area":"Financiamiento de la política para fortalecer la democracia","mensaje":"20 de noviembre","total":"0","nota_promedio":"0","last_update":"2015-11-04"},{"id":"5","macro_area":"Integridad, ética y derechos humanos","mensaje":"20 de noviembre","total":"0","nota_promedio":"0","last_update":"2015-11-04"}]
+[
+    {
+        "id": 1,
+        "macro_area": "Prevención de la corrupción",
+        "quality_macro_area": "3.125",
+        "fulfillment_macro_area": 26.7
+    },
+    {
+        "id": 2,
+        "macro_area": "Regulación de conflictos de interés",
+        "quality_macro_area": "4.538",
+        "fulfillment_macro_area": 55.7
+    }
+]

@@ -56,10 +56,11 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
   var categories = {};
   macro_areas.forEach(function (d) {
     $scope.macro_area.push(d.macro_area)
-
     $scope.promisses.name = "Promisses"
     $scope.promisses.items.push({
       "name": d.macro_area,
+      "fulfillment_macro_area": d.fulfillment_macro_area,
+      "quality_macro_area": d.quality_macro_area, 
       "items": get_category_by_macro_category(d.macro_area)
     });
   })
@@ -69,7 +70,6 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     $(function(){
 
       totales.forEach(function (d) {
-        console.log(d)
         if ($('.ct-chart-' + d.id).length) {
 
           var classname = '';
@@ -95,10 +95,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
             ['screen and (max-width: 980px)', {
               labelOffset: -75
             }]
-          ]);
-          $(".ct-chart-" + d.id).parent().next().
-          append("<p class='text-center ct-label'>"+ d.quality_macro_area +"</p><p class='text-center notabajada'>Nota de calidad</p>");
-        }
+          ]);        }
       })
     })
   }

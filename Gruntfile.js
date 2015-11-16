@@ -21,45 +21,11 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    // Task configuration.
-    http: {
-        get_macro_areas: {
-          options: {
-            url: 'https://api.morph.io/ciudadanointeligente/observatorio-spreadsheet-storage/data.json',
-            form: {
-              key: process.env.MORPH_KEY,
-              query: "select distinct macro_area from 'data'"
-            },
-            callback: function(error, response){
-                console.log("get_macro_areas");
-                var macro_areas = []
-                var data = JSON.parse(response.body)
-                var data_string = JSON.stringify(data, null, 4);
-                grunt.file.write("_data/macro_areas.json", data_string)
-            }
-          }
-        },
-        get_totales: {
-            options:{
-                url: "https://api.morph.io/ciudadanointeligente/observatorio_totales/data.json",
-                form: {
-                    key: process.env.MORPH_KEY,
-                    query: "select * from 'data'"
-                },
-                callback: function(error, response){
-                    var data = JSON.parse(response.body)
-                    var totales_string = JSON.stringify(data, null, 4);
-                    grunt.file.write("_data/totales.json", totales_string)
-                }
-            }
-        }
-      }
   });
 
   // These plugins provide necessary tasks.
 
   // Default task.
-    grunt.loadNpmTasks('grunt-http');
     grunt.registerTask('UpdateData', 'Va a buscar las cosas a google docs y las deja en un json', function() {
         var done = this.async();
         function showInfo(data, tabletop){console.log(tabletop.models.promesas.elements)}

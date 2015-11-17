@@ -3,6 +3,15 @@ var app = angular.module('observatorioApp', ['ngSanitize'], function ($interpola
   $interpolateProvider.endSymbol(']]');
 });
 
+function slugify(text)
+{
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')           // Replace spaces with -
+    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+    .replace(/^-+/, '')             // Trim - from start of text
+    .replace(/-+$/, '');            // Trim - from end of text
+}
 app.controller('MainController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout) {
   get_total = "//api.morph.io/ciudadanointeligente/observatorio_totales/data.json?key=C317BJoPzKOOMj%2B83VbD&query=select%20*%20from%20%27data%27%20limit%2010&callback=JSON_CALLBACK"
   $http.jsonp(get_total)
@@ -59,6 +68,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     $scope.promisses.name = "Promisses"
     $scope.promisses.items.push({
       "name": d.macro_area,
+      "id": slugify(d.macro_area),
       "fulfillment_macro_area": d.fulfillment_macro_area,
       "quality_macro_area": d.quality_macro_area, 
       "items": get_category_by_macro_category(d.macro_area)
@@ -105,6 +115,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
     categories_by_macro[macro].forEach(function (d) {
       var category = {};
       category.name = d.category;
+      category.id = slugify(d.category),
       get_promisse_by_category(category);
       categories.push(category);
     })

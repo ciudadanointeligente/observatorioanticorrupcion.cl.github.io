@@ -124,7 +124,7 @@ section {
 .ct-label {
   fill: #646975;
   color: #646975;
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1;
   font-weight: 600;
 }
@@ -737,7 +737,9 @@ i.fa.fa-info-circle:hover{
   color: $blue-dark;
 }
 
-
+i.fa.fa-link{
+  margin:20px 3px 3px 3px;
+}
 
 .panel-default>.panel-heading {
     color: $grey;
@@ -1028,7 +1030,14 @@ ul.nav.navbar-nav.navbar-right{
   }
 
   .progress {
-    width: 60%;
+    width: 55%;
   }
 
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -120px;
+    visibility: hidden;
 }

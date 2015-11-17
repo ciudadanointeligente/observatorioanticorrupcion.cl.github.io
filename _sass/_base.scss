@@ -737,7 +737,9 @@ i.fa.fa-info-circle:hover{
   color: $blue-dark;
 }
 
-
+i.fa.fa-link{
+  margin:20px 3px 3px 3px;
+}
 
 .panel-default>.panel-heading {
     color: $grey;
@@ -1028,7 +1030,7 @@ ul.nav.navbar-nav.navbar-right{
   }
 
   .progress {
-    width: 60%;
+    width: 55%;
   }
 
 }

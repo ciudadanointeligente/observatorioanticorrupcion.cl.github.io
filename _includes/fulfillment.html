@@ -83,11 +83,6 @@
           <div class="panel-heading fulfillment">
             <div class="row">
               <div class="col-md-6">
-                <!--
-                Hola liss
-                esto va escondido-->
-                <a href="#[[ca.id]]" style="hidden"><i class="fa fa-link"></i></a>
-
                 <!-- Acá se va-->
                 <a id="[[ca.id]]" class="anchor"></a>
                 
@@ -104,10 +99,13 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xs-4 col-md-2">
+              <div class="col-xs-3 col-md-2">
                 <div class="category-percentage text-center">
                   <span>[[ ca.quality|number:0 ]]</span>
                 </div>
+              </div>
+              <div class="col-xs-1 col-md-1 text-center">
+                  <a href="#[[ca.id]]" style="hidden"><i class="fa fa-link"></i></a>
               </div>
             </div>
           </div>
@@ -129,6 +127,7 @@
                   <p class="text-center percentage">[[p.quality]]</p>
                   <p class="text-center"><small>Nota de calidad</small><br><a href="#" data-toggle="modal" data-target="#mynote_[[p.id]]"><small>¿Por qué?</small></a></p>
                 </div>
+
               </div>
               <!-- modales -->
 

@@ -2,6 +2,10 @@ var app = angular.module('observatorioApp', ['ngSanitize'], function ($interpola
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
 });
+var macro_areas = {{site.data.macro_areas | jsonify }}
+var totales = {{site.data.totales | jsonify}}
+var categories_by_macro = {{site.data.categories_by_macro | jsonify}}
+var data_categories = {{site.data.data_categories | jsonify}}
 
 function slugify(text)
 {
@@ -12,16 +16,15 @@ function slugify(text)
     .replace(/^-+/, '')             // Trim - from start of text
     .replace(/-+$/, '');            // Trim - from end of text
 }
-app.controller('MainController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout) {
-  get_total = "//api.morph.io/ciudadanointeligente/observatorio_totales/data.json?key=C317BJoPzKOOMj%2B83VbD&query=select%20*%20from%20%27data%27%20limit%2010&callback=JSON_CALLBACK"
-  $http.jsonp(get_total)
-    .then(function (response) {
-      response.data.forEach(function (d) {
+
+app.controller('MainController', ["$scope", "$http", "$timeout", "$filter", function ($scope, $http, $timeout, $filter) {
+      totales.forEach(function (d) {
+
         var classname = '';
-        if (d.total == '') {
-          d.total = 0;
+        if (d.fulfillment_macro_area == '') {
+          d.fulfillment_macro_area = 0;
         }
-        var label = [d.total + "%"];
+        var label = [d.fulfillment_macro_area + "%"];
         if (d.mensaje) {
           label = [d.mensaje, 'lanzamiento'];
           classname = 'only-txt';
@@ -29,7 +32,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
         }
         new Chartist.Pie('.ct-chart-' + d.id, {
           labels: label,
-          series: [parseInt(d.total), (100 - parseInt(d.total))]
+          series: [parseInt(d.fulfillment_macro_area), (100 - parseInt(d.fulfillment_macro_area))]
         }, {
           donut: true,
           donutWidth: 15,
@@ -47,16 +50,9 @@ app.controller('MainController', ["$scope", "$http", "$timeout", function ($scop
             labelOffset: -60
           }]
         ]);
-        $('.note-' + d.id).text(d.nota)
+        $('.note-' + d.id).text($filter('number')(d.quality_macro_area, 1))
       })
-    }, function (response) {
-      console.log(response);
-    })
 }]);
-var macro_areas = {{site.data.macro_areas | jsonify }}
-var totales = {{site.data.totales | jsonify}}
-var categories_by_macro = {{site.data.categories_by_macro | jsonify}}
-var data_categories = {{site.data.data_categories | jsonify}}
 
 app.controller('PromissesController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout) {
   $scope.macro_area = []

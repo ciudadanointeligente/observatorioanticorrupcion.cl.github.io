@@ -10,5 +10,11 @@
         "macro_area": "Regulación de conflictos de interés",
         "quality_macro_area": "4.538",
         "fulfillment_macro_area": 55.7
+    },
+    {
+        "id": 3,
+        "macro_area": "Integridad, ética y derechos humanos",
+        "quality_macro_area": "3.806",
+        "fulfillment_macro_area": 38.3
     }
 ]

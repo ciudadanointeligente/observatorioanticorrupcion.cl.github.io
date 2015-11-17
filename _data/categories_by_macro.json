@@ -38,5 +38,16 @@
         {
             "category": "Lobby y gestión de intereses"
         }
+    ],
+    "Integridad, ética y derechos humanos": [
+        {
+            "category": "Formación cívica y ética"
+        },
+        {
+            "category": "Creación de la oficina de Defensoría Ciudadana"
+        },
+        {
+            "category": "Creación de sistema de integridad para el sector público y el sector privado"
+        }
     ]
 }

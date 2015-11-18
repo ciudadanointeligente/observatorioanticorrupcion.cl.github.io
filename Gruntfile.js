@@ -5,7 +5,7 @@ var fs = require('fs');
 var tabletop = require('tabletop');
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1QkkIRF-3Qrz-aRIxERbGbB7YHWz2-t4ix-7TEcuBNfE/pubhtml?gid=1823583981&single=true';
 
-
+var current_branch = 'grunt_with_git';
 
 function functiontofindIndexByKeyValue(arraytosearch, key, valuetosearch) {
     for (var i = 0; i < arraytosearch.length; i++) {
@@ -24,6 +24,7 @@ module.exports = function(grunt) {
     gitcommit: {
         data: {
          options: {
+             'allowEmpty': true
           },
           files: [
             {
@@ -43,7 +44,21 @@ module.exports = function(grunt) {
           }
         }
       },
-
+    gitpush: {
+        data: {
+            options: {
+                'branch': current_branch
+          }
+        }
+      },
+    gitpull: {
+        data: {
+            options: {
+                "remote": "origin",
+                "branch": current_branch
+            }
+        }
+    }
   });
 
   // These plugins provide necessary tasks.
@@ -128,7 +143,7 @@ module.exports = function(grunt) {
 
 
     });
-    grunt.registerTask("UpdateEverything", ['UpdateData', 'gitadd', 'gitcommit', 'gitpush'])
+    grunt.registerTask("UpdateEverything", ['UpdateData', 'gitadd', 'gitcommit', 'gitpull', 'gitpush'])
     
 
 };

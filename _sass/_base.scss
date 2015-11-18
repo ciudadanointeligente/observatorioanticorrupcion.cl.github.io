@@ -161,6 +161,7 @@ section {
 
 .ct-chart {
   position: relative;
+  font-weight: 800;
 }
 
 .ct-chart:after {
@@ -299,11 +300,6 @@ small {
   margin-bottom: 80px;
   font-weight: 400;
 }
-
-.ct-chart {
-    font-weight: 800;
-}
-
 li.redes {
     position: relative;
     top: -58px;
@@ -922,7 +918,6 @@ footer .col-md-4{
 
 
 @media screen and (max-width: 1000px) {
-
   .jumbotron h1 {
     font-size: 40px;
   }

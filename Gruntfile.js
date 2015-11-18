@@ -18,9 +18,32 @@ function functiontofindIndexByKeyValue(arraytosearch, key, valuetosearch) {
 }
 
 module.exports = function(grunt) {
-
+  grunt.loadNpmTasks('grunt-git');
   // Project configuration.
   grunt.initConfig({
+    gitcommit: {
+        data: {
+         options: {
+          },
+          files: [
+            {
+              src: ["_data/categories_by_macro.json","_data/data_categories.json", "_data/macro_areas.json",  "_data/totales.json"],
+              expand: true,
+            }
+          ]
+        },
+      },
+    gitadd: {
+        task: {
+          options: {
+            force: true
+          },
+          files: {
+              src: ["_data/categories_by_macro.json","_data/data_categories.json", "_data/macro_areas.json",  "_data/totales.json"],
+          }
+        }
+      },
+
   });
 
   // These plugins provide necessary tasks.
@@ -98,10 +121,14 @@ module.exports = function(grunt) {
             var data_string = JSON.stringify(macro_categories, null, 4);
             grunt.file.write("_data/categories_by_macro.json", data_string)
             grunt.file.write("_data/data_categories.json", data_categories_as_string)
-
+            
             done()
         }
         , simpleSheet: true})
 
+
     });
+    grunt.registerTask("UpdateEverything", ['UpdateData', 'gitadd', 'gitcommit', 'gitpush'])
+    
+
 };

@@ -5,7 +5,7 @@ var fs = require('fs');
 var tabletop = require('tabletop');
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1QkkIRF-3Qrz-aRIxERbGbB7YHWz2-t4ix-7TEcuBNfE/pubhtml?gid=1823583981&single=true';
 
-var current_branch = 'grunt_with_git';
+var current_branch = 'gh-pages';
 
 function functiontofindIndexByKeyValue(arraytosearch, key, valuetosearch) {
     for (var i = 0; i < arraytosearch.length; i++) {

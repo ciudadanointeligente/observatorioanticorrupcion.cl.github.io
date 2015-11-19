@@ -150,28 +150,32 @@ section {
   width: 185px;
 }
 
-
+/*
 .ct-series-a .ct-slice-donut {
   stroke: $blue;
 }
 
 .ct-series-b .ct-slice-donut {
   stroke: $grey-lighter;
-}
+} */
 
 .ct-chart {
   position: relative;
   font-weight: 800;
 }
 
-.ct-chart:after {
-  content: 'de las propuestas se han cumplido';
+
+.chart-total:after {
+  content: 'del total de las propuestas';
   position: absolute;
-  bottom: 54px;
-  left: 33px;
+  bottom: -30%;
+  left: 27%;
   color: white;
   text-align: center;
   width: 140px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .notabajada{
@@ -181,6 +185,7 @@ section {
   font-weight: 600;
   margin-top: 6px;
 }
+
 .avancebajada{
     text-transform: uppercase;
     text-align: center;
@@ -338,6 +343,18 @@ p.text-center.note{
 
 .col-xs-12.vcenter{
   margin-bottom: -130px; 
+}
+
+#welcome .ct-series-a .ct-slice-donut {
+  stroke: $yellow;
+}
+
+#welcome .ct-series-b .ct-slice-donut {
+  stroke: white;
+}
+
+#welcome .ct-label{
+  fill: white;
 }
 
 /**

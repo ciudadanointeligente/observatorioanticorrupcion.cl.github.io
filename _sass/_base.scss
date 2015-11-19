@@ -342,6 +342,8 @@ p.text-center.note{
 
 #welcome .ct-label{
   fill: white;
+  color: white;
+  margin-top: 88px;
 }
 
 .chart-total:after {
@@ -361,6 +363,15 @@ p.text-center.note{
     text-transform: uppercase;
     text-align: center;
     margin-top: 123px;
+    margin-bottom: -100px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.jumbotron .notatotal{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 10px;
     margin-bottom: -100px;
     font-size: 9px;
     font-weight: 600;

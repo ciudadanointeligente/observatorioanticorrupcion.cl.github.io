@@ -5,7 +5,7 @@ var fs = require('fs');
 var tabletop = require('tabletop');
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1QkkIRF-3Qrz-aRIxERbGbB7YHWz2-t4ix-7TEcuBNfE/pubhtml?gid=1823583981&single=true';
 
-
+var current_branch = 'gh-pages';
 
 function functiontofindIndexByKeyValue(arraytosearch, key, valuetosearch) {
     for (var i = 0; i < arraytosearch.length; i++) {
@@ -18,9 +18,47 @@ function functiontofindIndexByKeyValue(arraytosearch, key, valuetosearch) {
 }
 
 module.exports = function(grunt) {
-
+  grunt.loadNpmTasks('grunt-git');
   // Project configuration.
   grunt.initConfig({
+    gitcommit: {
+        data: {
+         options: {
+             'allowEmpty': true
+          },
+          files: [
+            {
+              src: ["_data/categories_by_macro.json","_data/data_categories.json", "_data/macro_areas.json",  "_data/totales.json"],
+              expand: true,
+            }
+          ]
+        },
+      },
+    gitadd: {
+        task: {
+          options: {
+            force: true
+          },
+          files: {
+              src: ["_data/categories_by_macro.json","_data/data_categories.json", "_data/macro_areas.json",  "_data/totales.json"],
+          }
+        }
+      },
+    gitpush: {
+        data: {
+            options: {
+                'branch': current_branch
+          }
+        }
+      },
+    gitpull: {
+        data: {
+            options: {
+                "remote": "origin",
+                "branch": current_branch
+            }
+        }
+    }
   });
 
   // These plugins provide necessary tasks.
@@ -98,10 +136,14 @@ module.exports = function(grunt) {
             var data_string = JSON.stringify(macro_categories, null, 4);
             grunt.file.write("_data/categories_by_macro.json", data_string)
             grunt.file.write("_data/data_categories.json", data_categories_as_string)
-
+            
             done()
         }
         , simpleSheet: true})
 
+
     });
+    grunt.registerTask("UpdateEverything", ['UpdateData', 'gitadd', 'gitcommit', 'gitpull', 'gitpush'])
+    
+
 };

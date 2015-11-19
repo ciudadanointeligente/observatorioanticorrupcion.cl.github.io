@@ -1034,6 +1034,10 @@ ul.nav.navbar-nav.navbar-right{
 }
 
 @media screen and (max-width: 690px) {
+  #welcome{
+    background-image: none;
+    background-color: rgb(244,152,71);
+  }
 
   .progress {
     width: 75%;

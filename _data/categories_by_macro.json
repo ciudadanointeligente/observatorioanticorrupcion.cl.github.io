@@ -38,5 +38,38 @@
         {
             "category": "Lobby y gestión de intereses"
         }
+    ],
+    "Integridad, etica y derechos ciudadanos": [
+        {
+            "category": "Formación cívica y ética"
+        },
+        {
+            "category": "Creación de la oficina de Defensoría Ciudadana"
+        },
+        {
+            "category": "Creación de sistema de integridad para el sector público y el sector privado"
+        }
+    ],
+    "Financiamiento de la política para fortalecer la democracia": [
+        {
+            "category": "Democracia interna y financiamiento de Partidos Políticos."
+        },
+        {
+            "category": "Regulación de campañas electorales"
+        },
+        {
+            "category": "Fiscalización de la política y su financiamiento."
+        }
+    ],
+    "Confianza en los mercados": [
+        {
+            "category": "Atribuciones para una fiscalización eficaz de los mercados"
+        },
+        {
+            "category": "Revisión del gobierno de los entes fiscalizadores"
+        },
+        {
+            "category": "Refuerzo Gobiernos corporativos de las empresas."
+        }
     ]
 }

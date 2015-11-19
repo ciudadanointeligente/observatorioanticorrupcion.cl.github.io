@@ -10,5 +10,23 @@
         "macro_area": "Regulación de conflictos de interés",
         "quality_macro_area": "4.538",
         "fulfillment_macro_area": 55.7
+    },
+    {
+        "id": 3,
+        "macro_area": "Integridad, etica y derechos ciudadanos",
+        "quality_macro_area": "3.756",
+        "fulfillment_macro_area": 34.9
+    },
+    {
+        "id": 4,
+        "macro_area": "Financiamiento de la política para fortalecer la democracia",
+        "quality_macro_area": "4.794",
+        "fulfillment_macro_area": 58.3
+    },
+    {
+        "id": 5,
+        "macro_area": "Confianza en los mercados",
+        "quality_macro_area": "4.228",
+        "fulfillment_macro_area": 50.7
     }
 ]

@@ -346,24 +346,19 @@ p.text-center.note{
   margin-top: 88px;
 }
 
-.chart-total:after {
-  content: 'del total de las propuestas';
-  position: absolute;
-  bottom: -15%;
-  left: 26%;
-  color: white;
-  text-align: center;
-  width: 140px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
 .chart-total .totalbajada{
     text-transform: uppercase;
     text-align: center;
     margin-top: 123px;
-    margin-bottom: -100px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.chart-total .textototal{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: -17px;
+    margin-bottom: -171px;
     font-size: 9px;
     font-weight: 600;
 }
@@ -372,7 +367,7 @@ p.text-center.note{
     text-transform: uppercase;
     text-align: center;
     margin-top: 10px;
-    margin-bottom: -100px;
+    margin-bottom: -171px;
     font-size: 9px;
     font-weight: 600;
 }
@@ -947,6 +942,9 @@ footer .col-md-4{
 }
 
 @media screen and (max-width: 1200px) {
+.chart-total:after{
+  left: 22%;
+}
 
   .progress {
     width: 68%;
@@ -993,6 +991,24 @@ footer .col-md-4{
 }
 
 @media screen and (max-width: 991px) {
+  #welcome{
+    background-image: none;
+    background-color: rgb(244,152,71);
+  }
+  .jumbotron .textototal{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: -19px;
+    margin-bottom: -178px;
+    font-size: 9px;
+    font-weight: 600;
+  }
+  .jumbotron .notatotal{
+    margin-bottom: 40px;
+  }
+  .chart-total:after {
+    display: none;
+  }
   .panel.panel-deafult.leyenda{
     display: none;
   }
@@ -1034,11 +1050,6 @@ ul.nav.navbar-nav.navbar-right{
 }
 
 @media screen and (max-width: 690px) {
-  #welcome{
-    background-image: none;
-    background-color: rgb(244,152,71);
-  }
-
   .progress {
     width: 75%;
   }
@@ -1049,11 +1060,17 @@ ul.nav.navbar-nav.navbar-right{
   #welcome {
     background-position: center;
     background-position-y: -120px;
+    min-height: 1000px;
+  }
+  .jumbotron .notatotal{
+    margin-bottom: 70px;
   }
 }
 
 @media screen and (max-width: 500px) {
-
+  #welcome {
+    min-height: 1150px;
+  }
   .progress {
     width: 70%;
   }

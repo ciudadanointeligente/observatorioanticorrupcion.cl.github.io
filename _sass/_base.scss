@@ -161,17 +161,9 @@ section {
 
 .ct-chart {
   position: relative;
+  font-weight: 800;
 }
 
-.ct-chart:after {
-  content: 'de las propuestas se han cumplido';
-  position: absolute;
-  bottom: 54px;
-  left: 33px;
-  color: white;
-  text-align: center;
-  width: 140px;
-}
 
 .notabajada{
   text-transform: uppercase;
@@ -180,6 +172,7 @@ section {
   font-weight: 600;
   margin-top: 6px;
 }
+
 .avancebajada{
     text-transform: uppercase;
     text-align: center;
@@ -299,11 +292,6 @@ small {
   margin-bottom: 80px;
   font-weight: 400;
 }
-
-.ct-chart {
-    font-weight: 800;
-}
-
 li.redes {
     position: relative;
     top: -58px;
@@ -342,6 +330,46 @@ p.text-center.note{
 
 .col-xs-12.vcenter{
   margin-bottom: -130px; 
+}
+
+#welcome .ct-series-a .ct-slice-donut {
+  stroke: $yellow;
+}
+
+#welcome .ct-series-b .ct-slice-donut {
+  stroke: white;
+}
+
+#welcome .ct-label{
+  fill: white;
+  color: white;
+  margin-top: 88px;
+}
+
+.chart-total .totalbajada{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 123px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.chart-total .textototal{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: -17px;
+    margin-bottom: -171px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.jumbotron .notatotal{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: -171px;
+    font-size: 9px;
+    font-weight: 600;
 }
 
 /**
@@ -914,6 +942,9 @@ footer .col-md-4{
 }
 
 @media screen and (max-width: 1200px) {
+.chart-total:after{
+  left: 22%;
+}
 
   .progress {
     width: 68%;
@@ -922,7 +953,6 @@ footer .col-md-4{
 
 
 @media screen and (max-width: 1000px) {
-
   .jumbotron h1 {
     font-size: 40px;
   }
@@ -961,6 +991,25 @@ footer .col-md-4{
 }
 
 @media screen and (max-width: 991px) {
+  #welcome{
+    background-image: none;
+    background-color: rgb(244,152,71);
+    min-height: 900px;
+  }
+  .jumbotron .textototal{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: -19px;
+    margin-bottom: -178px;
+    font-size: 9px;
+    font-weight: 600;
+  }
+  .jumbotron .notatotal{
+    margin-bottom: 40px;
+  }
+  .chart-total:after {
+    display: none;
+  }
   .panel.panel-deafult.leyenda{
     display: none;
   }
@@ -1002,7 +1051,6 @@ ul.nav.navbar-nav.navbar-right{
 }
 
 @media screen and (max-width: 690px) {
-
   .progress {
     width: 75%;
   }
@@ -1013,11 +1061,14 @@ ul.nav.navbar-nav.navbar-right{
   #welcome {
     background-position: center;
     background-position-y: -120px;
+    min-height: 1150px;
+  }
+  .jumbotron .notatotal{
+    margin-bottom: 70px;
   }
 }
 
 @media screen and (max-width: 500px) {
-
   .progress {
     width: 70%;
   }

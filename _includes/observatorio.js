@@ -24,6 +24,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", "$filter", func
         if (d.fulfillment_macro_area == '') {
           d.fulfillment_macro_area = 0;
         }
+        d.fulfillment_macro_area = $filter('number')(d.fulfillment_macro_area, 0)
         var label = [d.fulfillment_macro_area + "%"];
         if (d.mensaje) {
           label = [d.mensaje, 'lanzamiento'];
@@ -54,7 +55,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", "$filter", func
       })
 }]);
 
-app.controller('PromissesController', ["$scope", "$http", "$timeout", function ($scope, $http, $timeout) {
+app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter", function ($scope, $http, $timeout, $filter) {
   $scope.macro_area = []
   $scope.promisses = {};
   $scope.promisses.items = [];
@@ -82,6 +83,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", function (
           if (d.fulfillment_macro_area == '') {
             d.fulfillment_macro_area = 0;
           }
+          d.fulfillment_macro_area = $filter('number')(d.fulfillment_macro_area, 0)
           var label = [d.fulfillment_macro_area + "%"];
           if (d.mensaje!='' && d.macro_area === $('.ct-chart-' + d.id + ' svg g:eq(2) text')) {
             label = [d.mensaje, 'lanzamiento'];

@@ -994,6 +994,7 @@ footer .col-md-4{
   #welcome{
     background-image: none;
     background-color: rgb(244,152,71);
+    min-height: 900px;
   }
   .jumbotron .textototal{
     text-transform: uppercase;
@@ -1060,7 +1061,7 @@ ul.nav.navbar-nav.navbar-right{
   #welcome {
     background-position: center;
     background-position-y: -120px;
-    min-height: 1000px;
+    min-height: 1150px;
   }
   .jumbotron .notatotal{
     margin-bottom: 70px;
@@ -1068,9 +1069,6 @@ ul.nav.navbar-nav.navbar-right{
 }
 
 @media screen and (max-width: 500px) {
-  #welcome {
-    min-height: 1150px;
-  }
   .progress {
     width: 70%;
   }

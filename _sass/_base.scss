@@ -702,6 +702,37 @@ background-color: rgba(255, 255, 255, 0.7);
   margin: 70px 0 0;
 }
 
+#fulfillment .chart-total .totalbajada{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 88px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+#fulfillment .chart-total .textototal{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 53px;
+    margin-bottom: -166px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+#fulfillment .chart-total .ct-series-a .ct-slice-donut{
+  stroke: $yellow;
+}
+
+#fulfillment .notatotal{
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+
 .row.macro{
   margin: 30px 0 30px;
   .col-md-6{

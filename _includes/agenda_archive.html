@@ -6,8 +6,7 @@
     </li>
     <li><span class="label label-primary" ng-click="filters.months = ''">limpiar filtro</span></li>
   </ul>
-
-  <div ng-repeat="a in agenda | filter:filters.months" class="news-element" id="agenda-[[a.id]]">
+  <div ng-repeat="a in agenda | orderBy:'-id' | filter:filters.months" class="news-element" id="agenda-[[a.id]]">
     <h4>
       [[a.title]]
     </h4>

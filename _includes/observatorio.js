@@ -301,6 +301,7 @@ app.controller('AgendaArchiveController', ["$scope", "$http", "$window", functio
           d['startDate'] = moment(d['startDate'], "DMMYYYY").format('LL').toLowerCase();
           d['endDate'] = moment(d['endDate'], "DMMYYYY").format('LL').toLowerCase();
         }
+        d['id'] = parseInt(d['id']);
         $scope.agenda.push(d);
       })
     }, function (response) {

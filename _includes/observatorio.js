@@ -67,7 +67,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter",
       "name": d.macro_area,
       "id": slugify(d.macro_area),
       "fulfillment_macro_area": d.fulfillment_macro_area,
-      "quality_macro_area": d.quality_macro_area, 
+      "quality_macro_area": d.quality_macro_area,
       "items": get_category_by_macro_category(d.macro_area)
     });
   })
@@ -109,7 +109,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter",
   }
 
   function get_category_by_macro_category(macro) {
-    var categories = [];  
+    var categories = [];
     categories_by_macro[macro].forEach(function (d) {
       var category = {};
       category.name = d.category;
@@ -146,7 +146,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter",
       }
       if (float_ponderator >= 5 && float_ponderator < 10) {
         d.importance = "color-medium";
-      }          
+      }
       if (float_ponderator >= 10) {
         d.importance = "color-high";
       }
@@ -176,72 +176,26 @@ app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $
       var is_already_highlighted = false;
 
       response.data.forEach(function (d) {
+          var nd = d['date'];
           d['date'] = moment(d['date'], "YYYYDDMM").format('LL').toLowerCase();
           d['summary'] = $sce.trustAsHtml(d['summary']);
           d['tags'] = JSON.parse(d['tags']);
-          if (d['highlighted'] == 1 && !is_already_highlighted) {
-            // highlighteds news
-            is_already_highlighted = false;
-            if (!contain_itemh) {
-              gph.push(d);
-              contain_itemh = true;
-            } else {
-              gph.push(d);
-              $scope.highlighted_news.push(gph);
-              gph = [];
-              contain_itemh = false;
-            }
-          } else {
-            // normal news
-            if (!contain_item) {
-              gp.push(d);
-              contain_item = true;
-            } else {
-              gp.push(d);
-              $scope.news.push(gp);
-              gp = [];
-              contain_item = false;
-            }
-          }
+
+          var the_date = new Date( nd.slice(0,4) +'-'+ nd.slice(8,10) +'-'+ nd.slice(5,7) );
+          d['unixtime'] = the_date.getTime();
+
+          $scope.news.push(d);
         })
-        // if no more news, then close the news group
-      if (contain_itemh) {
-        // gph.push ( new Array() );
-        $scope.highlighted_news.push(gph);
-      }
-      if (contain_item) {
-        gp.push(new Array());
-        $scope.news.push(gp);
-      }
-    }, function (response) {
-      console.log(response);
-    });
-}])
-
-app.controller('NewsArchiveController', ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
-  // GET
-  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data%20order%20by%20(date)%20desc&callback=JSON_CALLBACK";
-  $scope.news = [];
-
-  get_tags_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20tags%20from%20data&callback=JSON_CALLBACK";
-  $scope.tags_cat = [];
-
-  $scope.filters = {};
-
-  $http.jsonp(get_news_url)
-    .then(function (response) {
-      response.data.forEach(function (d) {
-        d['date'] = moment(d['date'], "YYYYDDMM").format('LL').toLowerCase();
-        d['summary'] = $sce.trustAsHtml(d['summary']);
-        d['source'] = "<a href='" + d['source'] + "'>" + d['source'] + "</a>";
-        d['tags'] = JSON.parse(d['tags']);
-        $scope.news.push(d);
-      })
     }, function (response) {
       console.log(response);
     });
 
-  $http.jsonp(get_tags_url)
+    get_tags_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20DISTINCT%20tags%20from%20data&callback=JSON_CALLBACK";
+    $scope.tags_cat = [];
+
+    $scope.filters = {};
+
+    $http.jsonp(get_tags_url)
     .then(function (response) {
       response.data.forEach(function (d) {
         JSON.parse(d['tags']).forEach(function (dt) {

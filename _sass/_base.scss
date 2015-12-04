@@ -329,7 +329,7 @@ p.text-center.note{
 }
 
 .col-xs-12.vcenter{
-  margin-bottom: -130px; 
+  margin-bottom: -130px;
 }
 
 #welcome .ct-series-a .ct-slice-donut {
@@ -519,14 +519,11 @@ background-color: rgba(255, 255, 255, 0.7);
       background-color: $blue-light;
       height: 200px;
     }
-  }
-
-  div:nth-child(2) {
-    div:nth-child(1) {
+    div:nth-child(3) {
       background-color: $orange;
       height: 200px;
     }
-    div:nth-child(2) {
+    div:nth-child(4) {
       background-color: $blue-dark;
       height: 200px;
       margin-bottom: 20px;
@@ -739,8 +736,8 @@ background-color: rgba(255, 255, 255, 0.7);
     margin-top: 15px;
     margin-bottom: 10px;
   }
-}  
-  
+}
+
 
 h5 {
   color: $blue-light;

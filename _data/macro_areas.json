@@ -9,7 +9,7 @@
         "id": 1,
         "macro_area": "Regulación de conflictos de interés",
         "quality_macro_area": "4.538",
-        "fulfillment_macro_area": 55.7
+        "fulfillment_macro_area": 57.3
     },
     {
         "id": 2,
@@ -20,13 +20,13 @@
     {
         "id": 3,
         "macro_area": "Financiamiento de la política para fortalecer la democracia",
-        "quality_macro_area": "4.794",
+        "quality_macro_area": "4.773",
         "fulfillment_macro_area": 58.3
     },
     {
         "id": 4,
         "macro_area": "Confianza en los mercados",
-        "quality_macro_area": "4.228",
-        "fulfillment_macro_area": 50.7
+        "quality_macro_area": "4.357",
+        "fulfillment_macro_area": 53.9
     }
 ]

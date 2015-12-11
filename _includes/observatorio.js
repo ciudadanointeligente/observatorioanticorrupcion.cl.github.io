@@ -141,14 +141,11 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter",
         category.progress = category.progress + 1;
       }
       float_ponderator = parseFloat(d.ponderator.replace("%", ""))
-      if (float_ponderator < 5) {
-        d.importance = "color-low";
-      }
-      if (float_ponderator >= 5 && float_ponderator < 10) {
-        d.importance = "color-medium";
-      }
-      if (float_ponderator >= 10) {
+      if (d.destacado=='1') {
         d.importance = "color-high";
+      }
+      else {
+          d.importance = ''
       }
       if(cnt == 1){
         category.accomplished = d.fulfillment_cat * 100;

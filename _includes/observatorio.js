@@ -54,11 +54,63 @@ app.controller('MainController', ["$scope", "$http", "$timeout", "$filter", func
         $('.note-' + d.id).text($filter('number')(d.quality_macro_area, 1))
       })
 }]);
+/*
+
+Liss 
+Este es la función que hace los circulos por categoría!
+por categoría
+*/
+
+var chartify = function (percentage, id, prefix) {
+  $(function () {
+      if (typeof prefix === "undefined") {
+        prefix = '.ct-chart-'
+      }
+      var classname = '';
+      if (percentage == '') {
+        percentage = 0;
+      }
+      percentage = Math.floor(percentage)
+      var label = [percentage + "%"];
+      new Chartist.Pie(prefix + id, {
+        labels: label,
+        series: [parseInt(percentage), (100 - parseInt(percentage))]
+      }, {
+        donut: true,
+        donutWidth: 15,
+        startAngle: 0,
+        showLabel: true,
+        labelOffset: -68
+      }, [
+        ['screen and (max-width: 1199px)', {
+          labelOffset: -68
+        }],
+        ['screen and (max-width: 991px)', {
+          labelOffset: -70
+        }],
+        ['screen and (max-width: 320px)', {
+          labelOffset: -60
+        }]
+      ]);
+    
+  })
+
+
+}
+
+/*
+
+Liss 
+Este es la función que hace los circulos por categoría!
+por categoría
+*/
+
 
 app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter", function ($scope, $http, $timeout, $filter) {
   $scope.macro_area = []
   $scope.promisses = {};
   $scope.promisses.items = [];
+  $scope.chartify = chartify;
   var categories = {};
   macro_areas.forEach(function (d) {
     $scope.macro_area.push(d.macro_area)
@@ -115,6 +167,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter",
       category.name = d.category;
       category.id = slugify(d.category),
       get_promisse_by_category(category);
+      chartify(category.accomplished, category.id, '.progress-')
       categories.push(category);
     })
     return categories;

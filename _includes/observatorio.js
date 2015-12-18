@@ -80,7 +80,7 @@ var chartify = function (percentage, id, prefix) {
         donutWidth: 15,
         startAngle: 0,
         showLabel: true,
-        labelOffset: -68
+        labelOffset: -68.
       }, [
         ['screen and (max-width: 1199px)', {
           labelOffset: -68

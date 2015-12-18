@@ -323,6 +323,11 @@ p.text-center.note{
 .col-xs-6{
   height: 300px;
 }
+
+.col-xs-6.grafico-nota{
+  height: 40px;
+}
+
 .col-xs-12{
   height: 250px;
   margin-bottom: 20px;
@@ -745,10 +750,6 @@ h5 {
   }
 }
 
-.chart-category .ct-series-a .ct-slice-donut{
-  stroke: $blue-light;
-}
-
 .category-percentage {
   font-size: 24px;
   font-weight: 900;
@@ -899,8 +900,12 @@ i.fa.fa-link{
   text-decoration: none;
 }
 
-#fulfillment .ct-series-a .ct-slice-donut {
+.macrocat .ct-series-a .ct-slice-donut {
   stroke: $blue-dark;
+}
+
+.chart-category .ct-series-a .ct-slice-donut{
+  stroke: $blue-light;
 }
 
 #fulfillment .ct-label {

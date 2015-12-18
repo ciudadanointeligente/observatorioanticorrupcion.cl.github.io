@@ -1066,7 +1066,7 @@ footer .col-md-4{
   #welcome{
     background-image: none;
     background-color: rgb(244,152,71);
-    min-height: 900px;
+    min-height: 990px;
   }
   .jumbotron .textototal{
     text-transform: uppercase;
@@ -1081,6 +1081,10 @@ footer .col-md-4{
   }
   .chart-total:after {
     display: none;
+  }
+  .progress.total-home{
+    margin-top: -10px;
+    margin-bottom: 60px;
   }
   .panel.panel-deafult.leyenda{
     display: none;
@@ -1133,10 +1137,14 @@ ul.nav.navbar-nav.navbar-right{
   #welcome {
     background-position: center;
     background-position-y: -120px;
-    min-height: 1150px;
+    min-height: 1100px;
   }
   .jumbotron .notatotal{
     margin-bottom: 70px;
+  }
+  .progress.total-home{
+    margin-top: -40px;
+    margin-bottom: 60px;
   }
 }
 

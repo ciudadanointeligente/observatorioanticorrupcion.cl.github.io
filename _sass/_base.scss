@@ -724,7 +724,6 @@ background-color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 100px;
     font-size: 9px;
     font-weight: 600;
 }
@@ -772,6 +771,7 @@ h5 {
 .progress.total{
   background-color: $grey-lighter;
   width: 100%;
+  margin-bottom: 100px;
 }
 
 .progress-bar.total{
@@ -782,6 +782,7 @@ h5 {
 .progress.macroarea{
   background-color: $grey-lighter;
   width: 100%;
+  margin-bottom: 60px;
 }
 
 .progress-bar.macroarea{

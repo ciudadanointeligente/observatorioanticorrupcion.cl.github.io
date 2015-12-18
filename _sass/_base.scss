@@ -769,6 +769,25 @@ h5 {
     margin: 10px 0 0;
 }
 
+.progress.total{
+  background-color: $grey-lighter;
+  width: 100%;
+}
+
+.progress-bar.total{
+  background-color: $yellow;
+}
+
+
+.progress.macroarea{
+  background-color: $grey-lighter;
+  width: 100%;
+}
+
+.progress-bar.macroarea{
+  background-color: $blue-dark;
+}
+
 .progress {
   height: 15px;
   margin: 7px 0 0;

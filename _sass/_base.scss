@@ -1124,7 +1124,6 @@ ul.nav.navbar-nav.navbar-right{
   .progress {
     width: 55%;
   }
-
 }
 
 a.anchor {
@@ -1133,3 +1132,13 @@ a.anchor {
     top: -120px;
     visibility: hidden;
 }
+
+@media  only  screen  and (min-width: 320px)  and (max-width: 764px)  {
+.dataviz-tablet,  .dataviz-desktop {
+display:  none;}}
+@media  only  screen  and (min-width: 765px)  and (max-width: 899px)  {
+.dataviz-mobile,  .dataviz-desktop {
+display:  none;}}
+@media  only  screen  and (min-width: 900px)  {
+.dataviz-mobile,  .dataviz-tablet {
+display:  none;}}

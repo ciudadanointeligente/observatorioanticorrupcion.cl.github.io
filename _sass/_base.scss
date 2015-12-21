@@ -904,18 +904,18 @@ i.fa.fa-link{
   stroke: $blue-dark;
 }
 
-.chart-category .ct-series-a .ct-slice-donut{
-  stroke: $blue-light;
-}
-
 #fulfillment .ct-label {
   fill: $grey;
   font-weight: 900;
   margin-top: 53px;
 }
 
-#fulfillment .ct-series-b .ct-slice-donut {
-  stroke: $grey-lighter;
+.chart-category .ct-series-a .ct-slice-donut{
+  stroke: $blue-light;
+}
+
+.chart-category .ct-series-b .ct-slice-donut{
+  stroke: white;
 }
 
 .fulfillment-box {

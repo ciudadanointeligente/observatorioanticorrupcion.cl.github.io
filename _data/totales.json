@@ -3,13 +3,13 @@
         "id": 1,
         "macro_area": "Prevención de la corrupción",
         "quality_macro_area": "3.125",
-        "fulfillment_macro_area": 26.7
+        "fulfillment_macro_area": 26.9
     },
     {
         "id": 2,
         "macro_area": "Regulación de conflictos de interés",
         "quality_macro_area": "4.538",
-        "fulfillment_macro_area": 57.3
+        "fulfillment_macro_area": 61.8
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "id": 4,
         "macro_area": "Financiamiento de la política para fortalecer la democracia",
         "quality_macro_area": "4.636",
-        "fulfillment_macro_area": 62.8
+        "fulfillment_macro_area": 62.9
     },
     {
         "id": 5,

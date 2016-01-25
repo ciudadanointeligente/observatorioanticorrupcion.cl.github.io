@@ -9,3 +9,6 @@ twitter_username: ciudadanoi
 launched: true
 # build settings
 markdown: kramdown
+# notas y cosas finales
+final_mark: 4.3
+final_percentage: 50

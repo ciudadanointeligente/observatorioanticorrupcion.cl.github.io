@@ -18,12 +18,12 @@ layout: page
           <p class="textototal">Del total de las propuestas</p>
         </div>
         <div class="col-md-2">
-          <div class="text-center ct-label">4.1</div>
+            <div class="text-center ct-label">{{site.final_mark}}</div>
           <p class="notatotal">Nota de calidad</p>
         </div>
 
         <script>
-        var cumplimiento = 50;
+        var cumplimiento = {{ site.final_percentage }};
         $(function() {
         new Chartist.Pie('.chart-total', {
           labels: [cumplimiento + "%"],

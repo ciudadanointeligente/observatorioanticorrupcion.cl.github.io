@@ -27,9 +27,10 @@ layout: page
         $(function() {
         new Chartist.Pie('.chart-total', {
           labels: [cumplimiento + "%"],
-          series: [parseInt(cumplimiento), (100 - parseInt(cumplimiento))]
+          series: [parseInt(cumplimiento)]
         }, {
           donut: true,
+          total:100, 
           donutWidth: 15,
           startAngle: 0,
           showLabel: true,

@@ -33,9 +33,10 @@ app.controller('MainController', ["$scope", "$http", "$timeout", "$filter", func
         }
         new Chartist.Pie('.ct-chart-' + d.id, {
           labels: label,
-          series: [parseInt(d.fulfillment_macro_area), (100 - parseInt(d.fulfillment_macro_area))]
+          series: [parseInt(d.fulfillment_macro_area)]
         }, {
           donut: true,
+          total:100,
           donutWidth: 15,
           startAngle: 0,
           showLabel: true,
@@ -92,9 +93,10 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter",
           }
           new Chartist.Pie('.ct-chart-' + d.id, {
             labels: label,
-            series: [parseInt(d.fulfillment_macro_area), (100 - parseInt(d.fulfillment_macro_area))]
+            series: [parseInt(d.fulfillment_macro_area)]
           }, {
             donut: true,
+            total: 100,
             donutWidth: 15,
             startAngle: 0,
             showLabel: true,

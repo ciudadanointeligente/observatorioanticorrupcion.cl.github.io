@@ -25,7 +25,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", "$filter", func
           d.fulfillment_macro_area = 0;
         }
         d.fulfillment_macro_area = $filter('number')(d.fulfillment_macro_area, 0)
-        var label = [d.fulfillment_macro_area + "%"];
+        var label = [d.fulfillment_macro_area + "%"," "];
         if (d.mensaje) {
           label = [d.mensaje, 'lanzamiento'];
           classname = 'only-txt';
@@ -33,7 +33,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", "$filter", func
         }
         new Chartist.Pie('.ct-chart-' + d.id, {
           labels: label,
-          series: [parseInt(d.fulfillment_macro_area)]
+          series: [parseInt(d.fulfillment_macro_area),parseInt(100)]
         }, {
           donut: true,
           total:100,

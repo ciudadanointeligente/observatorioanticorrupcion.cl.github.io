@@ -19,8 +19,8 @@
         var cumplimiento = {{ site.final_percentage }};
         $(function() {
         new Chartist.Pie('.chart-total', {
-          labels: [cumplimiento + "%"],
-          series: [parseInt(cumplimiento)]
+          labels: [cumplimiento + "%"," "],
+          series: [parseInt(cumplimiento),100]
         }, {
           donut: true,
           total: 100,

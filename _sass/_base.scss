@@ -511,19 +511,19 @@ background-color: rgba(255, 255, 255, 0.7);
   font-weight: 700;
   }
   div:nth-child(1) {
-    div:nth-child(1) {
+    div:nth-child(2) {
       background-color: $blue;
       height: 200px;
     }
-    div:nth-child(2) {
+    div:nth-child(3) {
       background-color: $blue-light;
       height: 200px;
     }
-    div:nth-child(3) {
+    div:nth-child(4) {
       background-color: $orange;
       height: 200px;
     }
-    div:nth-child(4) {
+    div:nth-child(5) {
       background-color: $blue-dark;
       height: 200px;
       margin-bottom: 20px;

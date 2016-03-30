@@ -17,6 +17,11 @@
             </li>
           </ul>
         </li>
+        <li ng-if="!have_agenda" class="list-inline agenda-day">
+          <ul class="list-inline agenda-day">
+            <li>Esta semana no hay actividades relacionadas a la Agenda Anticorrupción.</li>
+          </ul>
+        </li>
       </ul>
 
       <a href="{{ site.baseurl }}agenda.html" class="btn btn-default pull-right">Ver qué pasó</a>

@@ -215,6 +215,7 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
   $window.agenda = [];
   $scope.start_of_week = moment(new Date()).startOf('week');
   $scope.end_of_week = moment(new Date()).endOf('week');
+  $scope.have_agenda = false;
 
   $http.jsonp(get_agenda)
     .then(function (response) {
@@ -229,6 +230,7 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
           d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
           if (d['date_raw'] <= $scope.end_of_week && d['date_raw'] >= $scope.start_of_week) {
             d['current_week'] = true;
+            $scope.have_agenda = true;
           } else {
             d['current_week'] = false;
           }
@@ -251,6 +253,7 @@ app.controller('AgendaController', ["$scope", "$http", "$window", function ($sco
             auxd['id'] = d['id'] + "_" + i;
             if (auxd['date_raw'] <= $scope.end_of_week && auxd['date_raw'] >= $scope.start_of_week) {
               auxd['current_week'] = true;
+              $scope.have_agenda = true;
             } else {
               auxd['current_week'] = false;
             }

@@ -7,14 +7,14 @@
           <p>El Observatorio Anticorrupción, conformado por Espacio Público y Ciudadano Inteligente, sigue el debate y el avance de las medidas propuestas por el Consejo Asesor Presidencial para lograr una mayor probidad y transparencia en Chile.</p>
         </div>
         <div class="col-md-3 chart-total">
-          <p class="totalbajada">de avance</p>  
+          <p class="totalbajada">de avance</p>
           <p class="textototal">Del total de las propuestas</p>
         </div>
         <div class="col-md-2">
             <div class="text-center ct-label">{{ site.final_mark }}</div>
           <p class="notatotal">Nota de calidad</p>
         </div>
-        
+
         <script>
         var cumplimiento = {{ site.final_percentage }};
         $(function() {
@@ -40,16 +40,13 @@
           }]
         ]);
         });
-        
+
         </script>
       </div>
       <div class="col-md-12">
         <div class="row">
           <div class="text-right">
             <ul class="list-inline">
-              <li>
-                <a href="{{ site.baseurl }}#mira-que-esta-pasando" class="btn btn-info btn-lg">Mira qué está pasando</a>
-              </li>
               <li>
                 <a href="{{ site.baseurl }}cumplimiento.html" class="btn btn-primary btn-lg">Revisa el cumplimiento</a>
               </li>

@@ -1,0 +1,23 @@
+<section id="news" ng-controller="NewsController">
+  <h1 class="text-center"><span class="ico-intro"><i class="fa fa-newspaper-o fa-2x"></i></span><br />Repositorio de noticias</h1>
+  <ul class="list-inline text-center">
+    <li ng-repeat="tc in tags_cat track by $index">
+      <span class="label label-default" ng-click="filters.tags = tc">[[tc]]</span>
+    </li>
+    <li><span class="label label-primary" ng-click="filters.tags = ''">limpiar filtro</span></li>
+  </ul>
+
+  <div ng-repeat="n in news | orderBy:'-unixtime' | filter:filters.tags" class="news-element">
+    <h4>
+      [[n.title]]
+    </h4>
+    <span ng-repeat="tag in n.tags" class="small">
+      <i class="fa fa-tags"></i> [[tag]]
+    </span>
+    <span class="small">
+      <i class="fa fa-clock-o"></i> [[n.date]]
+    </span>
+    <p ng-bind-html="n.summary"></p>
+    Ver noticia completa: <span ng-bind-html="n.source"></span>
+  </div>
+</section>

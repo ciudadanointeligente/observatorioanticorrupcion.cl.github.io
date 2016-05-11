@@ -3,7 +3,10 @@ layout: default
 ---
 {% if site.launched %}
 {% include welcome.html %}
-
+<div class="container">
+  {% include news.html %}
+  {% include agenda.html %}
+</div>
 {% else %}
 <div id="welcome">
   <div class="jumbotron">

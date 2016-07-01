@@ -2,14 +2,14 @@
     {
         "id": 0,
         "macro_area": "Prevención de la corrupción",
-        "quality_macro_area": "3.226",
-        "fulfillment_macro_area": 29.6
+        "quality_macro_area": "3.120",
+        "fulfillment_macro_area": 33.3
     },
     {
         "id": 1,
         "macro_area": "Regulación de conflictos de interés",
         "quality_macro_area": "4.682",
-        "fulfillment_macro_area": 62.6
+        "fulfillment_macro_area": 63.4
     },
     {
         "id": 2,
@@ -26,7 +26,7 @@
     {
         "id": 4,
         "macro_area": "Confianza en los mercados",
-        "quality_macro_area": "4.357",
+        "quality_macro_area": "4.489",
         "fulfillment_macro_area": 53.9
     }
 ]

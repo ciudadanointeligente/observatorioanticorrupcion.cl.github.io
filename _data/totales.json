@@ -2,8 +2,8 @@
     {
         "id": 1,
         "macro_area": "Prevención de la corrupción",
-        "quality_macro_area": "3.120",
-        "fulfillment_macro_area": 33.3
+        "quality_macro_area": "3.268",
+        "fulfillment_macro_area": 37.6
     },
     {
         "id": 2,
@@ -26,7 +26,7 @@
     {
         "id": 5,
         "macro_area": "Confianza en los mercados",
-        "quality_macro_area": "4.489",
-        "fulfillment_macro_area": 55.2
+        "quality_macro_area": "4.606",
+        "fulfillment_macro_area": 56.3
     }
 ]

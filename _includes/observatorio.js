@@ -282,26 +282,32 @@ app.controller('AgendaArchiveController', ["$scope", "$http", "$window", functio
     .then(function (response) {
       response.data.forEach(function (d) {
         if (d['date'] != '') { // single date
-          if ($scope.months_with_events.indexOf(moment(d['date'], "DMMYYYY").format('MMMM')) < 0) {
-            $scope.months_with_events.push(moment(d['date'], "DMMYYYY").format('MMMM'));
+          if( moment(d['date'], "DMMYYYY").format('YYYY-MM-DD') != 'Invalid date')
+          {
+            if ($scope.months_with_events.indexOf(moment(d['date'], "DMMYYYY").format('MMMM')) < 0) {
+              $scope.months_with_events.push(moment(d['date'], "DMMYYYY").format('MMMM'));
+            }
+            d['cal_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
+            d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
+            d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
+            d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
+            d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
           }
-          d['cal_day'] = moment(d['date'], "DMMYYYY").format('YYYY-MM-DD');
-          d['date_day'] = moment(d['date'], "DMMYYYY").format('DD');
-          d['date_month'] = moment(d['date'], "DMMYYYY").format('MMM');
-          d['date_month_long'] = moment(d['date'], "DMMYYYY").format('MMMM');
-          d['date'] = moment(d['date'], "DMMYYYY").format('LL').toLowerCase();
         } else { // date range scenario
-          if ($scope.months_with_events.indexOf(moment(d['startDate'], "DMMYYYY").format('MMMM')) < 0) {
-            $scope.months_with_events.push(moment(d['startDate'], "DMMYYYY").format('MMMM'));
-          } else if ($scope.months_with_events.indexOf(moment(d['endDate'], "DMMYYYY").format('MMMM')) < 0) {
-            $scope.months_with_events.push(moment(d['endDate'], "DMMYYYY").format('MMMM'));
+          if( moment(d['startDate'], "DMMYYYY").format('YYYY-MM-DD') != 'Invalid date')
+          {
+            if ($scope.months_with_events.indexOf(moment(d['startDate'], "DMMYYYY").format('MMMM')) < 0) {
+              $scope.months_with_events.push(moment(d['startDate'], "DMMYYYY").format('MMMM'));
+            } else if ($scope.months_with_events.indexOf(moment(d['endDate'], "DMMYYYY").format('MMMM')) < 0) {
+              $scope.months_with_events.push(moment(d['endDate'], "DMMYYYY").format('MMMM'));
+            }
+            d['cal_startDate'] = moment(d['startDate'], "DMMYYYY").format('YYYY-MM-DD');
+            d['cal_endDate'] = moment(d['endDate'], "DMMYYYY").format('YYYY-MM-DD');
+            d['date_day'] = moment(d['startDate'], "DMMYYYY").format('DD');
+            d['date_month'] = moment(d['startDate'], "DMMYYYY").format('MMM');
+            d['startDate'] = moment(d['startDate'], "DMMYYYY").format('LL').toLowerCase();
+            d['endDate'] = moment(d['endDate'], "DMMYYYY").format('LL').toLowerCase();
           }
-          d['cal_startDate'] = moment(d['startDate'], "DMMYYYY").format('YYYY-MM-DD');
-          d['cal_endDate'] = moment(d['endDate'], "DMMYYYY").format('YYYY-MM-DD');
-          d['date_day'] = moment(d['startDate'], "DMMYYYY").format('DD');
-          d['date_month'] = moment(d['startDate'], "DMMYYYY").format('MMM');
-          d['startDate'] = moment(d['startDate'], "DMMYYYY").format('LL').toLowerCase();
-          d['endDate'] = moment(d['endDate'], "DMMYYYY").format('LL').toLowerCase();
         }
         d['id'] = parseInt(d['id']);
         $scope.agenda.push(d);

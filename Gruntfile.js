@@ -9,7 +9,7 @@ var current_branch = 'gh-pages';
 
 function functiontofindIndexByKeyValue(arraytosearch, key, valuetosearch) {
     for (var i = 0; i < arraytosearch.length; i++) {
- 
+
         if (arraytosearch[i][key] == valuetosearch) {
         return i;
         }
@@ -47,7 +47,9 @@ module.exports = function(grunt) {
     gitpush: {
         data: {
             options: {
-                'branch': current_branch
+                "remote": "origin",
+                'branch': current_branch,
+                "force": true
           }
         }
       },
@@ -87,7 +89,7 @@ module.exports = function(grunt) {
                     })
                     totales_counter++;
                 }
-                
+
             }
             grunt.file.write("_data/totales.json", JSON.stringify(totales, null, 4))
 
@@ -136,7 +138,7 @@ module.exports = function(grunt) {
             var data_string = JSON.stringify(macro_categories, null, 4);
             grunt.file.write("_data/categories_by_macro.json", data_string)
             grunt.file.write("_data/data_categories.json", data_categories_as_string)
-            
+
             done()
         }
         , simpleSheet: true})
@@ -144,6 +146,6 @@ module.exports = function(grunt) {
 
     });
     grunt.registerTask("UpdateEverything", ['UpdateData', 'gitadd', 'gitcommit', 'gitpull', 'gitpush'])
-    
+
 
 };

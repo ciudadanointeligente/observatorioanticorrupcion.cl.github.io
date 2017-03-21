@@ -33,7 +33,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", "$filter", func
         }
         new Chartist.Pie('.ct-chart-' + d.id, {
           labels: label,
-          series: [parseInt(d.fulfillment_macro_area),parseInt(100)]
+          series: [parseInt(100),parseInt(d.fulfillment_macro_area)]
         }, {
           donut: true,
           total:100,

@@ -152,11 +152,11 @@ section {
 
 
 .ct-series-a .ct-slice-donut {
-  stroke: $blue;
+  stroke: $grey-lighter;
 }
 
 .ct-series-b .ct-slice-donut {
-  stroke: $grey-lighter;
+  stroke: $blue;
 }
 
 .ct-chart {
@@ -333,11 +333,11 @@ p.text-center.note{
 }
 
 #welcome .ct-series-a .ct-slice-donut {
-  stroke: $yellow;
+  stroke: $yellow-lighter;
 }
 
 #welcome .ct-series-b .ct-slice-donut {
-  stroke: $yellow-lighter;
+  stroke: $yellow;
 }
 
 #welcome .ct-label{

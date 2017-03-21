@@ -3,7 +3,7 @@
   <div class="bajada text-center">Aquí encontrarás las noticias destacadas sobre la Agenda Probidad y propuestas del Consejo Asesor Presidencial.</div>
 <br>
   <div class="row" >
-    <div class="col-md-6 highlighted" ng-repeat="n in news | orderBy:['highlighted', '-unixtime'] | limitTo:1">
+    <div class="col-md-6 highlighted" ng-repeat="n in news | orderBy:['highlighted', '-uid'] | limitTo:1">
       <div class="imagen" ng-style="{'background-image': 'url([[n.img]])'}"></div>
       <div class="destacada">
         <h4><a href="[[n.source]]" target="blank">[[n.title]]</a></h4>

@@ -162,7 +162,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter",
 
 app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
   // GET
-  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data%20order%20by%20(date)%20desc&callback=JSON_CALLBACK";
+  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=NB5JgFSb%2FeF87jzVs983&query=select%20*%20from%20%27data%27%20where%20highlighted%20%3D%20%221%22%20order%20by%20uid%20DESC&callback=JSON_CALLBACK";
   $scope.news = [];
   $scope.highlighted_news = [];
 

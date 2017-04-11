@@ -7,7 +7,7 @@
     <li><span class="label label-primary" ng-click="filters.tags = ''">limpiar filtro</span></li>
   </ul>
 
-  <div ng-repeat="n in news | orderBy:'-unixtime' | filter:filters.tags" class="news-element">
+  <div ng-repeat="n in news | orderBy:'-uid' | filter:filters.tags" class="news-element">
     <h4>
       [[n.title]]
     </h4>

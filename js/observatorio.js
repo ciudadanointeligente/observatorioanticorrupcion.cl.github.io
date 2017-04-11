@@ -2,10 +2,7 @@ var app = angular.module('observatorioApp', ['ngSanitize'], function ($interpola
   $interpolateProvider.startSymbol('[[');
   $interpolateProvider.endSymbol(']]');
 });
-var macro_areas = {{site.data.macro_areas | jsonify }}
-var totales = {{site.data.totales | jsonify}}
-var categories_by_macro = {{site.data.categories_by_macro | jsonify}}
-var data_categories = {{site.data.data_categories | jsonify}}
+
 
 function slugify(text)
 {
@@ -33,7 +30,7 @@ app.controller('MainController', ["$scope", "$http", "$timeout", "$filter", func
         }
         new Chartist.Pie('.ct-chart-' + d.id, {
           labels: label,
-          series: [parseInt(d.fulfillment_macro_area),parseInt(100)]
+          series: [parseInt(100),parseInt(d.fulfillment_macro_area)]
         }, {
           donut: true,
           total:100,
@@ -162,7 +159,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter",
 
 app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
   // GET
-  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=jWPkGMlm7hapMCPNySIt&query=select%20*%20from%20data%20order%20by%20(date)%20desc&callback=JSON_CALLBACK";
+  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=NB5JgFSb%2FeF87jzVs983&query=select%20*%20from%20%27data%27%20order%20by%20uid%20DESC&callback=JSON_CALLBACK";
   $scope.news = [];
   $scope.highlighted_news = [];
 

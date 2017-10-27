@@ -159,7 +159,7 @@ app.controller('PromissesController', ["$scope", "$http", "$timeout", "$filter",
 
 app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $http, $sce) {
   // GET
-  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=NB5JgFSb%2FeF87jzVs983&query=select%20*%20from%20%27data%27%20order%20by%20uid%20DESC&callback=JSON_CALLBACK";
+  get_news_url = "//api.morph.io/ciudadanointeligente/observatorio-news-spreadsheet-storage/data.json?key=NB5JgFSb%2FeF87jzVs983&query=select%20*%20from%20%27data%27%20order%20by%20uid%20DESC%20LIMIT%20100&callback=JSON_CALLBACK";
   $scope.news = [];
   $scope.highlighted_news = [];
 
@@ -172,13 +172,13 @@ app.controller('NewsController', ["$scope", "$http", "$sce", function ($scope, $
       var is_already_highlighted = false;
 
       response.data.forEach(function (d) {
-          var nd = d['date'];
-          d['date'] = moment(d['date'], "YYYYDDMM").format('LL').toLowerCase();
+          //var nd = d['date'];
+          //d['date'] = moment(d['date'], "YYYYDDMM").format('LL').toLowerCase();
           d['summary'] = $sce.trustAsHtml(d['summary']);
           d['tags'] = JSON.parse(d['tags']);
 
-          var the_date = new Date( nd.slice(0,4) +'-'+ nd.slice(8,10) +'-'+ nd.slice(5,7) );
-          d['unixtime'] = the_date.getTime();
+          //var the_date = new Date( nd.slice(0,4) +'-'+ nd.slice(8,10) +'-'+ nd.slice(5,7) );
+          //d['unixtime'] = the_date.getTime();
 
           $scope.news.push(d);
         })

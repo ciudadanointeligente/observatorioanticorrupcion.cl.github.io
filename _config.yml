@@ -3,7 +3,7 @@ title: Observatorio anticorrupción
 email: prensa@ciudadanointeligente.org
 description: 'El Observatorio anticorrupción, conformado por Espacio Público y Ciudadano Inteligente, sigue el debate y el avance de las medidas propuestas por la Comisión Engel para mayor probidad y transparencia.'
 baseurl: '' # the subpath of your site, e.g. /blog/
-url: 'https://observatorioanticorrupcion.com' # the base hostname & protocol for your site
+url: 'https://observatorioanticorrupcion.cl' # the base hostname & protocol for your site
 analytics: 'UA-41822715-9' # google analytics tracking code
 twitter_username: ciudadanoi
 launched: true

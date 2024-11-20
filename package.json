@@ -20,6 +20,6 @@
     "grunt-http": "~1.6.0",
     "tabletop": "~1.4.2",
     "grunt-git": "~0.3.7",
-    "request": "~2.67.0"
+    "request": "~2.88.0"
   }
 }
